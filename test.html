@@ -1,1 +1,60 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Index 2.0 widget test</title><style>body{font-family:system-ui,sans-serif;background:#F5F6F4;margin:0;padding:24px}.w{max-width:1100px;margin:0 auto}select{font-size:15px;padding:8px;margin-bottom:16px}</style></head><body><div class="w"><p><b>Test page for the Index 2.0 dashboard widget</b> (the same two lines that go into the Webflow Embed). Indicator: <select id="pick"><option value="EN.1">EN.1 Climate Change & GHG Emissions</option><option value="EN.2">EN.2 Soil Health</option><option value="EN.3">EN.3 Water Stewardship</option><option value="EN.4">EN.4 Biodiversity & Agrobiodiversity</option><option value="EN.5">EN.5 Crop Input Use & Management</option><option value="EN.6">EN.6 Food Loss & Waste</option><option value="EN.7">EN.7 Packaging & Waste</option><option value="FI.1">FI.1 Safe Food</option><option value="FI.2">FI.2 Nutrition Information</option><option value="FI.3">FI.3 Antimicrobial Stewardship</option><option value="FI.4">FI.4 Zoonotic Disease Mitigation</option><option value="FI.5">FI.5 Traceability Implementation</option><option value="EC.1">EC.1 National Economic Contribution</option><option value="EC.2">EC.2 Farm Financial Vibrancy & Resilience</option><option value="EC.3">EC.3 Innovation</option><option value="EC.4">EC.4 Sustainable Finance</option><option value="EC.5">EC.5 Productivity</option><option value="SW.1">SW.1 Decent Work for People</option><option value="SW.2">SW.2 Food Security</option><option value="SW.3">SW.3 Animal Care</option></select></p><div id="idx" data-code="EN.3"></div></div><script>var q=new URLSearchParams(location.search),c=q.get("code")||"EN.3";document.getElementById("idx").dataset.code=c;document.getElementById("pick").value=c;document.getElementById("pick").onchange=function(){location.search="?code="+this.value;};var s=document.createElement("script");s.src="widget.js";document.body.appendChild(s);</script></body></html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Index 2.0 - widget test</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F5F6F4;color:#1B2833;font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.top{background:#14283C;color:#fff;padding:12px 28px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.top b{font-size:16px}.top select{font:14px inherit;font-family:inherit;padding:6px 8px;border-radius:6px;border:0;max-width:100%}
+.note{margin-left:auto;font-size:12.5px;opacity:.8}
+.band{padding:24px 28px;color:#fff}.band small{opacity:.85;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.band h1{margin:4px 0 0;font-size:32px;line-height:1.15}
+.wrap{max-width:1500px;margin:0 auto;padding:24px 28px}
+.grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:start}
+.freeze{position:sticky;top:16px;z-index:5}
+.card{background:#fff;border:1px solid #E0E5E2;border-radius:14px;padding:20px 24px;margin-bottom:20px;box-shadow:0 1px 2px rgba(20,40,60,.06)}
+.card h2{margin:0 0 8px;font-size:20px}.card p{margin:0 0 12px}.card ol{padding-left:20px;font-size:14px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}.pair .card{margin-bottom:0}
+.ref{display:inline-block;background:#E6EEF7;border-radius:6px;padding:0 6px;font-size:.88em;font-weight:600;color:#153F6A;white-space:nowrap}
+.pn{display:flex;justify-content:space-between;gap:16px;margin-top:20px}.pn a{flex:1;text-decoration:none;color:inherit}.pn .card{margin:0}
+.pn b{display:block}.empty{color:#7D8A94}
+@media(max-width:1100px){.grid,.pair{grid-template-columns:1fr}.freeze{position:static}}
+</style></head>
+<body>
+<div class="top"><b>Index 2.0 &middot; widget test</b><select id="pick" aria-label="Indicator"><option value="EN.1">EN.1 Climate Change & GHG Emissions</option><option value="EN.2">EN.2 Soil Health</option><option value="EN.3">EN.3 Water Stewardship</option><option value="EN.4">EN.4 Biodiversity & Agrobiodiversity</option><option value="EN.5">EN.5 Crop Input Use & Management</option><option value="EN.6">EN.6 Food Loss & Waste</option><option value="EN.7">EN.7 Packaging & Waste</option><option value="FI.1">FI.1 Safe Food</option><option value="FI.2">FI.2 Nutrition Information</option><option value="FI.3">FI.3 Antimicrobial Stewardship</option><option value="FI.4">FI.4 Zoonotic Disease Mitigation</option><option value="FI.5">FI.5 Traceability Implementation</option><option value="EC.1">EC.1 National Economic Contribution</option><option value="EC.2">EC.2 Farm Financial Vibrancy & Resilience</option><option value="EC.3">EC.3 Innovation</option><option value="EC.4">EC.4 Sustainable Finance</option><option value="EC.5">EC.5 Productivity</option><option value="SW.1">SW.1 Decent Work for People</option><option value="SW.2">SW.2 Food Security</option><option value="SW.3">SW.3 Animal Care</option></select>
+  <span class="note">Test page: narratives from narratives.json + the same dashboard widget that goes into Webflow</span></div>
+<div class="band" id="band"></div>
+<div class="wrap">
+  <div class="grid">
+    <div id="left"></div>
+    <div class="freeze"><div id="idx" data-code="EN.3"></div></div>
+  </div>
+  <div class="pair" id="pair" style="margin-top:20px"></div>
+  <div class="pn" id="pn"></div>
+</div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), code = q.get('code') || 'EN.3';
+  var pick = document.getElementById('pick'); pick.value = code;
+  pick.onchange = function () { location.search = '?code=' + this.value; };   // a new indicator starts on its first metric
+  document.getElementById('idx').dataset.code = code;
+  var s = document.createElement('script'); s.src = 'widget.js'; document.body.appendChild(s);
+  fetch('narratives.json').then(function (r) { return r.json(); }).then(function (N) {
+    var n = N[code]; if (!n) return;
+    document.title = code + ' ' + n.title + ' · National Index on Agri-Food Performance';
+    var band = document.getElementById('band'); band.style.background = n.color;
+    band.innerHTML = '<small>' + n.block + ' block · ' + code + '</small><h1>' + n.title + '</h1>';
+    var p = function (l) { return l && l.length ? l.join('') : '<p class="empty">Not yet available.</p>'; };
+    document.getElementById('left').innerHTML =
+      '<section class="card"><h2>About this indicator</h2>' + p(n.about) + '</section>' +
+      '<section class="card"><h2>Current observations</h2>' + p(n.observations) + '</section>' +
+      (n.notes.length ? '<section class="card"><h2>Notes &amp; sources</h2><ol>' + n.notes.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ol></section>' : '');
+    document.getElementById('pair').innerHTML =
+      '<section class="card"><h2>Current limitations</h2>' + p(n.limitations) + '</section>' +
+      '<section class="card"><h2>Opportunities to strengthen</h2>' + p(n.opportunities) + '</section>';
+    var link = function (c, lab, al) { var o = N[c]; return c ? '<a href="?code=' + c + '"><div class="card" style="text-align:' + al + '">' + lab + '<b>' + c + ' ' + o.title + '</b></div></a>' : '<span style="flex:1"></span>'; };
+    document.getElementById('pn').innerHTML = link(n.prev, '← Previous', 'left') + link(n.next, 'Next →', 'right');
+  });
+})();
+</script>
+</body></html>
