@@ -177,6 +177,8 @@ h2{font-size:19px;line-height:1.25;margin:0}
 .loader div{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--ink-3);font-size:13px}
 .spin{width:34px;height:34px;border-radius:50%;border:3px solid #D8DFDB;border-top-color:var(--c,var(--accent));animation:sp 0.9s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
+.dash-u{padding:0 16px 10px;font-size:12px;color:var(--ink-3)}
+.dash-u:empty{display:none}
 .dash-f{padding:10px 16px;font-size:12.5px;color:var(--ink-3);display:flex;gap:8px;align-items:flex-start;border-top:1px solid var(--line-2)}
 .dash-f svg{flex:none;margin-top:2px}
 
@@ -310,6 +312,7 @@ footer{max-width:1600px;margin:0 auto;padding:8px 24px 40px;color:var(--ink-3);f
         <iframe id="pbi" title="Agri-Food Indicators dashboard" allowfullscreen="true" loading="eager"></iframe>
       </div>
       <div class="dash-f" id="dashTip"></div>
+      <div class="dash-u" id="dashUpd"></div>
     </section>
   </div>
 </main>
@@ -407,6 +410,10 @@ shareMenu.querySelector('[data-s=copy]').onclick = e => {
   else { const ta = document.createElement('textarea'); ta.value = location.href; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
 };
 $('#pbi').addEventListener('load', () => $('#loader').classList.add('done'));
+fetch('../updated.json', {cache: 'no-cache'}).then(r => r.ok ? r.json() : Promise.reject()).then(j => {
+  const d = new Date(j.date + 'T00:00:00Z');
+  $('#dashUpd').textContent = 'Last updated: ' + d.toLocaleDateString('en-CA', {year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'});
+}).catch(() => {});
 
 /* ---------------- views ---------------- */
 function viewHome() {
