@@ -863,5 +863,19 @@ const ASK_INSTRUCTIONS = DATA.askInstructions;   // edit in build_site.py (ASK_I
   window.addEventListener('hashchange', () => { if (!history.length && panel.classList.contains('open')) hello(); });
 })();
 </script>
+<style>
+.dirsw{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:6px;background:#fff;border:1px solid rgba(0,0,0,.14);border-radius:999px;
+  padding:5px 6px 5px 12px;box-shadow:0 4px 14px rgba(0,0,0,.16);font:600 11.5px/1 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#333}
+.dirsw span{opacity:.75;margin-right:2px}
+.dirsw a{display:inline-grid;place-items:center;min-width:26px;height:26px;border-radius:999px;color:#333;text-decoration:none;font-weight:700}
+.dirsw a:hover{background:rgba(0,0,0,.08)}
+.dirsw a.on{background:#222;color:#fff}
+@media (max-width:700px){.dirsw span{display:none}}
+</style>
+<div class="dirsw" id="dirsw" role="group" aria-label="Design direction"><span>Design direction</span>
+<a href="#" data-n="1">1</a><a href="#" data-n="2">2</a><a href="#" data-n="3">3</a></div>
+<script>(function(){var cur=1,f=(location.pathname.split('/').pop()||'index.html'),base=f.replace(/_direction\d/,'').replace(/\.html$/,'');
+document.querySelectorAll('#dirsw a').forEach(function(a){var n=+a.dataset.n;if(n===cur)a.className='on';a.title='Direction '+n;
+a.href=base+'_direction'+n+'.html';a.addEventListener('click',function(e){e.preventDefault();location.href=a.getAttribute('href')+location.hash;});});})();</script>
 </body>
 </html>
