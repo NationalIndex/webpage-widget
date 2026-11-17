@@ -285,6 +285,7 @@ footer{max-width:1600px;margin:0 auto;padding:8px 24px 40px;color:var(--ink-3);f
 .fb-menu button,.fb-menu a{font:13.5px var(--sans);color:var(--ink);text-align:left;background:none;border:none;border-radius:8px;padding:9px 10px;cursor:pointer;text-decoration:none}
 .fb-menu button:hover,.fb-menu a:hover{background:var(--line-2)}
 @media (max-width:640px){.fb{right:14px;bottom:14px}.fb-fab{padding:12px 16px}}
+body.ind-page footer{display:none!important}   /* no footer on the indicator pages */
 </style>
 <style id="theme">
 :root{--bg:#F3F5F2;--surface:#FFFFFF;--ink:#16382E;--ink-2:#42564E;--ink-3:#65717A;--line:#DCE2DD;--line-2:#EEF0EE;--navy:#16382E;
@@ -783,6 +784,7 @@ function viewFaq() {
 
 function route() {
   CUR_METRIC = null;
+  document.body.classList.toggle('ind-page', location.hash.replace(/^#\/?/, '').split('/')[0] === 'indicator');
   $('#right').style.display = ''; $('#layout').style.gridTemplateColumns = '';
   $('#dash').classList.remove('freeze');
   $('#layout').classList.remove('has-side'); $('#side').innerHTML = '';
