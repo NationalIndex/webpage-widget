@@ -403,7 +403,13 @@ body.ind-page footer{display:none!important}
 .btabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0;border-bottom:2px solid #DDE3E0}
 .btabs a{padding:11px 18px;margin-bottom:-2px;border-bottom:4px solid transparent;font-weight:700;font-size:15px;color:var(--ink-2);text-decoration:none;border-radius:8px 8px 0 0}
 .btabs a:hover{background:var(--tint);color:var(--ink)}
-.btabs a.on{color:var(--c);border-bottom-color:var(--c);background:var(--tint)}
+.btabs a.on{color:var(--ink);border-bottom-color:var(--c);background:var(--tint)}
+.btabs{align-items:flex-end}
+.btabs .bt-lbl{align-self:center;margin-right:8px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.btabs a.go::after{content:'\2192';margin-left:8px;color:var(--c);font-weight:700;display:inline-block;transition:transform .15s}
+.btabs a.go:hover::after{transform:translateX(3px)}
+@media (max-width:760px){.btabs .bt-lbl{flex:0 0 100%;margin:0 0 4px}}
+
 
    /* no footer on the indicator pages */
 </style>
@@ -740,14 +746,11 @@ const BLOCK_VIEWS = {
   }
 };
 
-function blockButtons(b, active) {
-  if (active) {       // sub-page: compact tab bar, first tab = back to the block page
-    const tabs = [['', 'Indicators']].concat(Object.entries(BLOCK_VIEWS).map(([k, v]) => [k, v.label]));
-    return `<nav class="btabs o1" aria-label="${esc(b.name)} block sections">${tabs.map(([k, t]) =>
-      `<a href="#/block/${b.key}${k ? '/' + k : ''}" class="${active === k ? 'on' : ''}"${active === k ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>`;
-  }
-  return `<nav class="bt3 o1" aria-label="More about this block">${Object.entries(BLOCK_VIEWS).map(([k, v]) => `
-    <a class="bbtn" href="#/block/${b.key}/${k}"><b>${esc(v.label)}</b><span>${esc(v.btn)}</span><em aria-hidden="true">&rarr;</em></a>`).join('')}</nav>`;
+function blockButtons(b, active) {      // same tab bar on the block page and on its three sub-pages; active = '' (block page) | gaps | release | frequency
+  active = active && BLOCK_VIEWS[active] ? active : '';
+  const tabs = [['', 'Indicators', 'The indicators and sub-indicators of this block.']].concat(Object.entries(BLOCK_VIEWS).map(([k, v]) => [k, v.label, v.btn]));
+  return `<nav class="btabs o1" aria-label="${esc(b.name)} block sections"><span class="bt-lbl">In this block</span>${tabs.map(([k, t, tip]) =>
+    `<a href="#/block/${b.key}${k ? '/' + k : ''}" class="${active === k ? 'on' : (k ? 'go' : '')}" title="${esc(tip)}"${active === k ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>`;
 }
 
 function defCard(b) {
