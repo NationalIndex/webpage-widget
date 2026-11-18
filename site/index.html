@@ -200,6 +200,20 @@ h2{font-size:19px;line-height:1.25;margin:0}
 .fw-sub .pl,.fw-sub .pl .code{color:#9AA3A0}
 .fw-sub .pl em{font-style:normal;font-size:11px;margin-left:6px;border:1px solid #C9CFCC;border-radius:999px;padding:0 6px}
 @media (max-width:640px){.fw-h,.fw-r{grid-template-columns:1fr}}
+.fw .fw-cta{display:flex;align-items:center;gap:14px;padding:18px 20px 14px;border-bottom:3px solid var(--c)}
+.fw .fw-ic{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--c);color:#fff}
+.fw .fw-cta h2{font-family:inherit;font-size:21px;font-weight:800;text-transform:none;letter-spacing:0;color:var(--c);margin:0}
+.fw .fw-cta p{margin:2px 0 0;font-size:14px;color:var(--ink-2)}
+.fw p.sub{margin:12px 20px 12px;font-size:12.5px;color:var(--ink-3)}
+.fw-ind a,.fw-sub a{border-radius:8px;transition:background .15s,color .15s}
+.fw-ind a::after{content:'\2192';margin-left:8px;color:var(--c);font-weight:700;display:inline-block;transition:transform .15s}
+.fw-sub a{align-items:baseline;padding:3px 8px;margin:0 -8px}
+.fw-sub a::after{content:'\203A';margin-left:auto;padding-left:10px;color:var(--c);font-weight:700;font-size:17px;line-height:1;transition:transform .15s}
+.fw-sub a.pl::after{color:#B8BFBC}
+.fw-ind a:hover,.fw-sub a:hover,.fw-ind a:focus-visible,.fw-sub a:focus-visible{background:rgba(255,255,255,.85);color:var(--c);text-decoration:none}
+.fw-ind a:hover::after,.fw-sub a:hover::after{transform:translateX(4px)}
+@media (max-width:640px){.fw .fw-cta h2{font-size:18px}}
+
 
 /* narrative sections */
 .sec{padding:22px 24px}
@@ -649,8 +663,9 @@ function fwTable(b) {
       <div class="fw-sub">${i.groups.map(g => `<a href="#/indicator/${i.code}${g.metrics[0] ? '/' + g.metrics[0].page : ''}"${g.planned ? ' class="pl" title="Planned: no data yet"' : ''}><span class="code">${dot(g.code)}</span><span>${esc(g.name)}${g.planned ? '<em>planned</em>' : ''}</span></a>`).join('')}</div>
     </div>`).join('');
   return `<section class="card fw o4" aria-label="Indicators and sub-indicators">
-    <h2>Indicators and sub-indicators</h2>
-    <p class="sub">The framework of the ${esc(b.name)} block. Select an indicator or a sub-indicator to open its page. Grey: planned, no data yet.</p>
+    <div class="fw-cta"><span class="fw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M9 3a1.5 1.5 0 0 1 1.5 1.5V11l.9-.3a1.5 1.5 0 0 1 1.9.9l.5-.1a1.5 1.5 0 0 1 1.8 1l.5-.1a1.5 1.5 0 0 1 1.8 1.4V17c0 3-2.2 5-5 5h-1.5c-1.6 0-2.8-.7-3.7-1.9l-3-4.2a1.5 1.5 0 0 1 2.3-1.9l1.5 1.5V4.5A1.5 1.5 0 0 1 9 3z"/></svg></span>
+      <div><h2>Explore Index 2.0</h2><p>Select an indicator or a sub-indicator below to open its page, with the data, charts and analysis.</p></div></div>
+    <p class="sub">The framework of the ${esc(b.name)} block. Grey items are planned and have no data yet.</p>
     <div class="fw-h"><span>Indicators</span><span>Sub-indicators</span></div>${rows}</section>`;
 }
 
