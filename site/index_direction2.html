@@ -396,6 +396,15 @@ body.ind-page footer{display:none!important}
 .bbtn:hover{box-shadow:0 6px 16px rgba(0,0,0,.1);transform:translateY(-1px)}
 .bbtn.on{background:var(--tint);border-color:var(--c)}
 @media (max-width:760px){.bt3{grid-template-columns:1fr}}
+.crumbs.big{font-size:14px;color:var(--ink-2)}
+.crumbs.big a{color:var(--ink);opacity:1;font-weight:600}
+.bback{display:inline-flex;align-items:center;gap:6px;margin:2px 0 10px;padding:7px 14px;border:1px solid var(--c);border-radius:999px;background:#fff;color:var(--c);font-weight:700;font-size:14px;text-decoration:none}
+.bback:hover{background:var(--c);color:#fff}
+.btabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0;border-bottom:2px solid #DDE3E0}
+.btabs a{padding:11px 18px;margin-bottom:-2px;border-bottom:4px solid transparent;font-weight:700;font-size:15px;color:var(--ink-2);text-decoration:none;border-radius:8px 8px 0 0}
+.btabs a:hover{background:var(--tint);color:var(--ink)}
+.btabs a.on{color:var(--c);border-bottom-color:var(--c);background:var(--tint)}
+
    /* no footer on the indicator pages */
 </style>
 <style id="theme">
@@ -733,8 +742,13 @@ const BLOCK_VIEWS = {
 };
 
 function blockButtons(b, active) {
+  if (active) {       // sub-page: compact tab bar, first tab = back to the block page
+    const tabs = [['', 'Indicators']].concat(Object.entries(BLOCK_VIEWS).map(([k, v]) => [k, v.label]));
+    return `<nav class="btabs o1" aria-label="${esc(b.name)} block sections">${tabs.map(([k, t]) =>
+      `<a href="#/block/${b.key}${k ? '/' + k : ''}" class="${active === k ? 'on' : ''}"${active === k ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('')}</nav>`;
+  }
   return `<nav class="bt3 o1" aria-label="More about this block">${Object.entries(BLOCK_VIEWS).map(([k, v]) => `
-    <a class="bbtn${active === k ? ' on' : ''}" href="#/block/${b.key}/${k}"${active === k ? ' aria-current="page"' : ''}><b>${esc(v.label)}</b><span>${esc(v.btn)}</span><em aria-hidden="true">&rarr;</em></a>`).join('')}</nav>`;
+    <a class="bbtn" href="#/block/${b.key}/${k}"><b>${esc(v.label)}</b><span>${esc(v.btn)}</span><em aria-hidden="true">&rarr;</em></a>`).join('')}</nav>`;
 }
 
 function defCard(b) {
@@ -750,19 +764,20 @@ function viewBlock(key, sub) {
   setTheme(b); renderNav(key);
   $('#band').className = 'band';
   $('#wide').style.display = 'block';
-  const crumbs = `<nav class="crumbs o1" style="color:var(--ink-3)"><a href="#/" style="color:var(--ink-2)">Overview</a><span>&rsaquo;</span>` +
-    (V ? `<a href="#/block/${key}" style="color:var(--ink-2)">${esc(b.name)}</a><span>&rsaquo;</span><span>${esc(V.label)}</span>` : `<span>${esc(b.name)}</span>`) + `</nav>`;
+  const crumbs = `<nav class="crumbs big o1"><a href="#/">Overview</a><span>&rsaquo;</span>` +
+    (V ? `<a href="#/block/${key}">${esc(b.name)}</a><span>&rsaquo;</span><span>${esc(V.label)}</span>` : `<span>${esc(b.name)}</span>`) + `</nav>`;
   const head = V
     ? `<section class="card bhead o1"><span class="ic">${b.icon}</span><div><div class="eyebrow" style="color:rgba(255,255,255,.8)">${esc(b.name)} block</div><h1>${esc(V.title(b))}</h1><p>${esc(V.lead(b))}</p></div></section>`
     : `<section class="card bhead o1"><span class="ic">${b.icon}</span><div><div class="eyebrow" style="color:rgba(255,255,255,.8)">Block &middot; ${b.indicators.length} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p>${esc(b.intro)}</p></div></section>`;
-  $('#wide').innerHTML = crumbs + head + blockButtons(b, sub);
+  const back = V ? `<a class="bback o1" href="#/block/${key}">&larr; ${esc(b.name)} indicators</a>` : '';
+  $('#wide').innerHTML = crumbs + back + head + blockButtons(b, sub);
   if (!V) {      // definition on the left, framework table on the right
     $('#left').innerHTML = defCard(b);
     $('#rightExtra').innerHTML = fwTable(b);
     $('#dash').style.display = 'none';
     return;
   }
-  $('#left').innerHTML = `<section class="card def o2">${V.body(b)}<p class="back"><a href="#/block/${key}">&lsaquo; Back to the ${esc(b.name)} indicators</a></p></section>`;
+  $('#left').innerHTML = `<section class="card def o2">${V.body(b)}</section>`;
   $('#rightExtra').innerHTML = '';
   $('#dash').classList.add('sticky');
   setDashboard(V.pbi(b), `${b.name} · ${V.label}`, '');
