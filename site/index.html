@@ -398,17 +398,17 @@ body.ind-page footer{display:none!important}
 .cover .cv-hs input::placeholder{color:rgba(255,255,255,.7)}
 .cover .cv-hs:focus-within{border-color:#fff;color:#fff}
 .cv-panel{display:flex;flex-direction:column;gap:8px;min-height:0}
-.cv-item{flex:1 1 0;min-height:0;display:flex;flex-direction:column;background:#4A4B4E;border-radius:10px;overflow:hidden}
-.cv-item.open{flex:6 1 0;background:#fff}
-.cv-acc{display:flex;align-items:center;gap:12px;width:100%;flex:1 0 auto;min-height:54px;padding:12px 16px;border:0;background:transparent;color:#fff;font:700 17px var(--sans);text-align:left;cursor:pointer}
-.cv-acc i{font-style:normal;font-size:13px;font-weight:700;color:#9BD3AE;letter-spacing:.04em}
-.cv-acc span{flex:1}
-.cv-acc em{font-style:normal;font-size:22px;font-weight:400;line-height:1;color:#9BD3AE}
-.cv-acc:hover{background:rgba(255,255,255,.08)}
-.cv-item.open .cv-acc{flex:none;min-height:0;color:var(--ink);background:transparent}
-.cv-item.open .cv-acc i,.cv-item.open .cv-acc em{color:var(--navy)}
-.cv-acc:focus-visible{outline:3px solid #9BD3AE;outline-offset:-3px}
-.cv-body{flex:1 1 auto;min-height:0;overflow:auto;padding:0 16px 14px}
+.cv-ph{margin:2px 4px 0;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9BD3AE}
+.cv-item{flex:0 0 auto;display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 0 rgba(0,0,0,.3)}
+.cv-item.open{flex:1 1 0;min-height:0;box-shadow:0 0 0 3px #9BD3AE}
+.cv-acc{display:flex;align-items:center;gap:12px;width:100%;flex:none;min-height:64px;padding:10px 14px;border:0;background:transparent;color:var(--ink);font:700 16.5px var(--sans);text-align:left;cursor:pointer}
+.cv-acc i{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12.5px;font-weight:700}
+.cv-acc span{flex:1;line-height:1.2}
+.cv-acc em{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#2E9E63;color:#fff;font-style:normal;font-size:22px;font-weight:600;line-height:1;transition:transform .15s}
+.cv-item.open .cv-acc em{transform:rotate(45deg);background:var(--ink-3)}
+.cv-acc:hover{background:#EEF5F0}
+.cv-acc:focus-visible{outline:3px solid var(--navy);outline-offset:-3px}
+.cv-body{flex:1 1 auto;min-height:0;overflow:auto;padding:0 18px 14px 56px}
 .cv-body p{margin:0 0 10px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
 .cv-body b{color:var(--ink)}
 @media (prefers-reduced-motion:reduce){.cv-item{transition:none}}
@@ -801,9 +801,9 @@ function viewHome() {
   $('#wide').style.display = 'block';
   $('#wide').innerHTML = `
     <section class="cover o1" aria-label="National Index on Agri-Food Performance">
-      <div class="cv-panel" id="cvPanel" role="group" aria-label="About the Index">${COVER_TEXT.map(([t, body], k) => `
-        <div class="cv-item"><button type="button" class="cv-acc" aria-expanded="false" aria-controls="cvA${k}"><i>0${k + 1}</i><span>${esc(t)}</span><em aria-hidden="true">+</em></button>
-          <div class="cv-body" id="cvA${k}" role="region" hidden>${body}</div></div>`).join('')}</div>
+      <div class="cv-panel" id="cvPanel" role="group" aria-label="About the Index"><h2 class="cv-ph">About the Index</h2>${COVER_TEXT.map(([t, body], k) => `
+        <div class="cv-item${k === 0 ? ' open' : ''}"><button type="button" class="cv-acc" aria-expanded="${k === 0}" aria-controls="cvA${k}"><i>0${k + 1}</i><span>${esc(t)}</span><em aria-hidden="true">+</em></button>
+          <div class="cv-body" id="cvA${k}" role="region"${k === 0 ? '' : ' hidden'}>${body}</div></div>`).join('')}</div>
       <figure class="cv-p1"><img src="${C.p1 || ''}" alt="A farmer’s hands holding a tablet next to a fruit crop"></figure>
       <figure class="cv-p2"><img src="${C.p2 || ''}" alt="A table with a spread of fresh and cooked food"></figure>
       <figure class="cv-p3"><img src="${C.p3 || ''}" alt="A sprayer crossing a green field under a wide sky"></figure>
