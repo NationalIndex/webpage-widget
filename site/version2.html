@@ -32,11 +32,27 @@ img,svg{display:block}
 .brand-mark i{width:11px;height:11px;border-radius:3px;display:block}
 .brand-t{font-weight:700;font-size:15px;line-height:1.15;white-space:nowrap}
 .brand-t small{display:block;font-weight:500;font-size:11.5px;color:#A9BCCD;letter-spacing:.02em}
-.nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav{display:flex;gap:4px;margin-left:auto;align-items:center;flex-wrap:wrap}
 .nav::-webkit-scrollbar{display:none}
 .nav a{text-decoration:none;font-size:13.5px;font-weight:500;color:#CFDCE7;padding:8px 12px;border-radius:8px;white-space:nowrap;position:relative}
 .nav a:hover{background:rgba(255,255,255,.08);color:#fff}
 .nav a.on{color:#fff;background:rgba(255,255,255,.1)}
+.dd{position:relative}
+.dd-b{display:inline-flex;align-items:center;gap:7px;font:500 13px var(--sans);color:#CFDCE7;background:none;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;white-space:nowrap;position:relative}
+.dd-b:hover,.dd.open .dd-b{background:rgba(255,255,255,.08);color:#fff}
+.dd-b.on{color:#fff;background:rgba(255,255,255,.1)}
+.dd-b.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-11px;height:3px;border-radius:3px;background:#fff}
+.dd-b svg{transition:transform .15s}.dd.open .dd-b svg{transform:rotate(180deg)}
+.dd-m{display:none;position:absolute;top:100%;right:0;min-width:250px;padding:6px;margin-top:2px;background:#fff;border-radius:12px;box-shadow:0 12px 32px rgba(10,30,50,.28);z-index:60}
+@media (max-width:700px){.dd-m{right:auto;left:0}}
+.dd::after{content:"";position:absolute;left:0;right:0;top:100%;height:12px}
+.dd.open .dd-m{display:block}
+.dd-m a,.nav .dd-m a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;font-weight:600;color:#1B2A38;text-decoration:none;white-space:nowrap}
+.dd-m a small{margin-left:auto;font-size:11.5px;font-weight:500;color:#6B7886}
+.dd-m a:hover,.dd-m a:focus-visible{background:#EEF3F8;color:#102030}
+.dd-m a[aria-current]{background:#E6EEF7}
+.dd-m a.sep{margin-top:4px;border-top:1px solid #E3E9EF;border-radius:0 0 8px 8px;padding-top:12px}
+.dd-m .dot{width:11px;height:11px;border-radius:3px;background:var(--c);flex:none}
 .nav a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-11px;height:3px;border-radius:3px;background:var(--c,#fff)}
 
 /* ---------- indicator band ---------- */
@@ -369,6 +385,7 @@ footer{max-width:1600px;margin:0 auto;padding:8px 24px 40px;color:var(--ink-3);f
 
 /* ---------- FAQ page and feedback button ---------- */
 .faq{max-width:900px;margin:0 auto;padding:8px 0 40px}
+.faq.inpage{padding:8px 0 0;margin:40px auto 0;border-top:2px solid var(--line);scroll-margin-top:90px}.faq.inpage h2{margin:24px 0 6px;font-size:24px}
 .faq h1{margin:6px 0 6px;font-size:30px;letter-spacing:-.01em}
 .faq .lead{margin:0 0 18px;color:var(--ink-2);font-size:15px;line-height:1.55}
 .faq-search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:15px var(--sans);background:#fff;color:var(--ink);margin-bottom:6px}
@@ -620,6 +637,13 @@ body{font-family:var(--sans)}
 .nav a:hover{background:rgba(26,36,32,.06);color:var(--ink)}
 .nav a.on{color:var(--ink);background:rgba(26,36,32,.07)}
 .nav a.on::after{bottom:-13px;background:var(--c,#1C4A38)}
+.dd-b{color:var(--ink-2)}
+.dd-b:hover,.dd.open .dd-b{background:rgba(26,36,32,.06);color:var(--ink)}
+.dd-b.on{color:var(--ink);background:rgba(26,36,32,.07)}
+.dd-b.on::after{bottom:-13px;background:#1C4A38}
+.nav-s{border-color:rgba(26,36,32,.28);background:#fff;color:var(--ink)}
+.nav-s:hover{background:rgba(26,36,32,.06)}
+.nav-s kbd{background:rgba(26,36,32,.06);border-color:rgba(26,36,32,.25);color:var(--ink-2)}
 .card{border-top:3px solid #1C4A38}
 .band{color:var(--on,#fff)}
 .crumbs,.crumbs a{color:var(--on,#fff)}
@@ -739,12 +763,26 @@ function setTheme(b) {
 }
 
 function renderNav(active) {
-  const items = [['#/', 'Home', null, active === 'home'], ['#/explore', 'Explore', null, active === 'explore']].concat(
-    DATA.blocks.map(b => ['#/block/' + b.key, b.name, b.color, active === b.key])).concat([['#/metrics', 'Metric list', null, active === 'metrics'], ['#/guide', 'Guide', null, active === 'guide'], ['#/faq', 'FAQ', null, active === 'faq']]);
-  $('#nav').innerHTML = items.map(([h, t, c, on]) =>
-    `<a href="${h}" class="${on ? 'on' : ''}" style="${c ? '--c:' + c : ''}"${on ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('') + '<button type="button" class="nav-s" id="sbtn" title="Search (press / or Ctrl+K)" aria-label="Search the Index"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg>Search<kbd>/</kbd></button>';
+  const dataOn = active === 'explore' || active === 'metrics' || DATA.blocks.some(b => b.key === active);
+  const plain = (h, t, on) => `<a href="${h}" class="${on ? 'on' : ''}"${on ? ' aria-current="page"' : ''}>${esc(t)}</a>`;
+  const menu = `<a href="#/explore" role="menuitem"${active === 'explore' ? ' aria-current="page"' : ''}>The Index <small>overview</small></a>` +
+    DATA.blocks.map(b => `<a href="#/block/${b.key}" role="menuitem" style="--c:${b.color}"${active === b.key ? ' aria-current="page"' : ''}><i class="dot"></i>${esc(b.name)}</a>`).join('') +
+    `<a href="#/metrics" role="menuitem" class="sep"${active === 'metrics' ? ' aria-current="page"' : ''}>Metric list <small>all ${TOTAL_METRICS} metrics</small></a>`;
+  $('#nav').innerHTML = plain('#/', 'Home', active === 'home') +
+    `<div class="dd" id="ddData"><button type="button" class="dd-b${dataOn ? ' on' : ''}" aria-haspopup="true" aria-expanded="false">Explore the data <svg viewBox="0 0 10 6" width="10" height="6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1l4 4 4-4"/></svg></button><div class="dd-m" role="menu">${menu}</div></div>` +
+    plain('#/guide', 'How-to Guide', active === 'guide') +
+    '<button type="button" class="nav-s" id="sbtn" title="Search (press / or Ctrl+K)" aria-label="Search the Index"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg>Search<kbd>/</kbd></button>';
   $('#sbtn').onclick = openSearch;
+  const dd = $('#ddData'), btn = dd.querySelector('.dd-b');
+  const set = o => { dd.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); };
+  btn.onclick = e => { e.stopPropagation(); set(!dd.classList.contains('open')); };
+  dd.onmouseenter = () => { if (matchMedia('(hover:hover)').matches) set(true); };
+  dd.onmouseleave = () => set(false);
+  dd.onkeydown = e => { if (e.key === 'Escape') { set(false); btn.focus(); } };
+  dd.addEventListener('focusout', e => { if (e.relatedTarget && !dd.contains(e.relatedTarget)) set(false); });
+  dd.querySelector('.dd-m').onclick = () => set(false);
 }
+if (!window._ddClose) { window._ddClose = 1; document.addEventListener('click', () => { const d = document.getElementById('ddData'); if (d) { d.classList.remove('open'); d.querySelector('.dd-b').setAttribute('aria-expanded', 'false'); } }); }
 
 const dpart = (t, x) => x ? `<div><h3>${t}</h3><p>${esc(x)}</p></div>` : '';
 function methHtml(a, smooth) {
@@ -1248,83 +1286,52 @@ function faqData() {
   const mail = '<button type="button" class="lnk" data-fb>Share your feedback</button>';
   return [
   ['About the Index', [
-    ['What is the National Index on Agri-Food Performance?',
-     '<p>It is a framework that presents a picture of sustainability across Canada’s agri-food system, from the farm gate to the retail shelf. It gathers data for a comprehensive set of indicators and metrics and presents them in one place, as an evidence base for dialogue, reporting and decision-making. It is not a single score.</p>'],
-    ['How is the Index organized?',
-     `<p>The Index has ${nBlk} sustainability blocks (Environment, Economic, Food Integrity and Societal Well-Being), ${nInd} indicators and ${TOTAL_METRICS} metrics in the dashboard.</p>
-      <ul><li><b>Block:</b> a broad area of sustainability.</li><li><b>Indicator:</b> a topic within a block, such as Climate Change &amp; GHG Emissions (EN.1).</li><li><b>Sub-indicator:</b> a theme within an indicator (EN.1.1).</li><li><b>Metric:</b> one measured series you can chart (EN.1.1.1).</li></ul>
-      <p>The code of a metric tells you where it sits: block, indicator, sub-indicator, then metric number.</p>`],
     ['Who is behind the Index?',
-     '<p>The Index is a project of the Centre for Agri-Food Benchmarking, supported by the Canadian Agri-Food Policy Institute (CAPI) and made possible by a Coalition of Partners from industry, government, civil society and academia. It was funded in part by Agriculture and Agri-Food Canada under the Sustainable Canadian Agricultural Partnership’s AgriAssurance Program. The full list of partners is at the bottom of the <a href="#/explore">Explore</a>.</p>'],
+     '<p>The Index is a project of the Centre for Agri-Food Benchmarking, supported by the Canadian Agri-Food Policy Institute (CAPI) and made possible by a Coalition of Partners from industry, government, civil society and academia. It was funded in part by Agriculture and Agri-Food Canada under the Sustainable Canadian Agricultural Partnership’s AgriAssurance Program. The full list of partners is at the bottom of the <a href="#/explore">Explore</a> page.</p>'],
     ['Where does the data come from?',
-     '<p>From authoritative sources: statistical agencies, regulatory datasets, industry associations and peer-reviewed work. Each metric lists its source (with a link where one exists), reference year and method under <b>Sources and Methodologies</b> below its chart. When a newer year is not yet published, the latest valid figure is used.</p>']
+     '<p>From authoritative sources: statistical agencies, regulatory datasets, industry associations and peer-reviewed work. Each metric lists its source (with a link where one exists), reference year and method under <b>Sources and Methodologies</b> below its chart. When a newer year is not yet published, the latest valid figure is used.</p>'],
+    ['Can I use or cite the data?',
+     '<p>Please credit both the Index (National Index on Agri-Food Performance, Index 2.0, Centre for Agri-Food Benchmarking) and the original source shown in the <b>Data Sources</b> tab of the metric. For questions about other kinds of reuse, ' + mail + '.</p>']
   ]],
-  ['Using the website', [
-    ['How do I find an indicator?',
-     '<p>Start on the <a href="#/explore">Explore</a> and choose a block, or use the block names in the top bar. Each block page lists its indicators and sub-indicators; select one to open its page. Inside an indicator, the <b>Indicators</b> panel in the header switches to the other indicators of the same block, and the <b>Previous / Next</b> links at the bottom move one indicator at a time.</p>'],
-    ['What do the tabs About, Current observations, Limitations and Opportunities mean?',
-     '<ul><li><b>About:</b> what the indicator means and what it covers.</li><li><b>Current observations:</b> what the latest data show. Codes such as EN.1.1.1 in the text point to the metric in the dashboard.</li><li><b>Limitations:</b> what the indicator cannot yet tell us.</li><li><b>Opportunities:</b> how the indicator could be strengthened.</li></ul>'],
+  ['Using the charts', [
     ['How do I change what the chart shows?',
-     '<p>Use the two menus above the chart. <b>Sub-indicator</b> picks the theme and <b>Metric</b> picks the series within it. The chart, the sources and the methodology all update together.</p>'],
+     '<p>Use the two menus above the chart. <b>Sub-indicator</b> picks the theme and <b>Metric</b> picks the series within it. The chart, the sources and the methodology all update together. Line charts also have a zoom slider along the horizontal axis: drag its ends to focus on a range of years, and hover over a point to see its exact value.</p>'],
     ['How do I show or hide lines in a chart?',
-     '<p>Many charts have several series (for example gases, provinces or sectors). The dashboard has a series list: tick a series to show it and untick it to hide it. Your choice stays in place when you switch metrics, so if a chart comes up empty, clear the selection with the eraser icon in the series list header.</p>'],
+     '<p>Many charts have several series (a breakdown by gas, province, sector or unit of measure). The dashboard has a series list: tick a series to show it and untick it to hide it. Your choice stays in place when you switch metrics, so if a chart comes up empty, clear the selection with the eraser icon in the series list header. Check the <b>Units</b> tab for what is being measured.</p>'],
     ['What is the moving average and how do I use it?',
-     '<p>Where it applies, the dashboard has a selector with three choices: <b>As reported</b>, <b>3-year moving average</b> and <b>5-year moving average</b>. A moving average smooths year-to-year swings so the trend is easier to see. It is calculated at the end, as the average of the yearly values shown in the chart, after any ratio, share or total has been formed for each year. Read it as a smoothed trend, not as the value for the period. It is offered only for line charts, and not for yes/no measures, one-off snapshots, bar charts or running totals, where an average would be meaningless. The explanation also appears under <b>Methodology</b> for each metric that has it.</p>'],
-    ['Can I zoom in on a period?',
-     '<p>Yes. Line charts have a zoom slider along the horizontal axis: drag its ends to focus on a range of years. Hover over a point to see its exact value.</p>'],
+     '<p>Where it applies, the dashboard has a selector with three choices: <b>As reported</b>, <b>3-year moving average</b> and <b>5-year moving average</b>. A moving average smooths year-to-year swings so the trend is easier to see. It is calculated at the end, as the average of the yearly values shown in the chart, after any ratio, share or total has been formed for each year. Read it as a smoothed trend, not as the value for the period. It is offered only for line charts, and not for yes/no measures, one-off snapshots, bar charts or running totals, where an average would be meaningless.</p>'],
     ['How do I download the data?',
      '<p>Select the cloud button next to the metric menus. It downloads a CSV file of the data behind the chart: indicator, sub-indicator, metric code and name, series, period, value, unit and source. The file is named after the metric code, for example <code>index2_EN.1.1.1.csv</code>.</p>'],
-    ['What are the Methodology, Data Sources and Units tabs?',
-     '<p>They sit below each chart under <b>Sources and Methodologies</b>. <b>Methodology</b> explains how the value is calculated (and the moving average, where it applies), <b>Data Sources</b> lists where the numbers come from, and <b>Units</b> says what the numbers are measured in.</p>'],
     ['How do I share a chart or send a colleague to a specific metric?',
      '<p>Use the <b>Share</b> button above the chart: copy the link, or send it by e-mail, LinkedIn or X. The address in your browser always includes the metric you are looking at, so a copied link opens the same chart.</p>'],
     ['The dashboard is blank or slow to load. What can I do?',
      '<p>The charts are an embedded Power BI report and need an internet connection. The first load can take a few seconds. If it stays blank, reload the page and check that your browser or network is not blocking Power BI content (some workplace networks do).</p>']
   ]],
   ['Reading the data', [
-    ['What do the colours in the Data Gaps Overview mean?',
-     '<p>In the Data Gaps Overview each indicator is a row and each segment is one of its sub-indicators. <b>Green</b> means every topic is covered by at least one metric; <b>amber</b> means some topics are missing or only partly covered; <b>red</b> means no topic is covered; <b>blue</b> means planned, with no data yet; <b>grey</b> means no topic is mapped. It shows how complete our measurement is, not how the sector is performing.</p>'],
-    ['How is the score calculated?',
-     '<p>Score = (green + half of yellow) ÷ scored metrics × 100. A score of 70 or more is on track, 50 to 69 is mixed, and below 50 needs attention.</p>'],
     ['Why does a metric show an older year than others?',
-     '<p>Sources publish on different schedules: monthly, quarterly, annually, every five years, occasionally or once. Each metric shows the latest valid figure available. The dashboard also has update-frequency and release-schedule views that show how often each metric is refreshed and when new data are expected.</p>'],
-    ['What does “planned” mean in the framework tables?',
-     '<p>A greyed sub-indicator marked <i>planned</i> is part of the framework but has no data yet. The dashboard also has data coverage and scope-gap views (part of the Data Gaps Overview) that show which topics are covered by existing metrics and where gaps remain, and so where better data are needed.</p>'],
-    ['Why do I see different units or several series in one chart?',
-     '<p>A series is a breakdown of a metric, for example by gas, province, sector or unit of measure. Check the <b>Units</b> tab for what is being measured, and use the series list to isolate the lines you want to compare.</p>'],
-    ['Can I use or cite the data?',
-     '<p>Please credit both the Index (National Index on Agri-Food Performance, Index 2.0, Centre for Agri-Food Benchmarking) and the original source shown in the <b>Data Sources</b> tab of the metric. For questions about other kinds of reuse, ' + mail + '.</p>']
+     '<p>Sources publish on different schedules: monthly, quarterly, annually, every five years, occasionally or once. Each metric shows the latest valid figure available. The <b>Release schedule</b> and <b>Reporting frequency</b> views on each block page show how often each metric is refreshed and when new data are expected.</p>']
   ]],
   ['Feedback', [
     ['How do I report an error or suggest a new metric?',
-     '<p>Select <b>Share your feedback</b> (bottom right of every page, or ' + mail + '). It opens a new e-mail to the Index team in your own mail program (Outlook or whichever one you use), with the subject <code>NIAFP - [metric code]</code> filled in for the metric you were viewing, so we know exactly what you are referring to. On pages that are not about a metric the subject is <code>NIAFP - General</code>. If you use webmail, the same menu has Outlook on the web and Gmail options, and a button to copy the address.</p>'],
-    ['Nothing opened when I selected Share your feedback.',
-     '<p>Your computer may not have a default mail program set. Use the <b>Outlook on the web</b> or <b>Gmail</b> options in the same menu, or copy the address (' + FEEDBACK_TO + ') and write to us with a subject starting <code>NIAFP -</code> followed by the metric code.</p>']
+     '<p>Select <b>Share your feedback</b> (bottom right of every page, or ' + mail + '). It opens a new e-mail to the Index team, with the subject <code>NIAFP - [metric code]</code> filled in for the metric you were viewing (on other pages, <code>NIAFP - General</code>). If nothing opens, your computer may not have a default mail program: use the <b>Outlook on the web</b> or <b>Gmail</b> options in the same menu, or copy the address (' + FEEDBACK_TO + ') and write to us with a subject starting <code>NIAFP -</code> followed by the metric code.</p>']
   ]]];
 }
-function viewFaq() {
-  setTheme(null); renderNav('faq');
-  $('#band').className = 'band';
-  $('#left').style.display = 'none'; $('#right').style.display = 'none';
-  $('#wide').style.display = 'block';
-  $('#dash').classList.remove('sticky');
-  const html = faqData().map(([cat, qs]) => `<h2 class="faq-cat">${esc(cat)}</h2>` +
+function faqSection() {
+  const html = faqData().map(([cat, qs]) => `<h3 class="faq-cat">${esc(cat)}</h3>` +
     qs.map(([q, a]) => `<details><summary>${esc(q)}</summary><div class="ans">${a}</div></details>`).join('')).join('');
-  $('#wide').innerHTML = `<section class="faq o1">
-    <nav class="crumbs" style="color:var(--ink-3)"><a href="#/explore" style="color:var(--ink-2)">Explore</a><span>&rsaquo;</span><span>FAQ</span></nav>
-    <h1>Frequently asked questions</h1>
-    <p class="lead">How to use the website and the interactive dashboard, how to read the data, and how to reach us.</p>
+  return `<section class="faq inpage" id="faq"><h2>Frequently asked questions</h2>
+    <p class="lead">Quick answers on using the interactive dashboard, reading the data and reaching us.</p>
     <input class="faq-search" id="faqQ" type="search" placeholder="Search the questions…" aria-label="Search the FAQ">
     <div id="faqList">${html}</div>
     <p class="none" id="faqNone">No question matches your search. <button type="button" class="lnk" data-fb>Ask us</button>.</p></section>`;
-  $('#rightExtra').innerHTML = '';
+}
+function bindFaq() {
   $('#faqQ').oninput = e => {
     const t = e.target.value.trim().toLowerCase(); let n = 0;
     document.querySelectorAll('#faqList details').forEach(d => { const hit = !t || d.textContent.toLowerCase().includes(t); d.style.display = hit ? '' : 'none'; if (t && hit) d.open = true; if (hit) n++; });
     document.querySelectorAll('#faqList .faq-cat').forEach(c => { let el = c.nextElementSibling, any = false; while (el && el.tagName === 'DETAILS') { if (el.style.display !== 'none') any = true; el = el.nextElementSibling; } c.style.display = any ? '' : 'none'; });
     $('#faqNone').style.display = n ? 'none' : 'block';
   };
-  $('#wide').onclick = e => { if (e.target.closest('[data-fb]')) { e.stopPropagation(); window.openFeedback(); } };
 }
 
 
@@ -1357,12 +1364,11 @@ function plainPage(html, active, crumb) {
   $('#wide').onclick = e => { if (e.target.closest('[data-fb]')) { e.stopPropagation(); window.openFeedback(); } };
 }
 
-function viewGuide() {
+function viewGuide(toFaq) {
   const nInd = Object.keys(I).length, nSub = DATA.order.reduce((n, c) => n + I[c].groups.length, 0);
   plainPage(`<section class="guide o1">
-    <nav class="crumbs big"><a href="#/explore">Explore</a><span>&rsaquo;</span><span>Guide</span></nav>
-    <h1>A short guide to the Index</h1>
-    <p class="lead">What it is, how it is organised and how to find your way around.</p>
+    <h1>How-to Guide</h1>
+    <p class="lead">What the Index is, how it is organised, how to find your way around and answers to common questions. <a href="#/faq" style="color:var(--navy);font-weight:700">Jump to the questions &darr;</a></p>
     <h2>What the Index is</h2>
     <p>The <b>National Index on Agri-Food Performance</b> is a framework that presents a picture of sustainability across Canada’s agri-food system, from the farm gate to the retail shelf. Launched as a pilot (Index 1.0) in 2023, it offers an inventory of data for a comprehensive set of indicators and metrics, organized into four sustainability blocks: ${DATA.blocks.map(b => esc(b.name)).join(', ').replace(/, ([^,]*)$/, ' and $1')}. It is made possible by a Coalition of Partners from industry, government, civil society and academia.</p>
     <p>It aligns broadly with national and global food goals and with investor-driven ESG factors, and covers production (including fisheries and aquaculture), processing, distribution and retail.</p>
@@ -1378,8 +1384,10 @@ function viewGuide() {
     <ul><li><b>Search</b> with the button in the top bar, or press <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd>. Typing a code such as <b>EN.1.1.1</b> takes you straight to that metric.</li>
     <li>The <a href="#/metrics">Metric list</a> shows every metric with its latest value, and can be sorted and filtered.</li>
     <li>Each block page has three more views: the <b>Data Gaps Overview</b> (what the Index covers and misses), the <b>Release schedule</b> and the <b>Reporting frequency</b>.</li>
-    <li>The <a href="#/faq">FAQ</a> answers common questions, and <button type="button" class="lnk" data-fb>Share your feedback</button> reaches the team.</li></ul>
-  </section>`, 'guide');
+    <li>The <a href="#/faq">questions at the end of this page</a> answer the most common queries, and <button type="button" class="lnk" data-fb>Share your feedback</button> reaches the team.</li></ul>
+  </section>` + faqSection(), 'guide');
+  bindFaq();
+  if (toFaq) setTimeout(() => { const f = $('#faq'); if (f) f.scrollIntoView({behavior: 'instant', block: 'start'}); }, 30);
 }
 
 function viewMetrics() {
@@ -1461,13 +1469,13 @@ function route() {
   const h = location.hash.replace(/^#\/?/, '');
   const [kind, arg, met] = h.split('/');
   if (kind === 'block') viewBlock(arg, met);
-  else if (kind === 'faq') viewFaq();
+  else if (kind === 'faq') viewGuide(true);
   else if (kind === 'explore') viewExplore();
   else if (kind === 'guide') viewGuide();
   else if (kind === 'metrics') viewMetrics();
   else if (kind === 'indicator') viewIndicator(decodeURIComponent(arg || ''), decodeURIComponent(met || ''));
   else viewHome();
-  document.title = (kind === 'faq' ? 'FAQ · ' : kind === 'explore' ? 'Explore · ' : kind === 'guide' ? 'Guide · ' : kind === 'metrics' ? 'Metric list · ' : '') + (kind === 'indicator' && I[arg] ? I[arg].code + ' ' + I[arg].title + ' · ' :
+  document.title = (kind === 'faq' || kind === 'guide' ? 'How-to Guide · ' : kind === 'explore' ? 'Explore · ' : kind === 'metrics' ? 'Metric list · ' : '') + (kind === 'indicator' && I[arg] ? I[arg].code + ' ' + I[arg].title + ' · ' :
                     kind === 'block' && B[arg] ? B[arg].name + ' · ' : '') + 'National Index on Agri-Food Performance';
 }
 window.addEventListener('hashchange', () => { route(); window.scrollTo({top: 0, behavior: 'instant'}); });
