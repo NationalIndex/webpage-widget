@@ -397,28 +397,39 @@ footer{max-width:1600px;margin:0 auto;padding:8px 24px 40px;color:var(--ink-3);f
 @media (max-width:640px){.fb{right:14px;bottom:14px}.fb-fab{padding:12px 16px}}
 body.ind-page footer{display:none!important}
 /* ---- v2: cover page and explore hub */
-.cover{display:grid;grid-template-columns:1.45fr 1.45fr 1fr minmax(250px,340px);grid-template-rows:minmax(90px,1fr) minmax(90px,1fr) auto;gap:8px;padding:8px;height:clamp(560px,calc(100vh - 150px),830px);background:#3A3B3D;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.cover{display:grid;grid-template-columns:minmax(290px,1.2fr) .75fr .75fr .75fr minmax(320px,.95fr);grid-template-rows:176px 176px auto;gap:8px;padding:8px;background:#3A3B3D;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
 .cover figure{margin:0;min-height:0;overflow:hidden;border-radius:6px}
 .cover figure img{display:block;width:100%;height:100%;object-fit:cover}
-.cv-panel{grid-area:1/4/4/5}.cv-p1{grid-area:1/1}.cv-p2{grid-area:1/2}.cv-p3{grid-area:2/1/3/3}.cv-p4{grid-area:1/3/4/4}
-.cv-info{grid-area:3/1/4/3;display:grid;grid-template-columns:150px 1fr;gap:22px;padding:20px 18px 10px;color:#fff;min-height:0;overflow:hidden}
-.cv-logo{display:block;background:#fff;border-radius:12px;padding:10px 12px}
+.cv-panel{grid-area:3/5/4/6}.cv-quad{grid-area:1/5/3/6}
+.cv-p1{grid-area:1/2}.cv-p2{grid-area:1/3}.cv-p3{grid-area:2/2/4/4}.cv-p4{grid-area:1/4/4/5}
+.cover figure{position:relative}.cover figure img{position:absolute;inset:0}
+.cv-quad{display:flex;flex-direction:column;gap:8px;min-height:0;padding-top:2px}
+.cv-quad .quad{flex:1;min-height:0;grid-template-rows:1fr 1fr;gap:12px}
+.cv-quad .qt b{font-size:12.5px;letter-spacing:.03em}
+.cv-quad .qt .qn{font-size:11.5px}
+.cv-quad .qt{min-height:0;height:100%;box-sizing:border-box;padding:8px;gap:3px;border-width:4px;border-radius:12px}
+.cv-quad .qt .qg{opacity:1;transform:none}
+.cv-quad .qt .qi,.cv-quad .qt .qi svg,.cv-quad .qt .qi img{width:44px!important;height:44px!important}
+.cv-quad .qt:hover{transform:translateY(-3px)}
+.cv-info{grid-area:1/1/4/2;display:flex;flex-direction:column;justify-content:center;gap:22px;padding:10px 12px;color:#fff;min-height:0;overflow:hidden}
+.cv-logo{display:block;max-width:240px;background:#fff;border-radius:12px;padding:10px 12px}
 .cv-logo img{display:block;width:100%}
 .cv-meta p{margin:12px 0 0;font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.82)}
 .cv-meta .cv-url{font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff}
-.cv-main h1{margin:0;font-size:clamp(22px,2.7vw,40px);line-height:1.02;letter-spacing:-.015em;text-transform:uppercase;font-weight:800;color:#fff}
+.cv-main h1{margin:0;font-size:clamp(26px,2.7vw,40px);line-height:1.02;letter-spacing:-.015em;text-transform:uppercase;font-weight:800;color:#fff}
 .cv-main h1 span{display:block;margin-top:6px;color:#9BD3AE}
-.cv-act{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px}
+.cv-act{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin-top:18px}
+.cv-act .cta{text-align:center}
 .cover .cta{background:#fff;color:#1B2833;box-shadow:none}
 .cover .cta:hover{background:#EAF3EC;box-shadow:none}
-.cover .cv-hs{margin:0;max-width:320px;flex:1 1 220px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85);box-shadow:none}
+.cover .cv-hs{margin:0;max-width:none;flex:none;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85);box-shadow:none}
 .cover .cv-hs input{color:#fff;padding:11px 0}
 .cover .cv-hs input::placeholder{color:rgba(255,255,255,.7)}
 .cover .cv-hs:focus-within{border-color:#fff;color:#fff}
 .cv-panel{display:flex;flex-direction:column;gap:8px;min-height:0}
 .cv-ph{margin:2px 4px 0;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9BD3AE}
 .cv-item{flex:0 0 auto;display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 0 rgba(0,0,0,.3)}
-.cv-item.open{flex:1 1 0;min-height:0;box-shadow:0 0 0 3px #9BD3AE}
+.cv-item.open{box-shadow:0 0 0 3px #9BD3AE}
 .cv-acc{display:flex;align-items:center;gap:12px;width:100%;flex:none;min-height:64px;padding:10px 14px;border:0;background:transparent;color:var(--ink);font:700 16.5px var(--sans);text-align:left;cursor:pointer}
 .cv-acc i{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12.5px;font-weight:700}
 .cv-acc span{flex:1;line-height:1.2}
@@ -437,14 +448,15 @@ body.home-page .partners h2{color:#fff}
 body.home-page .pl{color:rgba(255,255,255,.7)}
 body.home-page footer{border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.72)}
 body.home-page footer .flogo{background:#fff;border-radius:8px;padding:4px 8px;box-sizing:content-box}
-.cv-links{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px;font-size:14px}
+.cv-links{display:flex;gap:6px 14px;flex-wrap:wrap;margin-top:14px;font-size:13px}
 .cv-links a{color:rgba(255,255,255,.9);text-decoration:underline;text-underline-offset:3px}
 .cv-links a:hover{color:#fff}
 @media (max-width:900px){
-  .cover{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:150px 150px auto auto}
-  .cv-p1{grid-area:1/1}.cv-p2{grid-area:1/2}.cv-p3{grid-area:2/1/3/3}.cv-p4{display:none}
-  .cv-panel{grid-area:3/1/4/3}
-  .cv-info{grid-area:4/1/5/3;grid-template-columns:1fr;gap:14px}
+  .cover{height:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto auto}
+  .cv-quad .quad{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .cv-quad{grid-area:1/1/2/3}.cv-quad .qt{min-height:150px}.cv-p1,.cv-p2,.cv-p4{display:none}.cv-p3{grid-area:4/1/5/3;height:170px}
+  .cv-panel{grid-area:2/1/3/3}
+  .cv-info{grid-area:3/1/4/3;grid-template-columns:1fr;gap:14px}
   .cv-item,.cv-item.open{flex:none}
   .cv-logo{max-width:200px}
 }
@@ -721,7 +733,7 @@ function setTheme(b) {
 }
 
 function renderNav(active) {
-  const items = [['#/explore', 'Explore', null, active === 'explore']].concat(
+  const items = [['#/', 'Home', null, active === 'home'], ['#/explore', 'Explore', null, active === 'explore']].concat(
     DATA.blocks.map(b => ['#/block/' + b.key, b.name, b.color, active === b.key])).concat([['#/metrics', 'Metric list', null, active === 'metrics'], ['#/guide', 'Guide', null, active === 'guide'], ['#/faq', 'FAQ', null, active === 'faq']]);
   $('#nav').innerHTML = items.map(([h, t, c, on]) =>
     `<a href="${h}" class="${on ? 'on' : ''}" style="${c ? '--c:' + c : ''}"${on ? ' aria-current="page"' : ''}>${esc(t)}</a>`).join('') + '<button type="button" class="nav-s" id="sbtn" title="Search (press / or Ctrl+K)" aria-label="Search the Index"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg>Search<kbd>/</kbd></button>';
@@ -818,7 +830,7 @@ function bindSearch(el) {
 
 // Cover page (as the cover of the 2025 report): photos, title and logos, with one button into the Index.
 function viewHome() {
-  setTheme(null); renderNav('');
+  setTheme(null); renderNav('home');
   document.body.classList.add('home-page');      // the cover colour runs across the whole page
   $('#band').className = 'band';
   const C = DATA.cover || {}, F = DATA.funders;
@@ -828,12 +840,16 @@ function viewHome() {
   $('#wide').innerHTML = `
     <section class="cover o1" aria-label="National Index on Agri-Food Performance">
       <div class="cv-panel" id="cvPanel" role="group" aria-label="About the Index"><h2 class="cv-ph">About the Index</h2>${COVER_TEXT.map(([t, body], k) => `
-        <div class="cv-item${k === 0 ? ' open' : ''}"><button type="button" class="cv-acc" aria-expanded="${k === 0}" aria-controls="cvA${k}"><i>0${k + 1}</i><span>${esc(t)}</span><em aria-hidden="true">+</em></button>
-          <div class="cv-body" id="cvA${k}" role="region"${k === 0 ? '' : ' hidden'}>${body}</div></div>`).join('')}</div>
+        <div class="cv-item"><button type="button" class="cv-acc" aria-expanded="false" aria-controls="cvA${k}"><i>0${k + 1}</i><span>${esc(t)}</span><em aria-hidden="true">+</em></button>
+          <div class="cv-body" id="cvA${k}" role="region" hidden>${body}</div></div>`).join('')}</div>
       <figure class="cv-p1"><img src="${C.p1 || ''}" alt="A farmer’s hands holding a tablet next to a fruit crop"></figure>
       <figure class="cv-p2"><img src="${C.p2 || ''}" alt="A table with a spread of fresh and cooked food"></figure>
       <figure class="cv-p3"><img src="${C.p3 || ''}" alt="A sprayer crossing a green field under a wide sky"></figure>
       <figure class="cv-p4"><img src="${C.p4 || ''}" alt="A food-processing scientist in a white coat holding a tablet"></figure>
+      <div class="cv-quad"><h2 class="cv-ph">Explore by block</h2><div class="quad">${DATA.blocks.map(b => `
+        <a class="qt" href="#/block/${b.key}" style="--c:${b.color};--dark:${b.dark};--tint:${b.tint}">
+          <span class="qi">${b.icon}</span><b>${esc(b.name)}</b><span class="qn">${b.indicators.length} indicators &middot; ${b.metrics} metrics</span>
+          <span class="qg">Explore &rarr;</span></a>`).join('')}</div></div>
       <div class="cv-info">
         <div class="cv-meta"><span class="cv-logo"><img src="${F.index}" alt="National Index on Agri-Food Performance"></span><p>Centre for Agri-Food Benchmarking</p><p class="cv-url">agrifoodindex.ca</p></div>
         <div class="cv-main"><h1>National Index on Agri-Food Performance<span>Index 2.0</span></h1>
