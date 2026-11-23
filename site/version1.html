@@ -1080,18 +1080,5 @@ route();
 </script>
 
 
-<style>
-.versw{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:4px;background:#fff;border:1px solid rgba(0,0,0,.14);border-radius:999px;
-  padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.2);font:600 12.5px/1 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#333}
-.versw span{opacity:.75;margin:0 4px 0 9px}
-.versw a{display:inline-grid;place-items:center;padding:0 13px;height:30px;border-radius:999px;color:#333;text-decoration:none;font-weight:700}
-.versw a:hover{background:rgba(0,0,0,.08)}
-.versw a.on{background:#222;color:#fff}
-@media (max-width:700px){.versw span{display:none}}
-</style>
-<div class="versw" id="versw" role="group" aria-label="Website version"><span>Version</span>
-<a href="version1.html" data-n="1">1 &middot; Classic</a><a href="version2.html" data-n="2">2 &middot; Cover page</a></div>
-<script>(function(){var cur="1";document.querySelectorAll('#versw a').forEach(function(a){if(a.dataset.n===cur){a.className='on';a.setAttribute('aria-current','page');}
-a.addEventListener('click',function(e){e.preventDefault();location.href=a.getAttribute('href')+location.hash;});});})();</script>
 </body>
 </html>

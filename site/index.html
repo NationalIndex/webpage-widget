@@ -466,6 +466,181 @@ body.home-page .pc{background:transparent;border-color:transparent;padding:10px 
 body.home-page .pl{color:rgba(255,255,255,.7)}
 body.home-page footer{border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.72)}
 body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{display:inline}
+/* block page layout proposals */
+#bvsw{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:80;display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;justify-content:center;max-width:94vw;padding:8px 12px;border-radius:16px;background:#14201A;color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.35);font:600 12px var(--sans)}
+#bvsw span{opacity:.6;font-weight:600;margin-right:2px}#bvsw .sp{flex-basis:100%;height:0}
+#bvsw a,#bvsw button{color:#D6E4DC;text-decoration:none;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:none;font:inherit;cursor:pointer}
+#bvsw a:hover,#bvsw button:hover{background:rgba(255,255,255,.12)}#bvsw a.on,#bvsw button.on{background:#fff;color:#14201A;border-color:#fff}
+.bv{padding-bottom:70px}
+@media (max-width:700px){#bvsw{bottom:68px;font-size:11.5px;padding:7px 10px}.bv{padding-bottom:150px}}
+.bv .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.bv h1{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;margin:0}
+.bv-stats{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:18px 0 0;padding:0}
+.bv-stats li{font-size:12.5px;padding:8px 14px;border-radius:12px;background:rgba(255,255,255,.14);display:flex;align-items:baseline;gap:7px;white-space:nowrap}
+.bv-stats b{font-size:22px;font-weight:800}
+.bv-chips{display:flex;flex-wrap:wrap;gap:6px}
+.bv-chip{display:inline-flex;align-items:baseline;gap:7px;padding:5px 11px;border-radius:999px;background:var(--tint);color:var(--ink);text-decoration:none;font-size:13px;line-height:1.3;border:1px solid transparent;transition:background .15s,border-color .15s}
+.bv-chip b{font-size:11.5px;color:var(--c);font-weight:700}
+.bv-chip:hover{border-color:var(--c);background:#fff}
+.bv-chip.bvpl{background:#F0F1EF;color:#8A938F}.bv-chip.bvpl b{color:#9AA3A0}
+.bv-chip em,.bvD-subs em{font-style:normal;font-size:10.5px;border:1px solid #C9CFCC;border-radius:999px;padding:0 6px;margin-left:2px}
+.bv-note{margin:0;font-size:13px;color:var(--ink-3)}
+.bv-h{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:30px 0 14px}.bv-h h2{margin:0;font-size:24px;color:var(--c)}
+.bv p{line-height:1.65}
+/* A */
+.bvA-hero{position:relative;border-radius:22px;overflow:hidden;color:#fff;min-height:330px;display:flex;align-items:flex-end;background:var(--dark)}
+.bvA-ph{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.bvA-ph i{background-size:cover;background-position:center}
+.bvA-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 12%,color-mix(in srgb,var(--dark) 78%,transparent) 45%,rgba(0,0,0,.12) 100%),linear-gradient(0deg,rgba(0,0,0,.35),transparent 55%)}
+.bvA-tx{position:relative;padding:38px 44px;max-width:720px}
+.bvA-tx .ic svg{width:44px;height:44px;margin-bottom:8px}
+.bvA-tx h1{font-size:68px;line-height:1}
+.bvA-tx p{font-size:18px;line-height:1.5;margin:12px 0 0;color:rgba(255,255,255,.92)}
+.bvA-tx .eyebrow{color:rgba(255,255,255,.75)}
+.bvA-about{display:grid;grid-template-columns:1.25fr 1fr;gap:34px;margin-top:26px}
+.bvA-about h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:0 0 10px}
+.bvA-l{padding:6px 4px}.bvA-l p:first-of-type{font-family:var(--serif);font-size:23px;line-height:1.4;color:var(--ink)}
+.bvA-l p,.bvA-r p{font-size:15.5px;color:var(--ink-2)}
+.bvA-r{background:var(--tint);border-radius:18px;padding:24px 26px}
+.bvA-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.bvA-card{background:var(--surface);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.bvA-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(20,40,30,.16)}
+.bvA-img{display:block;height:170px;background-size:cover;background-position:center;position:relative}
+.bvA-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35),transparent 55%)}
+.bvA-img .code{position:absolute;left:14px;top:14px;z-index:1;background:var(--c);color:#fff;font-weight:800;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.bvA-b{padding:16px 18px 18px}.bvA-b h3{margin:0 0 12px;font-size:19px;line-height:1.25}.bvA-b h3 a{color:var(--ink);text-decoration:none}.bvA-b h3 a:hover{color:var(--c)}
+/* B */
+.bvB-head{position:relative;overflow:hidden;padding:30px 0 22px}
+.bvB-head .eyebrow{color:var(--c)}
+.bvB-head h1{font-size:92px;line-height:.98;color:var(--dark);margin:6px 0 14px}
+.bvB-head .lead{font-size:21px;max-width:760px;color:var(--ink-2);margin:0}
+.bvB-wm{position:absolute;right:0;top:0;opacity:.1;color:var(--c)}.bvB-wm svg{width:300px;height:300px;fill:var(--c)}
+.bvB-cols{display:grid;grid-template-columns:minmax(300px,.8fr) 1.4fr;gap:44px;align-items:start;margin-top:20px}
+.bvB-side{position:sticky;top:84px}
+.bvB-side figure{margin:0 0 20px;height:230px;border-radius:20px;background-size:cover;background-position:center}
+.bvB-txt h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:20px 0 8px}
+.bvB-txt p{font-size:15px;color:var(--ink-2)}
+.bvB-txt>h2:first-child+p::first-letter{float:left;font-family:var(--serif);font-size:60px;line-height:.85;padding:6px 8px 0 0;color:var(--c)}
+.bvB-list .bv-h{margin-top:0}
+.bvB-list ol{list-style:none;margin:0;padding:0}
+.bvB-r{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:20px 0;border-top:1px solid var(--line)}
+.bvB-th{display:block;height:112px;border-radius:14px;background-size:cover;background-position:center;transition:transform .2s}.bvB-th:hover{transform:scale(1.03)}
+.bvB-m{position:relative}.bvB-n{position:absolute;right:0;top:-6px;font-family:var(--serif);font-size:56px;line-height:1;color:var(--tint);color:color-mix(in srgb,var(--c) 22%,#fff)}
+.bvB-m h3{margin:0 70px 10px 0;font-size:21px}.bvB-m h3 a{color:var(--ink);text-decoration:none}.bvB-m h3 a:hover{color:var(--c)}
+.bvB-m h3 small{display:block;font-size:12px;color:var(--c);letter-spacing:.06em;margin-bottom:2px}
+/* C */
+.bvC-wall{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;grid-auto-flow:dense;gap:12px}
+.bvC-title{grid-column:span 2;grid-row:span 2;background:linear-gradient(145deg,var(--c),var(--dark));color:#fff;border-radius:22px;padding:34px;display:flex;flex-direction:column;justify-content:flex-end}
+.bvC-title .ic svg{width:60px;height:60px;margin-bottom:auto}
+.bvC-title h1{font-size:64px;line-height:1;margin:6px 0 10px}.bvC-title p{margin:0;font-size:16.5px;color:rgba(255,255,255,.92)}
+.bvC-title .eyebrow{color:rgba(255,255,255,.7)}
+.bvC-t{position:relative;border-radius:20px;overflow:hidden;background-size:cover;background-position:center;color:#fff;display:flex;align-items:flex-end}
+.bvC-t.t0{grid-column:span 2}
+.bvC-t::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.88) 5%,rgba(0,0,0,.25) 65%,rgba(0,0,0,.05));transition:background .2s}
+.bvC-t:hover::before{background:linear-gradient(0deg,rgba(0,0,0,.92) 10%,rgba(0,0,0,.5))}
+.bvC-t .in{position:relative;padding:16px 18px;width:100%}
+.bvC-t .h{display:block;color:#fff;text-decoration:none;font-weight:800;font-size:18px;line-height:1.2;margin-bottom:6px}.bvC-t .h small{display:block;font-size:11.5px;opacity:.8;letter-spacing:.06em;margin-bottom:2px}
+.bvC-t p{margin:0;display:flex;flex-wrap:wrap;gap:2px 12px;font-size:12px;line-height:1.5}
+.bvC-t p a{color:rgba(255,255,255,.88);text-decoration:none}.bvC-t p a:hover{color:#fff;text-decoration:underline}.bvC-t p a.bvpl{opacity:.6}
+.bvC-t em{font-style:normal;font-size:10px;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:0 5px}
+.bv-c .bv-note{margin:0 0 6px}
+.bvC-mag{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:26px;padding-top:28px;border-top:3px double var(--c)}
+.bvC-col h2{font-family:var(--serif);font-weight:400;font-size:34px;color:var(--c);margin:0 0 10px}
+.bvC-col p{font-size:15.5px;color:var(--ink-2)}
+.bvC-col:first-child h2+p::first-letter{float:left;font-family:var(--serif);font-size:70px;line-height:.82;padding:6px 10px 0 0;color:var(--c)}
+/* D */
+.bvD-head{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;background:linear-gradient(135deg,var(--c),var(--dark));color:#fff;border-radius:22px;padding:30px 34px}
+.bvD-head .ic svg{width:78px;height:78px}.bvD-head h1{font-size:50px;line-height:1.05}.bvD-head p{margin:6px 0 0;font-size:16px;color:rgba(255,255,255,.9)}
+.bvD-head .eyebrow{color:rgba(255,255,255,.7)}.bvD-head .bv-stats{margin:0;flex-direction:column;align-items:stretch}.bvD-head .bv-stats li{justify-content:space-between}
+.bvD-cols{display:grid;grid-template-columns:minmax(320px,.8fr) 1.4fr;gap:24px;margin-top:22px;align-items:start}
+.bvD-about{padding:6px 26px 22px}.bvD-about h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:20px 0 8px}.bvD-about p{font-size:15px;color:var(--ink-2)}
+.bvD-md{padding:22px 22px 24px}.bvD-top h2{margin:0 0 4px;font-size:24px;color:var(--c)}
+.bvD-pills{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.bvD-p{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;font:600 13px var(--sans);cursor:pointer;transition:background .15s}
+.bvD-p b{color:var(--c);font-size:12px}.bvD-p:hover{background:var(--tint)}
+.bvD-p.on{background:var(--c);color:#fff;border-color:var(--c)}.bvD-p.on b{color:#fff}
+.bvD-img{position:relative;height:250px;border-radius:18px;background-size:cover;background-position:center;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:22px;overflow:hidden}
+.bvD-img::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,.05) 70%)}
+.bvD-img>*{position:relative}.bvD-img small{font-weight:700;letter-spacing:.08em;opacity:.85}.bvD-img h3{margin:2px 0 0;font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.05}
+.bvD-go{flex:none;background:#fff;color:var(--dark);font-weight:700;font-size:13.5px;text-decoration:none;padding:10px 16px;border-radius:999px}.bvD-go:hover{background:var(--tint)}
+.bvD-subs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.bvD-subs a{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:var(--tint);color:var(--ink);text-decoration:none;font-weight:600;font-size:14.5px;transition:transform .15s,background .15s}
+.bvD-subs a b{color:var(--c);font-size:12.5px;min-width:48px}.bvD-subs a span{flex:1}.bvD-subs a i{font-style:normal;color:var(--c);transition:transform .15s}
+.bvD-subs a:hover{background:#fff;box-shadow:0 0 0 2px var(--c)}.bvD-subs a:hover i{transform:translateX(3px)}
+.bvD-subs a.bvpl{background:#F0F1EF;color:#8A938F}
+@media (max-width:900px){
+  .bvA-tx{padding:26px 22px}.bvA-tx h1{font-size:46px}.bvA-ph{grid-template-columns:repeat(2,1fr)}.bvA-about{grid-template-columns:1fr}
+  .bvB-head h1{font-size:54px}.bvB-cols{grid-template-columns:1fr}.bvB-side{position:static}.bvB-r{grid-template-columns:96px 1fr;gap:14px}.bvB-th{height:84px}.bvB-n{font-size:38px}.bvB-wm svg{width:180px;height:180px}
+  .bvC-wall{grid-template-columns:1fr 1fr;grid-auto-rows:auto}.bvC-t{min-height:210px}.bvC-title{grid-column:1/-1;grid-row:auto;min-height:0;justify-content:flex-start}.bvC-title .ic svg{margin-bottom:18px;width:48px;height:48px}.bvC-t.t0{grid-column:1/-1}.bvC-title h1{font-size:48px}.bvC-mag{grid-template-columns:1fr;gap:20px}
+  .bvD-head{grid-template-columns:1fr;padding:24px 22px}.bvD-head h1{font-size:40px}.bvD-head .bv-stats{flex-direction:row;flex-wrap:wrap}.bvD-cols{grid-template-columns:1fr}.bvD-subs{grid-template-columns:1fr}.bvD-img{height:210px;flex-direction:column;align-items:flex-start;justify-content:flex-end}.bvD-img h3{font-size:30px}
+}
+@media (max-width:560px){.bvC-wall{grid-template-columns:1fr}.bvC-t{min-height:230px}}
+/* indicator page layout proposals */
+.ia-prog,.ib-tabs{display:none}
+/* A: guided steps */
+.ilay-a .tabs{display:none}
+.ilay-a .ia-prog{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;scroll-margin-top:90px}
+.ilay-a .ia-prog button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:10px 12px 12px;border:0;border-radius:12px;background:var(--tint);color:var(--ink-2);font:600 13px var(--sans);cursor:pointer;text-align:left;overflow:hidden}
+.ilay-a .ia-prog button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.ilay-a .ia-prog button.done::after,.ilay-a .ia-prog button.on::after{transform:scaleX(1)}
+.ilay-a .ia-prog button i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--c);font-size:12px;font-weight:800}
+.ilay-a .ia-prog button.on{background:var(--c);color:#fff}.ilay-a .ia-prog button.on i{background:#fff;color:var(--c)}
+.ilay-a .ia-prog button.done i{background:var(--c);color:#fff}
+.ilay-a .ia-prog button:hover:not(.on){background:color-mix(in srgb,var(--c) 18%,#fff)}
+.ilay-a .ph-strip{height:150px}
+.ilay-a .sec-h h2{font-size:26px}
+.ilay-a .prose{font-size:17.5px;line-height:1.7}
+.ilay-a .ia-nav{display:flex;justify-content:space-between;gap:12px}
+.ilay-a .ia-nav button{border:0;border-radius:999px;padding:13px 22px;font:700 14.5px var(--sans);cursor:pointer;transition:transform .15s}
+.ilay-a .ia-nav .back{background:var(--tint);color:var(--c)}
+.ilay-a .ia-nav .next{background:var(--c);color:#fff;margin-left:auto;box-shadow:0 8px 18px color-mix(in srgb,var(--c) 40%,transparent)}
+.ilay-a .ia-nav button:hover{transform:translateY(-2px)}
+.ilay-a .notes{opacity:.9}
+/* B: workspace */
+@media (min-width:1000px){
+  body.ilay-b{overflow:hidden}
+  .ilay-b .crumbs,.ilay-b .band-credit,.ilay-b .tabs,.ilay-b .band-title .meta{display:none}
+  .ilay-b .band-in{padding:8px 20px}
+  .ilay-b .band-main{margin-top:0;display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:4px}
+  .ilay-b .band-main-l{padding:6px 14px!important}
+  .ilay-b .band-main-l{flex:1 1 100%;min-width:0;gap:12px}
+  .ilay-b .band-title{flex:1;min-width:0}
+  .ilay-b .band-icon{width:40px;height:40px}
+  .ilay-b .band-title h1{font-size:23px;margin:2px 0 0}
+  .ilay-b .band-title .code{font-size:11px}
+  .ilay-b .sibs-wrap{flex:1 1 100%;min-width:0;padding-bottom:6px}
+  .ilay-b .sibs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
+  .ilay-b .sibs a{flex:none;white-space:nowrap}.ilay-b .sibs a span{display:block;-webkit-line-clamp:unset}
+  .ilay-b .layout.ind{max-width:none;height:calc(100vh - var(--hdr,150px));padding:14px 18px;gap:18px;grid-template-columns:minmax(400px,.85fr) minmax(0,1.3fr);align-items:stretch;overflow:hidden}
+  .ilay-b #left,.ilay-b #right{height:100%;min-height:0;overflow-y:auto;position:static;padding-right:6px;scrollbar-width:thin}
+  .ilay-b .ib-tabs{display:flex;gap:6px;position:sticky;top:0;z-index:5;background:var(--bg,#F7F3EB);padding:2px 0 10px}
+  .ilay-b .ib-tabs a{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink);font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap}
+  .ilay-b .ib-tabs a i{font-style:normal;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--c);color:#fff;font-size:10.5px}
+  .ilay-b .ib-tabs a:hover{background:var(--tint)}
+  .ilay-b .ph-strip{height:70px}
+  .ilay-b .sec{scroll-margin-top:52px}
+}
+/* C: chart stage */
+body.ilay-c{overflow-x:hidden}
+.ilay-c .tabs,.ilay-c .ph-strip{display:none}
+.ilay-c .layout.ind{grid-template-columns:minmax(0,1fr);justify-items:center;gap:34px;padding-top:0}
+.ilay-c .layout.ind #right{order:-1;position:relative;top:auto;z-index:0;width:100%;max-width:1180px;padding:36px 0 40px}
+.ilay-c .layout.ind #right::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);background:linear-gradient(180deg,color-mix(in srgb,var(--dark) 72%,transparent),color-mix(in srgb,var(--dark) 94%,transparent)),var(--ilphoto,none) center/cover}
+.ilay-c #right .mpanel,.ilay-c #right .dash{box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.ilay-c #left{width:100%;max-width:1180px;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:22px;align-items:start}
+.ilay-c .pair{display:contents}
+.ilay-c #s-obs{grid-column:1;grid-row:1/span 3}
+.ilay-c #s-about{grid-column:2;grid-row:1}.ilay-c #s-lim{grid-column:2;grid-row:2}.ilay-c #s-opp{grid-column:2;grid-row:3}
+.ilay-c .notes,.ilay-c .pn{grid-column:1/-1}
+.ilay-c .sec{border-left:6px solid var(--c)}
+.ilay-c #s-lim{border-left-color:#8A6A2E}.ilay-c #s-opp{border-left-color:#1E7A55}
+.ilay-c #s-obs .sec-h h2{font-family:var(--serif);font-weight:400;font-size:30px}
+.ilay-c #s-obs .prose{font-size:18px;line-height:1.72}
+.ilay-c #s-about,.ilay-c #s-lim,.ilay-c #s-opp{background:color-mix(in srgb,var(--tint) 55%,#fff)}
+@media (max-width:900px){
+  .ilay-a .ia-prog{grid-template-columns:1fr 1fr}
+  .ilay-c #left{grid-template-columns:1fr}.ilay-c #left>*{grid-column:1!important;grid-row:auto!important}
+}
 .cv-links{display:flex;gap:6px 14px;flex-wrap:wrap;margin-top:14px;font-size:13px}
 .cv-links a{color:rgba(255,255,255,.9);text-decoration:underline;text-underline-offset:3px}
 .cv-links a:hover{color:#fff}
@@ -1058,12 +1233,86 @@ function blockMosaic(b) {      // one photo per indicator of the block, each lin
   return tiles ? `<div class="mz mz-${b.indicators.length}" aria-label="Indicators of this block">${tiles}</div>` : '';
 }
 
+
+/* ---------- block page layout proposals (open with ?layout=a|b|c|d before the #) ---------- */
+const bp = (c, n) => { const f = ((DATA.bandPhotos || {})[c] || [])[n || 0], P = f && DATA.photoLib[f]; return P ? P.src : ''; };
+const bvChips = i => i.groups.map(g => `<a class="bv-chip${g.planned ? ' bvpl' : ''}" href="#/indicator/${i.code}${g.metrics[0] ? '/' + g.metrics[0].page : ''}"${g.planned ? ' title="Planned: no data yet"' : ''}><b>${esc(dotc(g.code))}</b><span>${esc(g.name)}</span>${g.planned ? '<em>planned</em>' : ''}</a>`).join('');
+const bvStats = b => { const L = b.indicators.map(c => I[c]), nSub = L.reduce((n, i) => n + i.groups.length, 0), nPl = L.reduce((n, i) => n + i.groups.filter(g => g.planned).length, 0);
+  return `<ul class="bv-stats"><li><b>${b.indicators.length}</b>indicators</li><li><b>${nSub}</b>sub-indicators</li><li><b>${b.metrics}</b>metrics</li>${nPl ? `<li><b>${nPl}</b>planned</li>` : ''}</ul>`; };
+const bvAbout = b => { const t = b.text || {about: [], scope: []};
+  return {about: `<h2>About this block</h2>${t.about.map(p => `<p>${esc(p)}</p>`).join('')}`, scope: `<h2>What is new in Index 2.0</h2>${t.scope.map(p => `<p>${esc(p)}</p>`).join('')}`}; };
+const bvNote = '<p class="bv-note">Select an indicator or a sub-indicator to open its page, with the data, charts and analysis. Grey items are planned and have no data yet.</p>';
+
+const BV = {
+  a(b) {      // cinematic hero, about in two columns, indicator cards
+    const ph = b.indicators.slice(0, 4).map(c => bp(c, 0)).filter(Boolean), A = bvAbout(b);
+    const cards = b.indicators.map(c => I[c]).map(i => `<article class="bvA-card"><a class="bvA-img" href="#/indicator/${i.code}" style="background-image:url(${bp(i.code, 0)})"><span class="code">${esc(i.code)}</span></a>
+      <div class="bvA-b"><h3><a href="#/indicator/${i.code}">${esc(i.title)}</a></h3><div class="bv-chips">${bvChips(i)}</div></div></article>`).join('');
+    return `<section class="bvA-hero o1"><div class="bvA-ph">${ph.map(x => `<i style="background-image:url(${x})"></i>`).join('')}</div>
+      <div class="bvA-tx"><span class="ic">${b.icon}</span><div class="eyebrow">Block</div><h1>${esc(b.name)}</h1><p>${esc(b.intro)}</p>${bvStats(b)}</div></section>
+      ${blockButtons(b, '')}
+      <section class="bvA-about o2"><div class="bvA-l">${A.about}</div><div class="bvA-r">${A.scope}</div></section>
+      <div class="bv-h o3"><h2>Indicators</h2>${bvNote}</div><section class="bvA-grid o3">${cards}</section>`;
+  },
+  b(b) {      // editorial: light header, sticky text column, numbered list
+    const A = bvAbout(b), L = b.indicators.map(c => I[c]);
+    const rows = L.map((i, k) => `<li class="bvB-r"><a class="bvB-th" href="#/indicator/${i.code}" style="background-image:url(${bp(i.code, 0)})" aria-label="${esc(i.title)}"></a>
+      <div class="bvB-m"><span class="bvB-n">${String(k + 1).padStart(2, '0')}</span><h3><a href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a></h3><div class="bv-chips">${bvChips(i)}</div></div></li>`).join('');
+    return `<header class="bvB-head o1"><div class="bvB-wm" aria-hidden="true">${b.icon}</div><div class="eyebrow">Block &middot; ${b.indicators.length} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p></header>
+      ${blockButtons(b, '')}
+      <div class="bvB-cols o2"><aside class="bvB-side"><figure style="background-image:url(${bp(L[0].code, 1) || bp(L[0].code, 0)})"></figure><div class="bvB-txt">${A.about}${A.scope}</div></aside>
+      <div class="bvB-list"><div class="bv-h"><h2>Indicators</h2>${bvNote}</div><ol>${rows}</ol></div></div>`;
+  },
+  c(b) {      // bento wall of photo tiles, text as a magazine spread
+    const A = bvAbout(b), L = b.indicators.map(c => I[c]);
+    const tiles = L.map((i, k) => `<article class="bvC-t t${k}" style="background-image:url(${bp(i.code, 0)})"><div class="in"><a class="h" href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a>
+      <p>${i.groups.map(g => `<a href="#/indicator/${i.code}${g.metrics[0] ? '/' + g.metrics[0].page : ''}"${g.planned ? ' class="bvpl" title="Planned: no data yet"' : ''}>${esc(dotc(g.code))} ${esc(g.name)}${g.planned ? ' <em>planned</em>' : ''}</a>`).join('')}</p></div></article>`).join('');
+    return `<section class="bvC-wall o1"><div class="bvC-title"><span class="ic">${b.icon}</span><div class="eyebrow">Block</div><h1>${esc(b.name)}</h1><p>${esc(b.intro)}</p>${bvStats(b)}</div>${tiles}</section>
+      ${blockButtons(b, '')}${bvNote}
+      <section class="bvC-mag o2"><div class="bvC-col">${A.about}</div><div class="bvC-col">${A.scope}</div></section>`;
+  },
+  d(b) {      // master-detail: pick an indicator, see its photo and sub-indicators
+    const A = bvAbout(b), L = b.indicators.map(c => I[c]);
+    const pills = L.map((i, k) => `<button type="button" class="bvD-p${k ? '' : ' on'}" data-k="${k}" aria-selected="${k ? 'false' : 'true'}"><b>${esc(i.code)}</b><span>${esc(i.title)}</span></button>`).join('');
+    const panes = L.map((i, k) => `<div class="bvD-pane" data-k="${k}"${k ? ' hidden' : ''}><div class="bvD-img" style="background-image:url(${bp(i.code, 0)})"><div><small>${esc(i.code)}</small><h3>${esc(i.title)}</h3></div><a class="bvD-go" href="#/indicator/${i.code}">Open the indicator &rarr;</a></div>
+      <div class="bvD-subs">${i.groups.map(g => `<a href="#/indicator/${i.code}${g.metrics[0] ? '/' + g.metrics[0].page : ''}"${g.planned ? ' class="bvpl" title="Planned: no data yet"' : ''}><b>${esc(dotc(g.code))}</b><span>${esc(g.name)}${g.planned ? '<em>planned</em>' : ''}</span><i aria-hidden="true">&rarr;</i></a>`).join('')}</div></div>`).join('');
+    return `<section class="bvD-head o1"><span class="ic">${b.icon}</span><div><div class="eyebrow">Block</div><h1>${esc(b.name)}</h1><p>${esc(b.intro)}</p></div>${bvStats(b)}</section>
+      ${blockButtons(b, '')}
+      <div class="bvD-cols o2"><section class="card bvD-about">${A.about}${A.scope}</section>
+      <section class="card bvD-md"><div class="bvD-top"><h2>Indicators</h2>${bvNote}</div><div class="bvD-pills" role="tablist">${pills}</div>${panes}</section></div>`;
+  }
+};
+function viewBlockVariant(b, lay) {
+  $('#left').style.display = 'none'; $('#right').style.display = 'none'; $('#dash').style.display = 'none';
+  $('#wide').innerHTML = `<nav class="crumbs big o1"><a href="#/explore">Explore</a><span>&rsaquo;</span><span>${esc(b.name)}</span></nav><div class="bv bv-${lay}">${BV[lay](b)}</div>`;
+  document.querySelectorAll('.bvD-p').forEach(btn => btn.onclick = () => {
+    document.querySelectorAll('.bvD-p').forEach(x => { const on = x === btn; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); });
+    document.querySelectorAll('.bvD-pane').forEach(x => x.hidden = x.dataset.k !== btn.dataset.k);
+  });
+}
+const BV_CHOICES = [['cur', 'Current'], ['a', 'A · Hero & cards'], ['b', 'B · Editorial'], ['c', 'C · Photo wall']];
+function bvChoice() {
+  let v = new URLSearchParams(location.search).get('layout');
+  if (!v) { try { v = localStorage.getItem('niafp-block-layout'); } catch (e) {} }
+  return BV_CHOICES.some(x => x[0] === v) || v === 'd' ? v : 'cur';
+}
+function bvSwitcher(key, lay) {      // lets visitors try the block page layouts; the choice is remembered in the browser
+  const old = document.getElementById('bvsw'); if (old) old.remove();
+  const el = document.createElement('div'); el.id = 'bvsw'; el.setAttribute('role', 'group'); el.setAttribute('aria-label', 'Block page layout');
+  el.innerHTML = '<span>Block page layout: pick the one you prefer</span>' + BV_CHOICES.map(([k, t]) => `<button type="button" data-k="${k}" class="${k === lay ? 'on' : ''}" aria-pressed="${k === lay}">${t}</button>`).join('');
+  el.onclick = e => { const bt = e.target.closest('button'); if (!bt) return; try { localStorage.setItem('niafp-block-layout', bt.dataset.k); } catch (x) {}
+    if (new URLSearchParams(location.search).get('layout')) history.replaceState(null, '', location.pathname + location.hash); route(); window.scrollTo({top: 0, behavior: 'instant'}); };
+  document.body.appendChild(el);
+}
+
 function viewBlock(key, sub) {
   const b = B[key]; if (!b) return viewHome();
   const V = BLOCK_VIEWS[sub];
   setTheme(b); renderNav(key);
   $('#band').className = 'band';
   $('#wide').style.display = 'block';
+  const lay = bvChoice();
+  if (!V) { bvSwitcher(key, lay); if (BV[lay]) return viewBlockVariant(b, lay); }
   const crumbs = `<nav class="crumbs big o1"><a href="#/explore">Explore</a><span>&rsaquo;</span>` +
     (V ? `<a href="#/block/${key}">${esc(b.name)}</a><span>&rsaquo;</span><span>${esc(V.label)}</span>` : `<span>${esc(b.name)}</span>`) + `</nav>`;
   const head = V
@@ -1162,8 +1411,58 @@ function viewIndicator(code, metricPage) {
   showSec('s-obs');
   const rm = $('#rm');
   if (rm) rm.onclick = () => { $('#obs').classList.remove('closed'); rm.remove(); };
+  applyILayout(i, b, PHS);
   const chosen = renderMetrics(i, metricPage);
   setDashboard(chosen.page, `${i.code} ${i.title} · ${chosen.code}`, MTIP(i), chosen.src, chosen.smooth, chosen.about);
+}
+
+
+/* ---------- indicator page layout proposals (open with ?ilayout=a|b|c before the #) ---------- */
+function ilFit() {      // workspace layout: height left under the top bar and the slim header
+  const t = document.querySelector('.topbar'), bd = document.getElementById('band');
+  document.body.style.setProperty('--hdr', ((t ? t.offsetHeight : 68) + (bd ? bd.offsetHeight : 0)) + 'px');
+}
+function applyILayout(i, b, PHS) {
+  const lay = new URLSearchParams(location.search).get('ilayout');
+  if (!lay) return;
+  const old = document.getElementById('bvsw'); if (old) old.remove();
+  const sw = document.createElement('div'); sw.id = 'bvsw';
+  sw.innerHTML = '<span>Indicator page layout</span>' + [['cur', 'Current'], ['a', 'A · Guided steps'], ['b', 'B · Workspace'], ['c', 'C · Chart stage']].map(([k, t]) =>
+    `<a href="?ilayout=${k}${location.hash}" class="${k === lay ? 'on' : ''}">${t}</a>`).join('') + '<span class="sp"></span>' +
+    ['EN.1', 'EC.1', 'FI.1', 'SW.1'].filter(c => I[c]).map(c => `<a href="?ilayout=${lay}#/indicator/${c}" class="${c === i.code ? 'on' : ''}">${c}</a>`).join('');
+  document.body.appendChild(sw);
+  if (!['a', 'b', 'c'].includes(lay)) return;
+  document.body.classList.add('ilay-' + lay);
+  const band = $('#band');
+  const SECS = [['s-about', 'About'], ['s-obs', 'Current observations'], ['s-lim', 'Limitations'], ['s-opp', 'Opportunities']];
+  const showAll = () => SECS.forEach(([id]) => { const el = document.getElementById(id); if (el) el.style.display = ''; });
+  if (lay === 'a') {          // guided steps: one section at a time, with progress and Back / Next
+    const nx = I[DATA.order[DATA.order.indexOf(i.code) + 1]];
+    $('#left').insertAdjacentHTML('afterbegin', `<nav class="ia-prog" id="iaProg" aria-label="Reading steps">${SECS.map(([id, t], k) => `<button type="button" data-k="${k}"><i>${k + 1}</i><span>${t}</span></button>`).join('')}</nav>`);
+    $('#left .pair').insertAdjacentHTML('afterend', '<div class="ia-nav" id="iaNav"><button type="button" class="back" id="iaBack"></button><button type="button" class="next" id="iaNext"></button></div>');
+    let cur = 0;
+    const step = (k, scroll) => {
+      cur = k;
+      const tab = band.querySelector(`[data-go="${SECS[k][0]}"]`); if (tab) tab.click();
+      document.querySelectorAll('#iaProg button').forEach((x, n) => { x.classList.toggle('on', n === k); x.classList.toggle('done', n < k); x.setAttribute('aria-current', n === k ? 'step' : 'false'); });
+      $('#iaBack').style.visibility = k ? 'visible' : 'hidden'; $('#iaBack').textContent = k ? '\u2190 ' + SECS[k - 1][1] : '';
+      $('#iaNext').textContent = k < 3 ? 'Next: ' + SECS[k + 1][1] + ' \u2192' : (nx ? 'Next indicator: ' + nx.title + ' \u2192' : 'Back to the block \u2192');
+      if (scroll) { const t = $('#iaProg'); t.scrollIntoView({behavior: 'smooth', block: 'start'}); }
+    };
+    document.querySelectorAll('#iaProg button').forEach(x => x.onclick = () => step(+x.dataset.k, true));
+    $('#iaBack').onclick = () => step(cur - 1, true);
+    $('#iaNext').onclick = () => { if (cur < 3) step(cur + 1, true); else location.hash = nx ? '#/indicator/' + nx.code : '#/block/' + b.key; };
+    step(0, false);
+  } else if (lay === 'b') {   // workspace: two panes that scroll on their own, no page scroll
+    showAll();
+    $('#left').insertAdjacentHTML('afterbegin', `<nav class="ib-tabs">${SECS.map(([id, t], k) => `<a href="#" data-id="${id}"><i>${k + 1}</i>${t}</a>`).join('')}</nav>`);
+    document.querySelectorAll('.ib-tabs a').forEach(a => a.onclick = e => { e.preventDefault(); const el = document.getElementById(a.dataset.id); if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'}); });
+    ilFit(); setTimeout(ilFit, 400); setTimeout(ilFit, 1500);
+    if (!window._ilR) { window._ilR = 1; addEventListener('resize', () => { if (document.body.classList.contains('ilay-b')) ilFit(); }); }
+  } else if (lay === 'c') {   // chart stage: the dashboard on a photo, the story in a board below
+    showAll();
+    const ph = (PHS && PHS[2]) || (PHS && PHS[0]); if (ph) document.body.style.setProperty('--ilphoto', `url(${ph.src})`);
+  }
 }
 
 // Photo layouts for the lower sections (comparison build): ?look=divider | background | strips | off
@@ -1460,6 +1759,7 @@ addEventListener('keydown', e => {
 
 function route() {
   CUR_METRIC = null;
+  { const sw = document.getElementById('bvsw'); if (sw) sw.remove(); const t = document.getElementById('idTiles'); if (t) t.remove(); document.body.className = document.body.className.replace(/\bilay-\w+/g, '').trim(); document.body.style.removeProperty('--ilphoto'); document.body.style.removeProperty('--hdr'); }
   $('#layout').classList.remove('ind');
   document.body.classList.toggle('ind-page', location.hash.replace(/^#\/?/, '').split('/')[0] === 'indicator');
   document.body.classList.remove('home-page');
@@ -1483,18 +1783,5 @@ route();
 </script>
 
 
-<style>
-.versw{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:4px;background:#fff;border:1px solid rgba(0,0,0,.14);border-radius:999px;
-  padding:5px;box-shadow:0 4px 14px rgba(0,0,0,.2);font:600 12.5px/1 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#333}
-.versw span{opacity:.75;margin:0 4px 0 9px}
-.versw a{display:inline-grid;place-items:center;padding:0 13px;height:30px;border-radius:999px;color:#333;text-decoration:none;font-weight:700}
-.versw a:hover{background:rgba(0,0,0,.08)}
-.versw a.on{background:#222;color:#fff}
-@media (max-width:700px){.versw span{display:none}}
-</style>
-<div class="versw" id="versw" role="group" aria-label="Website version"><span>Version</span>
-<a href="version1.html" data-n="1">1 &middot; Classic</a><a href="version2.html" data-n="2">2 &middot; Cover page</a></div>
-<script>(function(){var cur="2";document.querySelectorAll('#versw a').forEach(function(a){if(a.dataset.n===cur){a.className='on';a.setAttribute('aria-current','page');}
-a.addEventListener('click',function(e){e.preventDefault();location.href=a.getAttribute('href')+location.hash;});});})();</script>
 </body>
 </html>
