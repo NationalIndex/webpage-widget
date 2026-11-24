@@ -641,6 +641,94 @@ body.ilay-c{overflow-x:hidden}
   .ilay-a .ia-prog{grid-template-columns:1fr 1fr}
   .ilay-c #left{grid-template-columns:1fr}.ilay-c #left>*{grid-column:1!important;grid-row:auto!important}
 }
+/* ---- overview page */
+.ov-hero{position:relative;border-radius:22px;overflow:hidden;color:#fff;padding:22px 34px 32px;background:linear-gradient(135deg,rgba(18,50,38,.95),rgba(18,50,38,.82)),var(--hp,none) center/cover,var(--navy)}
+.ov-hero .crumbs,.ov-hero .crumbs a{color:rgba(255,255,255,.8)}
+.ov-ht{margin:0 0 4px}
+.ov-ht h1{margin:0;font-family:var(--serif);font-weight:400;font-size:48px;line-height:1.02;letter-spacing:-.01em}
+.ov-ht .lead{margin:10px 0 0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.9)}
+.ov-stats{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:16px 0 0;padding:0}
+.ov-stats li{display:flex;align-items:baseline;gap:7px;padding:7px 14px;border-radius:12px;background:rgba(255,255,255,.14);font-size:12.5px}
+.ov-stats b{font-size:21px;font-weight:800}
+.ov-doors{display:grid;grid-template-columns:minmax(300px,420px) minmax(0,1fr);gap:22px;align-items:stretch;margin-top:12px}
+.ov-left{display:flex;flex-direction:column;gap:16px}
+.ov-quad{min-width:0;display:flex;flex-direction:column}
+.ov-qh{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px}
+.ov-qh h2{margin:0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9BD3AE}
+.ov-quad .xblocks.ov-blocks{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ov-quad .xseg{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+.ov-quad .xseg button{color:rgba(255,255,255,.85)}.ov-quad .xseg button.on{background:#fff;color:var(--navy)}
+.ov-door{border-radius:18px;padding:22px 24px;display:flex;flex-direction:column}
+.ov-door.new{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28)}
+.ov-door.pro{background:#fff;color:var(--ink)}
+.ov-k{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.ov-door.pro .ov-k{color:var(--navy);opacity:1}
+.ov-door h2{margin:4px 0 14px;font-size:24px}
+.ov-steps{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:12px}
+.ov-steps li{display:flex;gap:12px;align-items:flex-start}
+.ov-steps i{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;color:var(--navy);font-style:normal;font-weight:800;font-size:13px}
+.ov-steps b{display:block;font-size:15px}.ov-steps span{display:block;font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.85)}
+.ov-btn{align-self:flex-start;margin-top:auto;display:inline-block;background:#fff;color:var(--navy);font-weight:700;font-size:14.5px;text-decoration:none;padding:11px 20px;border-radius:999px}
+.ov-btn:hover{box-shadow:0 8px 20px rgba(0,0,0,.28)}
+.ov-door.pro .hsearch{margin:0;max-width:none;box-shadow:none;background:#F5F6F4}
+.ov-hint{margin:10px 2px 14px;font-size:13px;color:var(--ink-3)}
+.ov-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.ov-chips a{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none}
+.ov-chips a:hover{background:var(--line-2)}
+.ov-chips a i{width:10px;height:10px;border-radius:3px;background:var(--c)}
+.ov-chips a:first-child{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ov-sec{margin-top:34px}
+.ov-sh{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.ov-sh h2{margin:0;font-size:26px}.ov-sh p{margin:4px 0 0;color:var(--ink-2);font-size:15px;max-width:720px}
+.ov-more{font-weight:700;font-size:14px;color:var(--navy);text-decoration:none;white-space:nowrap}.ov-more:hover{text-decoration:underline}
+.xblocks.ov-blocks{align-items:stretch}
+.xblocks .ov-b{padding:0;overflow:hidden;border-top-width:0;display:flex;flex-direction:column}
+.ov-bh{position:relative;display:block;height:150px;background:var(--c) center/cover;text-decoration:none;color:#fff}
+.ov-bh::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,color-mix(in srgb,var(--dark) 92%,transparent) 5%,color-mix(in srgb,var(--c) 30%,transparent) 75%)}
+.ov-bs{position:absolute;left:14px;right:14px;bottom:12px;display:flex;align-items:center;gap:11px}
+.ov-bs .xb-ic{width:44px;height:44px}.ov-bs .xb-ic svg,.ov-bs .xb-ic img{width:44px;height:44px}
+.ov-b .ov-bs b{color:#fff;font-size:19px}.ov-b .ov-bs small{color:rgba(255,255,255,.9)}
+.ov-bh:hover .xb-t b{text-decoration:underline}
+.ov-hero .crumbs.big,.ov-hero .crumbs.big a{color:rgba(255,255,255,.85)!important}
+.ov-bb{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.ov-b .ov-bb p{margin:0 0 10px}
+.ov-bb ul{flex:1}
+.ov-b li a{align-items:center}
+.ov-th{flex:none;width:34px;height:34px;border-radius:8px;background:var(--tint) center/cover}
+.ov-b li .code{min-width:34px}.ov-b li .tt{flex:1;min-width:0}
+.xblocks.compact .ov-bb ul{display:none}
+.xblocks.ov-blocks.compact{flex:1;grid-template-rows:1fr 1fr}
+.xblocks.compact .ov-b{padding:0;background:#fff}
+.xblocks.compact .ov-b .ov-bb p,.xblocks.compact .ov-b .ov-bb .xb-go{display:block}.xblocks.compact .ov-b .ov-bb{padding:14px 16px 16px}.xblocks.compact .ov-bh{flex:1;height:auto;min-height:170px}.xblocks.compact .ov-bb{flex:none}.xblocks.compact .ov-bb p{margin:0 0 8px}
+.ov-fg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ov-f{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);background:var(--tint);border-left:6px solid var(--c);border-radius:14px;padding:16px 18px;transition:transform .15s,box-shadow .15s}
+.ov-f:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(20,40,30,.16)}
+.ov-f small{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--c)}
+.ov-f .v{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.05;color:var(--ink)}
+.ov-f .n{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.ov-f em{font-style:normal;font-size:12px;color:var(--ink-3)}
+.ov-anat{display:flex;align-items:flex-start;gap:6px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 24px;box-shadow:var(--shadow)}
+.ov-an{flex:1 1 170px;min-width:150px}
+.ov-cd{display:inline-block;font-family:var(--serif);font-size:48px;line-height:1;padding:8px 18px;border-radius:14px;color:#fff}
+.ov-cd.l0{background:var(--navy)}.ov-cd.l1{background:#2F7A5C}.ov-cd.l2{background:#C98B1B}.ov-cd.l3{background:#B5502F}
+.ov-dot{font-family:var(--serif);font-size:48px;line-height:1.2;color:var(--ink-3);padding:8px 0}
+.ov-al{margin-top:8px;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.ov-at{font-size:14px;line-height:1.35;color:var(--ink)}
+.ov-cnt{margin:10px 2px 0;font-size:13px;color:var(--ink-3)}
+.ov-mt{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.ov-mt table{width:100%;border-collapse:collapse;font-size:14px}
+.ov-mt th,.ov-mt td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line-2)}
+.ov-mt thead th{background:var(--bg);vertical-align:bottom}.ov-mt thead small{display:block;font-weight:500;font-size:12px;color:var(--ink-3);margin-top:2px}
+.ov-mt tbody tr:last-child th,.ov-mt tbody tr:last-child td{border-bottom:0}
+.ov-mt tbody th a{display:inline-flex;align-items:center;gap:9px;color:var(--ink);font-weight:700;text-decoration:none}
+.ov-mt tbody th i{width:12px;height:12px;border-radius:4px;background:var(--c)}
+.ov-mt td a{display:inline-block;color:var(--c);font-weight:700;text-decoration:none;padding:6px 12px;border-radius:999px;background:color-mix(in srgb,var(--c) 10%,#fff)}
+.ov-mt td a:hover{background:color-mix(in srgb,var(--c) 22%,#fff)}
+@media (max-width:1180px){.ov-fg{grid-template-columns:1fr 1fr}}
+@media (max-width:1000px){.ov-doors{grid-template-columns:1fr}.xblocks.ov-blocks.compact{grid-template-rows:none}}
+@media (max-width:700px){.ov-quad .xblocks.ov-blocks{grid-template-columns:1fr}}
+@media (max-width:900px){.ov-hero{padding:18px 18px 22px}.ov-ht h1{font-size:40px}.ov-doors{grid-template-columns:1fr}.ov-an{flex:1 1 44%}.ov-dot{display:none}}
+@media (max-width:560px){.ov-fg{grid-template-columns:1fr}.ov-mt th,.ov-mt td{padding:12px 10px}}
 .cv-links{display:flex;gap:6px 14px;flex-wrap:wrap;margin-top:14px;font-size:13px}
 .cv-links a{color:rgba(255,255,255,.9);text-decoration:underline;text-underline-offset:3px}
 .cv-links a:hover{color:#fff}
@@ -1095,47 +1183,56 @@ function viewHome() {
 function viewExplore() {
   setTheme(null); renderNav('explore');
   $('#band').className = 'band';
-  const nInd = Object.keys(I).length;
-  const first = DATA.blocks[0] ? DATA.blocks[0].key : '';
-  const stripe = DATA.blocks.map(b => b.color).join(',');
-  const tiles = DATA.blocks.map(b => `
-    <a class="qt" href="#/block/${b.key}" style="--c:${b.color};--dark:${b.dark};--tint:${b.tint}">
-      <span class="qi">${b.icon}</span><b>${esc(b.name)}</b><span class="qn">${b.indicators.length} indicators &middot; ${b.metrics} metrics</span>
-      <span class="qg">Explore &rarr;</span>
-    </a>`).join('');
-  const nSub = DATA.order.reduce((n, c) => n + I[c].groups.length, 0);
+  const nInd = Object.keys(I).length, nSub = DATA.order.reduce((n, c) => n + I[c].groups.length, 0);
   const ex = (() => { const c = DATA.order[0], g = I[c] && I[c].groups.find(g => g.metrics.length); return g ? {i: I[c], g, m: g.metrics[0]} : null; })();
-  const paths = `<section class="paths o2" aria-label="Where to start"><h2>Where would you like to start?</h2><div class="pg3">
-      <a class="path" href="#/guide"><b>New to the Index?</b><span>A short guide: what it measures, how it is organised and how to read a page.</span><em>Read the guide &rarr;</em></a>
-      <a class="path" href="#/metrics"><b>Know what you are looking for?</b><span>Search by name or code (press <kbd>/</kbd>), or scan all ${TOTAL_METRICS} metrics with their latest values.</span><em>Open the metric list &rarr;</em></a>
-      <a class="path" href="#/block/${first}"><b>Prefer to explore by topic?</b><span>Pick one of the four blocks, then an indicator, to see its story and its interactive dashboard.</span><em>Start with ${esc(DATA.blocks[0] ? DATA.blocks[0].name : 'a block')} &rarr;</em></a></div></section>`;
-  const flow = `<section class="flowsec o2" aria-label="How the Index fits together"><div class="fs-h"><h2>How the Index fits together</h2><a href="#/guide">More in the guide &rarr;</a></div><div class="flow">
-      <div><b>${DATA.blocks.length}</b><h4>Blocks</h4><p>The big themes: environment, economy, food integrity and societal well-being.</p></div><i>&rsaquo;</i>
-      <div><b>${nInd}</b><h4>Indicators</h4><p>A question within a block, such as climate change and GHG emissions.</p></div><i>&rsaquo;</i>
-      <div><b>${nSub}</b><h4>Sub-indicators</h4><p>One aspect of an indicator, such as emissions or sequestration.</p></div><i>&rsaquo;</i>
-      <div><b>${TOTAL_METRICS}</b><h4>Metrics</h4><p>A measured series with its unit, years and source. This is what the dashboard charts.</p></div></div>
-      ${ex ? `<p class="flow-ex"><b>Example:</b> ${esc(B[ex.i.block].name)} &rsaquo; ${esc(ex.i.code)} ${esc(ex.i.title)} &rsaquo; ${esc(dotc(ex.g.code))} ${esc(ex.g.name)} &rsaquo; <a href="#/indicator/${ex.i.code}/${ex.m.page}">${esc(ex.m.code)} ${esc(ex.m.name)}</a></p>` : ''}</section>`;
-  const F = DATA.funders;
-  const xhead = `<section class="xhead o1"><nav class="crumbs big"><a href="#/">Home</a><span>&rsaquo;</span><span>Explore</span></nav>
-    <div class="xh-row"><div><h1>Explore the Index</h1><p class="lead">Four blocks, ${nInd} indicators and ${TOTAL_METRICS} metrics. Choose a block, or go straight to an indicator.</p></div>
-    <div class="xh-tools"><div class="hsearch"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg><input id="hsearch" type="search" placeholder="Search a topic or a code, for example &ldquo;soil&rdquo; or EN.1.1.1" autocomplete="off" aria-label="Search the Index"></div>
-      <div class="xseg" role="group" aria-label="Show"><button type="button" class="on" data-v="full">With indicators</button><button type="button" data-v="blocks">Blocks only</button></div></div></div>
-    <div class="xblocks" id="xblocks">${DATA.blocks.map(b => `<article class="xb" style="--c:${b.color};--dark:${b.dark};--tint:${b.tint}">
-      <a class="xb-h" href="#/block/${b.key}"><span class="xb-ic">${b.icon}</span><span class="xb-t"><b>${esc(b.name)}</b><small>${b.indicators.length} indicators &middot; ${b.metrics} metrics</small></span><em aria-hidden="true">&rarr;</em></a>
-      <p>${esc(b.intro)}</p>
-      <ul>${b.indicators.map(c => `<li><a href="#/indicator/${c}"><span class="code">${esc(c)}</span>${esc(I[c].title)}</a></li>`).join('')}</ul>
-      <a class="xb-go" href="#/block/${b.key}">Open the ${esc(b.name)} block &rarr;</a></article>`).join('')}</div></section>`;
-  const partners = F.groups.map(g => `<div class="pg"><div class="pl">${esc(g.label)}</div><div class="pt">${g.logos.map(l => `<span class="pc"><img src="${l.src}" alt="${esc(l.alt)}" style="height:${l.h}px"></span>`).join('')}</div></div>`).join('');
+  const ph = c => { const u = bp(c, 0); return u ? `style="background-image:url(${u})"` : ''; };
+  const heroPh = bp(DATA.order[0], 0);
+  const steps = [['Pick a block', 'Environment, Economic, Food Integrity or Societal Well-Being.'], ['Open an indicator', 'Read its story: what it means, what the data show, where the gaps are.'], ['Use the dashboard', 'Choose a metric, hover the chart, download the data.']];
+  const hero = `<section class="ov-hero o1"${heroPh ? ` style="--hp:url(${heroPh})"` : ''}>
+    <nav class="crumbs big"><a href="#/">Home</a><span>&rsaquo;</span><span>The Index</span></nav>
+    <div class="ov-doors"><div class="ov-left">
+    <div class="ov-ht"><h1>Explore the Index</h1><p class="lead">The sustainability of Canada’s agri-food system, from the farm gate to the retail shelf, in ${DATA.blocks.length} blocks, ${nInd} indicators and ${TOTAL_METRICS} metrics.</p>
+      <ul class="ov-stats"><li><b>${DATA.blocks.length}</b>blocks</li><li><b>${nInd}</b>indicators</li><li><b>${nSub}</b>sub-indicators</li><li><b>${TOTAL_METRICS}</b>metrics</li></ul></div>
+      <div class="ov-door new"><div class="ov-k">New here?</div><h2>Start with the story</h2>
+        <ol class="ov-steps">${steps.map(([t, d], k) => `<li><i>${k + 1}</i><div><b>${t}</b><span>${d}</span></div></li>`).join('')}</ol>
+        <a class="ov-btn" href="#/guide">Read the how-to guide &rarr;</a></div>
+      <div class="ov-door pro"><div class="ov-k">Already know the Index?</div><h2>Go straight to the data</h2>
+        <div class="hsearch"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg><input id="hsearch" type="search" placeholder="A topic or a code, e.g. soil, EN.1.1.1" autocomplete="off" aria-label="Search the Index"></div>
+        <p class="ov-hint">Type a metric code, such as EN.1.1.1, to land on its chart. Press <kbd>/</kbd> to search from any page.</p>
+        <div class="ov-chips"><a href="#/metrics">Browse all ${TOTAL_METRICS} metrics &rarr;</a></div></div>
+    </div>__BLOCKS__</div></section>`;
+  const blocks = `<div class="ov-quad" aria-label="The four blocks"><div class="ov-qh"><h2>Explore by block</h2>
+      <div class="xseg" role="group" aria-label="Show"><button type="button" data-v="full">With indicators</button><button type="button" class="on" data-v="blocks">Blocks only</button></div></div>
+    <div class="xblocks ov-blocks compact" id="xblocks">${DATA.blocks.map(b => `<article class="xb ov-b" style="--c:${b.color};--dark:${b.dark};--tint:${b.tint}">
+      <a class="ov-bh" href="#/block/${b.key}" ${ph(b.indicators[0])}><span class="ov-bs"><span class="xb-ic">${b.icon}</span><span class="xb-t"><b>${esc(b.name)}</b><small>${b.indicators.length} indicators &middot; ${b.metrics} metrics</small></span></span></a>
+      <div class="ov-bb"><p>${esc(b.intro)}</p>
+      <ul>${b.indicators.map(c => `<li><a href="#/indicator/${c}"><i class="ov-th" ${ph(c)}></i><span class="code">${esc(c)}</span><span class="tt">${esc(I[c].title)}</span></a></li>`).join('')}</ul>
+      <a class="xb-go" href="#/block/${b.key}">Open the ${esc(b.name)} block &rarr;</a></div></article>`).join('')}</div></div>`;
+  const figs = `<section class="ov-sec ov-figs o3" id="ovFigs" aria-label="A recent figure from each block" hidden><div class="ov-sh"><div><h2>A recent figure from each block</h2><p>The latest value of one metric per block, to give a feel for what the dashboard holds. Select one to see the full chart.</p></div></div><div class="ov-fg" id="ovFg"></div></section>`;
+  const parts = ex ? (() => { const bl = (ex.m.code.match(/^[A-Za-z]+/) || [''])[0].toUpperCase(), n = dotc(ex.m.code).split('.');
+    return [[bl, 'Block', B[ex.i.block].name], [n[1] || '1', 'Indicator', ex.i.title], [n[2] || '1', 'Sub-indicator', ex.g.name], [n[3] || '1', 'Metric', ex.m.name]]; })() : [];
+  const codes = ex ? `<section class="ov-sec ov-codes o3" aria-label="How to read a code"><div class="ov-sh"><div><h2>How to read a code</h2><p>Every metric has a code that tells you where it sits. Here is <a href="#/indicator/${ex.i.code}/${ex.m.page}"><b>${esc(dotc(ex.m.code))}</b></a>.</p></div><a class="ov-more" href="#/guide">More in the how-to guide &rarr;</a></div>
+    <div class="ov-anat">${parts.map(([c, l, t], k) => `<div class="ov-an"><div class="ov-cd l${k}">${esc(c)}</div><div class="ov-al">${l}</div><div class="ov-at">${esc(t)}</div></div>${k < 3 ? '<span class="ov-dot">.</span>' : ''}`).join('')}</div>
+    <p class="ov-cnt">${DATA.blocks.length} blocks &rsaquo; ${nInd} indicators &rsaquo; ${nSub} sub-indicators &rsaquo; ${TOTAL_METRICS} metrics</p></section>` : '';
+  const views = Object.entries(BLOCK_VIEWS);
+  const cover = `<section class="ov-sec o4" aria-label="Coverage and updates"><div class="ov-sh"><div><h2>Beyond the numbers: coverage and updates</h2><p>Every block has three more views for people who want to know how complete the Index is and when it refreshes.</p></div></div>
+    <div class="ov-mt"><table><thead><tr><th>Block</th>${views.map(([k, v]) => `<th><b>${esc(v.label)}</b><small>${esc(v.btn)}</small></th>`).join('')}</tr></thead><tbody>
+    ${DATA.blocks.map(b => `<tr style="--c:${b.color}"><th><a href="#/block/${b.key}"><i></i>${esc(b.name)}</a></th>${views.map(([k, v]) => `<td><a href="#/block/${b.key}/${k}">Open &rarr;</a></td>`).join('')}</tr>`).join('')}
+    </tbody></table></div></section>`;
   $('#left').style.display = 'none'; $('#right').style.display = 'none';
   $('#wide').style.display = 'block';
-  $('#wide').innerHTML = `
-    ${xhead}
-    ${paths}
-    ${flow}`;
+  $('#wide').innerHTML = hero.replace('__BLOCKS__', blocks) + figs + codes + cover;
   $('#rightExtra').innerHTML = '';
   bindSearch($('#hsearch'));
   document.querySelectorAll('.xseg button').forEach(bt => bt.onclick = () => { document.querySelectorAll('.xseg button').forEach(x => x.classList.toggle('on', x === bt)); $('#xblocks').classList.toggle('compact', bt.dataset.v === 'blocks'); });
-  const hs = null;
+  const fill = () => {
+    const cards = DATA.blocks.map(b => { for (const c of b.indicators) for (const g of I[c].groups) for (const m of g.metrics) { const v = latestOf(m.page); if (v) return {b, i: I[c], m, v}; } return null; }).filter(Boolean);
+    if (!cards.length || !$('#ovFg')) return;
+    $('#ovFg').innerHTML = cards.map(({b, i, m, v}) => { const k = v.lastIndexOf(' · '), val = k > 0 ? v.slice(0, k) : v, per = k > 0 ? v.slice(k + 3) : '';
+      return `<a class="ov-f" href="#/indicator/${i.code}/${m.page}" style="--c:${b.color};--tint:${b.tint}"><small>${esc(b.name)} &middot; ${esc(dotc(m.code))}</small><b class="v">${esc(val)}</b><span class="n">${esc(m.name)}</span><em>${esc(per)}</em></a>`; }).join('');
+    $('#ovFigs').hidden = false;
+  };
+  if (window.METRIC_ROWS) fill(); else loadMetricRows().then(() => { if (location.hash.replace(/^#\/?/, '').split('/')[0] === 'explore') fill(); }).catch(() => {});
 }
 
 // Framework table of the block (as in the Index framework figure): indicators and sub-indicators, each linking to its page.
