@@ -465,7 +465,7 @@ body.home-page .partners h2{color:var(--ink)}
 body.home-page .pc{background:transparent;border-color:transparent;padding:10px 18px;min-height:0}
 body.home-page .pl{color:var(--ink-3)}
 body.home-page .cv-info{color:var(--ink)}
-body.home-page .cv-meta p{color:var(--ink-2)}
+body.home-page .cv-meta p{color:var(--ink);font-size:15.5px;font-weight:700;letter-spacing:.01em;margin-top:14px}
 body.home-page .cv-meta .cv-url{color:var(--navy)}
 body.home-page .cv-main h1{color:var(--ink)}
 body.home-page .cv-main h1 span{color:#1E7A55}
@@ -748,13 +748,39 @@ body.ilay-c{overflow-x:hidden}
 @media (max-width:900px){.ov-hero{padding:18px 18px 22px}.ov-ht h1{font-size:40px}.ov-doors{grid-template-columns:1fr}.ov-an{flex:1 1 44%}.ov-dot{display:none}}
 /* overview hero: full-bleed band, from the header line to both window edges */
 .ov-hero{background:none;border-radius:0;overflow:visible;isolation:isolate;margin-top:-24px;padding:40px 10px 40px}
-.ov-hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;background:linear-gradient(135deg,rgba(18,50,38,.95),rgba(18,50,38,.82)),var(--hp,none) center/cover,var(--navy)}
+.ov-hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;background:linear-gradient(135deg,rgba(43,38,32,.96),rgba(43,38,32,.86)),var(--hp,none) center/cover,#2B2620}
 body:has(.ov-hero){overflow-x:clip}
 @media (max-width:900px){.ov-hero{padding:30px 0 30px;margin-top:-24px}}
 @media (max-width:560px){.ov-fg{grid-template-columns:1fr}.ov-mt th,.ov-mt td{padding:12px 10px}}
 .cv-links{display:flex;gap:6px 14px;flex-wrap:wrap;margin-top:14px;font-size:13px}
 .cv-links a{color:rgba(255,255,255,.9);text-decoration:underline;text-underline-offset:3px}
 .cv-links a:hover{color:#fff}
+/* alternative cover (?home=mosaic): photos stitched into one mosaic, logo column laid over it, wider block column, partners under a line */
+body.home-mos .partners{background:none;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;margin-top:30px;padding:30px 0 10px}
+@media (min-width:901px){
+  body.home-mos .cover{grid-template-columns:minmax(330px,1.2fr) .75fr .75fr .75fr minmax(440px,1.35fr);gap:3px;padding:0}
+  body.home-mos .cv-main h1{font-size:clamp(24px,2.1vw,32px)}body.home-mos .cv-logo{max-width:230px}
+  body.home-mos .cover figure{border-radius:0}
+  body.home-mos .cv-p1{grid-area:1/1/2/3}body.home-mos .cv-p2{grid-area:1/3}body.home-mos .cv-p3{grid-area:2/1/4/4}body.home-mos .cv-p4{grid-area:1/4/4/5}
+  body.home-mos .cv-info{grid-area:1/1/4/2;z-index:2;margin:0;padding:26px 24px;border-radius:0;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(10px) saturate(1.2);backdrop-filter:blur(10px) saturate(1.2);box-shadow:none}
+  body.home-mos .cv-quad{margin-left:18px}body.home-mos .cv-panel{margin-left:18px}
+@media (min-width:901px){
+  body.home-dk .cover{position:relative;isolation:isolate;overflow:visible;margin-top:-24px;padding:24px 0}
+  body.home-dk .cover::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;background:var(--ovs)}
+  body.home-dk:has(.cover){overflow-x:clip}
+  body.home-dk .partners{margin-top:0;border-top:0;padding-top:34px}
+  body.home-dk .cv-ph{color:#BFE6CB}
+  body.home-dk .cv-info{background:var(--ovc);color:#fff}
+  body.home-dk .cv-meta p,body.home-dk .cv-main h1{color:#fff}
+  body.home-dk .cv-main h1 span{color:#BFE6CB}
+  body.home-dk .cover .cta{background:#fff;color:#14283C;box-shadow:none}
+  body.home-dk .cover .cta:hover{background:#EAF3EC}
+  body.home-dk .cover .cv-hs{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.45);color:rgba(255,255,255,.9)}
+  body.home-dk .cover .cv-hs input{color:#fff}body.home-dk .cover .cv-hs input::placeholder{color:rgba(255,255,255,.75)}
+  body.home-dk .cover .cv-hs:focus-within{border-color:#fff;color:#fff}
+  body.home-dk .cv-links a,body.home-dk .cv-links a:hover{color:#fff}
+}
+}
 @media (max-width:900px){
   .cover{height:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto auto}
   .cv-quad .quad{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
@@ -1161,7 +1187,13 @@ function bindSearch(el) {
 // Cover page (as the cover of the 2025 report): photos, title and logos, with one button into the Index.
 function viewHome() {
   setTheme(null); renderNav('home');
-  document.body.classList.add('home-page');      // the cover colour runs across the whole page
+  document.body.classList.add('home-page');
+  const hq = new URLSearchParams(location.search), TONES = {forest: 'rgba(22,56,46,.80)', moss: 'rgba(87,112,92,.82)', loam: 'rgba(43,38,32,.80)', indigo: 'rgba(65,80,155,.80)'};
+  const tone = hq.get('home') === 'classic' ? '' : (TONES[hq.get('tone')] ? hq.get('tone') : 'loam');
+  document.body.classList.toggle('home-mos', hq.get('home') !== 'classic');   // mosaic cover by default; ?home=classic: the earlier cover; &tone=forest|moss|loam|indigo: dark logo column
+  document.body.classList.toggle('home-dk', !!tone);
+  const SOLID = {forest: '#16382E', moss: '#57705C', loam: '#2B2620', indigo: '#41509B'};
+  if (tone) { document.body.style.setProperty('--ovc', TONES[tone]); document.body.style.setProperty('--ovs', SOLID[tone]); } else { document.body.style.removeProperty('--ovc'); document.body.style.removeProperty('--ovs'); }      // the cover colour runs across the whole page
   $('#band').className = 'band';
   const C = DATA.cover || {}, F = DATA.funders;
   const partners = F.groups.map(g => `<div class="pg"><div class="pl">${esc(g.label)}</div><div class="pt">${g.logos.map(l => `<span class="pc"><img src="${l.src}" alt="${esc(l.alt)}" style="height:${l.h}px"></span>`).join('')}</div></div>`).join('');
@@ -1181,7 +1213,7 @@ function viewHome() {
           <span class="qi">${b.icon}</span><b>${esc(b.name)}</b><span class="qn">${b.indicators.length} indicators &middot; ${b.metrics} metrics</span>
           <span class="qg">Explore &rarr;</span></a>`).join('')}</div></div>
       <div class="cv-info">
-        <div class="cv-meta"><span class="cv-logo"><img src="${F.index}" alt="National Index on Agri-Food Performance"></span><p>Centre for Agri-Food Benchmarking</p><p class="cv-url">agrifoodindex.ca</p></div>
+        <div class="cv-meta"><span class="cv-logo"><img src="${document.body.classList.contains('home-dk') ? (F.indexDark || F.index) : F.index}" alt="National Index on Agri-Food Performance"></span><p>Centre for Agri-Food Benchmarking</p></div>
         <div class="cv-main"><h1>National Index on Agri-Food Performance<span>Index 2.0</span></h1>
           <div class="cv-act"><a class="cta" href="#/explore">Explore the Index &rarr;</a>
             <div class="hsearch cv-hs"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg><input id="cvsearch" type="search" placeholder="Search a topic or code" autocomplete="off" aria-label="Search the Index"></div></div>
@@ -1207,7 +1239,6 @@ function viewExplore() {
   setTheme(null); renderNav('explore');
   $('#band').className = 'band';
   const nInd = Object.keys(I).length, nSub = DATA.order.reduce((n, c) => n + I[c].groups.length, 0);
-  const ex = (() => { const c = DATA.order[0], g = I[c] && I[c].groups.find(g => g.metrics.length); return g ? {i: I[c], g, m: g.metrics[0]} : null; })();
   const ph = c => { const u = bp(c, 0); return u ? `style="background-image:url(${u})"` : ''; };
   const heroPh = bp(DATA.order[0], 0);
   const steps = [['Pick a block', 'Environment, Economic, Food Integrity or Societal Well-Being.'], ['Open an indicator', 'Read its story: what it means, what the data show, where the gaps are.'], ['Use the dashboard', 'Choose a metric, hover the chart, download the data.']];
@@ -1231,31 +1262,12 @@ function viewExplore() {
       <div class="ov-bb"><p>${esc(b.intro)}</p>
       <ul>${b.indicators.map(c => `<li><a href="#/indicator/${c}"><i class="ov-th" ${ph(c)}></i><span class="code">${esc(c)}</span><span class="tt">${esc(I[c].title)}</span></a></li>`).join('')}</ul>
       <a class="xb-go" href="#/block/${b.key}">Open the ${esc(b.name)} block &rarr;</a></div></article>`).join('')}</div></div>`;
-  const figs = `<section class="ov-sec ov-figs o3" id="ovFigs" aria-label="A recent figure from each block" hidden><div class="ov-sh"><div><h2>A recent figure from each block</h2><p>The latest value of one metric per block, to give a feel for what the dashboard holds. Select one to see the full chart.</p></div></div><div class="ov-fg" id="ovFg"></div></section>`;
-  const parts = ex ? (() => { const bl = (ex.m.code.match(/^[A-Za-z]+/) || [''])[0].toUpperCase(), n = dotc(ex.m.code).split('.');
-    return [[bl, 'Block', B[ex.i.block].name], [n[1] || '1', 'Indicator', ex.i.title], [n[2] || '1', 'Sub-indicator', ex.g.name], [n[3] || '1', 'Metric', ex.m.name]]; })() : [];
-  const codes = ex ? `<section class="ov-sec ov-codes o3" aria-label="How to read a code"><div class="ov-sh"><div><h2>How to read a code</h2><p>Every metric has a code that tells you where it sits. Here is <a href="#/indicator/${ex.i.code}/${ex.m.page}"><b>${esc(dotc(ex.m.code))}</b></a>.</p></div><a class="ov-more" href="#/guide">More in the how-to guide &rarr;</a></div>
-    <div class="ov-anat">${parts.map(([c, l, t], k) => `<div class="ov-an"><div class="ov-cd l${k}">${esc(c)}</div><div class="ov-al">${l}</div><div class="ov-at">${esc(t)}</div></div>${k < 3 ? '<span class="ov-dot">.</span>' : ''}`).join('')}</div>
-    <p class="ov-cnt">${DATA.blocks.length} blocks &rsaquo; ${nInd} indicators &rsaquo; ${nSub} sub-indicators &rsaquo; ${TOTAL_METRICS} metrics</p></section>` : '';
-  const views = Object.entries(BLOCK_VIEWS);
-  const cover = `<section class="ov-sec o4" aria-label="Coverage and updates"><div class="ov-sh"><div><h2>Beyond the numbers: coverage and updates</h2><p>Every block has three more views for people who want to know how complete the Index is and when it refreshes.</p></div></div>
-    <div class="ov-mt"><table><thead><tr><th>Block</th>${views.map(([k, v]) => `<th><b>${esc(v.label)}</b><small>${esc(v.btn)}</small></th>`).join('')}</tr></thead><tbody>
-    ${DATA.blocks.map(b => `<tr style="--c:${b.color}"><th><a href="#/block/${b.key}"><i></i>${esc(b.name)}</a></th>${views.map(([k, v]) => `<td><a href="#/block/${b.key}/${k}">Open &rarr;</a></td>`).join('')}</tr>`).join('')}
-    </tbody></table></div></section>`;
   $('#left').style.display = 'none'; $('#right').style.display = 'none';
   $('#wide').style.display = 'block';
-  $('#wide').innerHTML = hero.replace('__BLOCKS__', blocks) + figs + codes + cover;
+  $('#wide').innerHTML = hero.replace('__BLOCKS__', blocks);
   $('#rightExtra').innerHTML = '';
   bindSearch($('#hsearch'));
   document.querySelectorAll('.xseg button').forEach(bt => bt.onclick = () => { document.querySelectorAll('.xseg button').forEach(x => x.classList.toggle('on', x === bt)); $('#xblocks').classList.toggle('compact', bt.dataset.v === 'blocks'); });
-  const fill = () => {
-    const cards = DATA.blocks.map(b => { for (const c of b.indicators) for (const g of I[c].groups) for (const m of g.metrics) { const v = latestOf(m.page); if (v) return {b, i: I[c], m, v}; } return null; }).filter(Boolean);
-    if (!cards.length || !$('#ovFg')) return;
-    $('#ovFg').innerHTML = cards.map(({b, i, m, v}) => { const k = v.lastIndexOf(' · '), val = k > 0 ? v.slice(0, k) : v, per = k > 0 ? v.slice(k + 3) : '';
-      return `<a class="ov-f" href="#/indicator/${i.code}/${m.page}" style="--c:${b.color};--tint:${b.tint}"><small>${esc(b.name)} &middot; ${esc(dotc(m.code))}</small><b class="v">${esc(val)}</b><span class="n">${esc(m.name)}</span><em>${esc(per)}</em></a>`; }).join('');
-    $('#ovFigs').hidden = false;
-  };
-  if (window.METRIC_ROWS) fill(); else loadMetricRows().then(() => { if (location.hash.replace(/^#\/?/, '').split('/')[0] === 'explore') fill(); }).catch(() => {});
 }
 
 // Framework table of the block (as in the Index framework figure): indicators and sub-indicators, each linking to its page.
@@ -1783,6 +1795,17 @@ function plainPage(html, active, crumb) {
   $('#wide').onclick = e => { if (e.target.closest('[data-fb]')) { e.stopPropagation(); window.openFeedback(); } };
 }
 
+function codeAnatomy() {      // "How to read a code": one real metric code broken into block, indicator, sub-indicator and metric
+  const nInd = Object.keys(I).length, nSub = DATA.order.reduce((n, c) => n + I[c].groups.length, 0);
+  const ex = (() => { const c = DATA.order[0], g = I[c] && I[c].groups.find(g => g.metrics.length); return g ? {i: I[c], g, m: g.metrics[0]} : null; })();
+  if (!ex) return '';
+  const bl = (ex.m.code.match(/^[A-Za-z]+/) || [''])[0].toUpperCase(), n = dotc(ex.m.code).split('.');
+  const parts = [[bl, 'Block', B[ex.i.block].name], [n[1] || '1', 'Indicator', ex.i.title], [n[2] || '1', 'Sub-indicator', ex.g.name], [n[3] || '1', 'Metric', ex.m.name]];
+  return `<div class="ov-codes"><p>Every metric has a code that tells you where it sits. Here is <a href="#/indicator/${ex.i.code}/${ex.m.page}"><b>${esc(dotc(ex.m.code))}</b></a>.</p>
+    <div class="ov-anat">${parts.map(([c, l, t], k) => `<div class="ov-an"><div class="ov-cd l${k}">${esc(c)}</div><div class="ov-al">${l}</div><div class="ov-at">${esc(t)}</div></div>${k < 3 ? '<span class="ov-dot">.</span>' : ''}`).join('')}</div>
+    <p class="ov-cnt">${DATA.blocks.length} blocks &rsaquo; ${nInd} indicators &rsaquo; ${nSub} sub-indicators &rsaquo; ${TOTAL_METRICS} metrics</p></div>`;
+}
+
 function viewGuide(toFaq) {
   const nInd = Object.keys(I).length, nSub = DATA.order.reduce((n, c) => n + I[c].groups.length, 0);
   plainPage(`<section class="guide o1">
@@ -1796,6 +1819,7 @@ function viewGuide(toFaq) {
     <h2>How it is organised</h2>
     <div class="flow"><div><b>${DATA.blocks.length}</b><h4>Blocks</h4><p>${DATA.blocks.map(b => esc(b.name)).join(', ')}.</p></div><i>&rsaquo;</i><div><b>${nInd}</b><h4>Indicators</h4><p>A question within a block. Each has its own page with a narrative and the dashboard.</p></div><i>&rsaquo;</i><div><b>${nSub}</b><h4>Sub-indicators</h4><p>One aspect of an indicator. Greyed, “planned” ones have no data yet.</p></div><i>&rsaquo;</i><div><b>${TOTAL_METRICS}</b><h4>Metrics</h4><p>A measured series with a unit, years and a source.</p></div></div>
     <p>Codes follow this order: <b>EN.1</b> is the first Environment indicator, <b>EN.1.1</b> its first sub-indicator and <b>EN.1.1.1</b> the first metric under it. Codes written in the text of a page point to the matching metric in the dashboard.</p>
+    ${codeAnatomy()}
     <h2>How to read an indicator page</h2>
     <ul><li><b>About</b> explains what is measured and why it matters.</li><li><b>Current observations</b> tells what the latest data show.</li><li><b>Limitations</b> and <b>Opportunities</b> say where data are thin and how the Index could improve.</li><li>On the right, pick a <b>sub-indicator</b> and a <b>metric</b> (or step with the arrows) to change the interactive dashboard. <b>Sources and Methodologies</b> under it shows where the numbers come from and how they are calculated.</li></ul>
     <p>Where a newer year is not yet published, the latest valid figure is used. Each metric shows its source, reference years and method, so you can check it before you reuse it.</p>
@@ -1882,7 +1906,7 @@ function route() {
   { const sw = document.getElementById('bvsw'); if (sw) sw.remove(); const t = document.getElementById('idTiles'); if (t) t.remove(); document.body.className = document.body.className.replace(/\bilay-\w+/g, '').trim(); document.body.style.removeProperty('--ilphoto'); document.body.style.removeProperty('--hdr'); }
   $('#layout').classList.remove('ind');
   document.body.classList.toggle('ind-page', location.hash.replace(/^#\/?/, '').split('/')[0] === 'indicator');
-  document.body.classList.remove('home-page');
+  document.body.classList.remove('home-page', 'home-mos', 'home-dk'); document.body.style.removeProperty('--ovc'); document.body.style.removeProperty('--ovs');
   $('#wide').style.display = 'none'; $('#wide').innerHTML = '';
   $('#left').style.display = ''; $('#right').style.display = '';
   $('#mpanel').innerHTML = ''; $('#dash').style.display = '';
