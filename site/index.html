@@ -510,13 +510,13 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
 .bvA-img .code{position:absolute;left:14px;top:14px;z-index:1;background:var(--c);color:#fff;font-weight:800;font-size:12.5px;padding:4px 10px;border-radius:999px}
 .bvA-b{padding:16px 18px 18px}.bvA-b h3{margin:0 0 12px;font-size:19px;line-height:1.25}.bvA-b h3 a{color:var(--ink);text-decoration:none}.bvA-b h3 a:hover{color:var(--c)}
 /* B */
-.bvB-head{position:relative;overflow:hidden;padding:30px 0 22px}
+.bvB-head{position:relative;overflow:hidden;padding:6px 0 14px}
 .bvB-head .eyebrow{color:var(--c)}
-.bvB-head h1{font-size:92px;line-height:.98;color:var(--dark);margin:6px 0 14px}
-.bvB-head .lead{font-size:21px;max-width:760px;color:var(--ink-2);margin:0}
-.bvB-wm{position:absolute;right:0;top:0;opacity:.1;color:var(--c)}.bvB-wm svg{width:300px;height:300px;fill:var(--c)}
-.bvB-cols{display:grid;grid-template-columns:minmax(300px,.8fr) 1.4fr;gap:44px;align-items:start;margin-top:20px}
-.bvB-side{position:sticky;top:84px}
+.bvB-head h1{font-size:60px;line-height:.98;color:var(--dark);margin:6px 0 14px}
+.bvB-head .lead{font-size:18px;max-width:760px;color:var(--ink-2);margin:0}
+.bvB-wm{position:absolute;right:0;top:0;opacity:.1;color:var(--c)}.bvB-wm svg{width:96px;height:96px;fill:var(--c)}
+.bvB-cols{display:grid;grid-template-columns:minmax(300px,.8fr) 1.4fr;gap:44px;align-items:start;margin-top:8px}
+.bvB-side{min-width:0}.bvB-side .btabs{margin:0 0 18px}
 .bvB-side figure{margin:0 0 20px;height:230px;border-radius:20px;background-size:cover;background-position:center}
 .bvB-txt h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:20px 0 8px}
 .bvB-txt p{font-size:15px;color:var(--ink-2)}
@@ -570,7 +570,7 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
 .bvD-subs a.bvpl{background:#F0F1EF;color:#8A938F}
 @media (max-width:900px){
   .bvA-tx{padding:26px 22px}.bvA-tx h1{font-size:46px}.bvA-ph{grid-template-columns:repeat(2,1fr)}.bvA-about{grid-template-columns:1fr}
-  .bvB-head h1{font-size:54px}.bvB-cols{grid-template-columns:1fr}.bvB-side{position:static}.bvB-r{grid-template-columns:96px 1fr;gap:14px}.bvB-th{height:84px}.bvB-n{font-size:38px}.bvB-wm svg{width:180px;height:180px}
+  .bvB-head h1{font-size:44px}.bvB-cols{grid-template-columns:1fr}.bvB-side{position:static}.bvB-r{grid-template-columns:96px 1fr;gap:14px}.bvB-th{height:84px}.bvB-n{font-size:38px}.bvB-wm svg{width:80px;height:80px}
   .bvC-wall{grid-template-columns:1fr 1fr;grid-auto-rows:auto}.bvC-t{min-height:210px}.bvC-title{grid-column:1/-1;grid-row:auto;min-height:0;justify-content:flex-start}.bvC-title .ic svg{margin-bottom:18px;width:48px;height:48px}.bvC-t.t0{grid-column:1/-1}.bvC-title h1{font-size:48px}.bvC-mag{grid-template-columns:1fr;gap:20px}
   .bvD-head{grid-template-columns:1fr;padding:24px 22px}.bvD-head h1{font-size:40px}.bvD-head .bv-stats{flex-direction:row;flex-wrap:wrap}.bvD-cols{grid-template-columns:1fr}.bvD-subs{grid-template-columns:1fr}.bvD-img{height:210px;flex-direction:column;align-items:flex-start;justify-content:flex-end}.bvD-img h3{font-size:30px}
 }
@@ -1355,9 +1355,9 @@ const BV = {
     const A = bvAbout(b), L = b.indicators.map(c => I[c]);
     const rows = L.map((i, k) => `<li class="bvB-r"><a class="bvB-th" href="#/indicator/${i.code}" style="background-image:url(${bp(i.code, 0)})" aria-label="${esc(i.title)}"></a>
       <div class="bvB-m"><span class="bvB-n">${String(k + 1).padStart(2, '0')}</span><h3><a href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a></h3><div class="bv-chips">${bvChips(i)}</div></div></li>`).join('');
-    return `<header class="bvB-head o1"><div class="bvB-wm" aria-hidden="true">${b.icon}</div><div class="eyebrow">Block &middot; ${b.indicators.length} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p></header>
+    return `<div class="bvB-cols o1"><aside class="bvB-side"><header class="bvB-head"><div class="bvB-wm" aria-hidden="true">${b.icon}</div><div class="eyebrow">Block &middot; ${b.indicators.length} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p></header>
       ${blockButtons(b, '')}
-      <div class="bvB-cols o2"><aside class="bvB-side"><figure style="background-image:url(${bp(L[0].code, 1) || bp(L[0].code, 0)})"></figure><div class="bvB-txt">${A.about}${A.scope}</div></aside>
+      <figure style="background-image:url(${bp(L[0].code, 1) || bp(L[0].code, 0)})"></figure><div class="bvB-txt">${A.about}${A.scope}</div></aside>
       <div class="bvB-list"><div class="bv-h"><h2>Indicators</h2>${bvNote}</div><ol>${rows}</ol></div></div>`;
   },
   c(b) {      // bento wall of photo tiles, text as a magazine spread
