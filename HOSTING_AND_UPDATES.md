@@ -13,7 +13,7 @@ Webflow CMS                   --->  narratives (Rich Text), imported from cms/in
 
 ## What is published (all from one GitHub repo, `NationalIndex/webpage-widget`)
 
-Base address: `https://nationalindex.github.io/webpage-widget/`
+Base address: `https://index.agrifoodindex.ca/`
 
 | Address | What it is |
 |---|---|
@@ -36,7 +36,7 @@ index them; the Webflow CMS pages (Option C) do.
 2. In the new repo click **Add file -> Upload files**. Drag in the five files from
    `dashboard/webflow/hosted/` (`widget.js`, `config.json`, `metric_data.js`, `loader-embed.html`, `index.html`) and **Commit changes**.
 3. **Settings -> Pages -> Build and deployment**: Source = *Deploy from a branch*, branch `main`, folder `/ (root)`, **Save**.
-4. After 1-2 minutes open `https://nationalindex.github.io/webpage-widget/config.json (this project: NationalIndex/webpage-widget)`. If you see JSON text, it is live.
+4. After 1-2 minutes open `https://index.agrifoodindex.ca/config.json (this project: NationalIndex/webpage-widget)`. If you see JSON text, it is live.
    Do not continue until this works.
 
 **Shortcut after step 1 (instead of steps 2 and 4's upload):** run
@@ -46,7 +46,7 @@ For every later update, just run `python dashboard/webflow/publish_hosted.py` af
 
 ## Part B - Connect Webflow (once; designer or site editor)
 
-5. Open `hosted/loader-embed.html` (already points to nationalindex.github.io/webpage-widget) and copy the two lines.
+5. Open `hosted/loader-embed.html` (already points to index.agrifoodindex.ca) and copy the two lines.
 6. In the Webflow Designer add an **Embed** element where the dashboard goes and paste them in.
 7. Set `data-code` (e.g. `EN.3`). On the CMS template page, use **Add Field** to insert the indicator's *Code* field.
    Colours come from `config.json`, so no other attribute is needed.

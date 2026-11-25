@@ -550,6 +550,17 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
 .bvB-head .lead{font-size:18px;max-width:760px;color:var(--ink-2);margin:0}
 /* indicator page layout proposals */
 .ia-prog,.ib-tabs{display:none}
+/* section tiles above the text column (also used by guided steps) */
+.ilay-t .tabs{display:none}
+.ia-prog.ia-std{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;scroll-margin-top:90px}
+.ia-prog.ia-std button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:10px 12px 12px;border:0;border-radius:12px;background:var(--tint);color:var(--ink-2);font:600 13px var(--sans);cursor:pointer;text-align:left;overflow:hidden}
+.ia-prog.ia-std button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.ia-prog.ia-std button.done::after,.ia-prog.ia-std button.on::after{transform:scaleX(1)}
+.ia-prog.ia-std button i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--c);font-size:12px;font-weight:800}
+.ia-prog.ia-std button.on{background:var(--c);color:#fff}.ia-prog.ia-std button.on i{background:#fff;color:var(--c)}
+.ia-prog.ia-std button.done i{background:var(--c);color:#fff}
+.ia-prog.ia-std button:hover:not(.on){background:color-mix(in srgb,var(--c) 18%,#fff)}
+@media (max-width:900px){.ia-prog.ia-std{grid-template-columns:1fr 1fr}}
 /* A: guided steps */
 .ilay-a .tabs{display:none}
 .ilay-a .ia-prog{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;scroll-margin-top:90px}
@@ -1449,8 +1460,14 @@ function viewIndicator(code, metricPage) {
   const showSec = id => {
     SECS.forEach(s => { const el = document.getElementById(s); if (el) el.style.display = s === id ? '' : 'none'; });
     band.querySelectorAll('[data-go]').forEach(a => { const on = a.dataset.go === id; a.classList.toggle('on', on); a.setAttribute('aria-selected', on); });
+    document.querySelectorAll('#iaProg button').forEach(x => { const on = x.dataset.go === id; x.classList.toggle('on', on); x.setAttribute('aria-current', on ? 'step' : 'false'); });
   };
   band.querySelectorAll('[data-go]').forEach(a => a.onclick = e => { e.preventDefault(); showSec(a.dataset.go); });
+  if (!new URLSearchParams(location.search).get('ilayout')) {      // the four sections are tiles above the text column, under the header band
+    document.body.classList.add('ilay-t');
+    $('#left').insertAdjacentHTML('afterbegin', `<nav class="ia-prog ia-std" id="iaProg" aria-label="Sections of this indicator">${SECS.map((s, k) => `<button type="button" data-go="${s}"><i>${k + 1}</i><span>${({'s-about': 'About', 's-obs': 'Current observations', 's-lim': 'Limitations', 's-opp': 'Opportunities'})[s]}</span></button>`).join('')}</nav>`);
+    document.querySelectorAll('#iaProg button').forEach(x => x.onclick = () => { showSec(x.dataset.go); const t = $('#iaProg'); if (t && t.getBoundingClientRect().top < 0) t.scrollIntoView({behavior: 'smooth', block: 'start'}); });
+  }
   showSec('s-obs');
   const rm = $('#rm');
   if (rm) rm.onclick = () => { $('#obs').classList.remove('closed'); rm.remove(); };
