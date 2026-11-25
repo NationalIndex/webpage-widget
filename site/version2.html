@@ -480,110 +480,11 @@ body.home-page .cv-links a{color:var(--navy)}
 body.home-page .cv-links a:hover{color:#0F2E4D}
 body.home-page footer{border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.72)}
 body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{display:inline}
-/* editorial variants with photo tiles (E, F, G) */
-.bvE{display:grid;grid-template-columns:minmax(300px,.8fr) 1.4fr;gap:38px;align-items:start;margin-top:8px}
-.bvE-g{grid-template-columns:minmax(300px,.65fr) 1.6fr}
-.bvE-side{min-width:0}.bvE .bvB-wm{display:none}
+/* O: narrative on the left, hover mosaic on the right */
 .bvE-txt{display:flex;flex-direction:column;gap:16px;margin-top:6px}
 .bvE-txt h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:0 0 10px}
 .bvE-txt .bvA-l p:first-of-type{font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--ink)}
 .bvE-txt .bvA-l p,.bvE-txt .bvA-r p{font-size:15px;color:var(--ink-2)}
-.bvE-list{min-width:0}.bvE-list .bv-h{margin-top:0}
-.bvE-grid{display:grid;gap:12px}
-.bvE-grid .bvC-t{border-radius:16px}.bvE-grid .bvC-t p{font-size:12.5px}
-.bvE-e .bvE-grid{grid-template-columns:1fr 1fr;grid-auto-rows:250px}
-.bvE-f .bvE-grid{grid-template-columns:1fr;grid-auto-rows:150px;gap:10px}
-.bvE-f .bvC-t{align-items:center}
-.bvE-f .bvC-t::before{background:linear-gradient(90deg,rgba(0,0,0,.88) 8%,rgba(0,0,0,.45) 60%,rgba(0,0,0,.08))}
-.bvE-f .bvC-t:hover::before{background:linear-gradient(90deg,rgba(0,0,0,.92) 10%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.2))}
-.bvE-f .bvC-t .in{max-width:78%;padding:14px 22px}.bvE-f .bvC-t .h{font-size:20px}
-.bvE-g .bvE-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:215px;grid-auto-flow:dense}
-.bvE-g .bvC-t.t0{grid-column:span 2}
-@media (max-width:900px){.bvE,.bvE-g{grid-template-columns:1fr}.bvE-g .bvE-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.bvE-e .bvE-grid,.bvE-g .bvE-grid{grid-template-columns:1fr;grid-auto-rows:210px}.bvE-g .bvC-t.t0{grid-column:auto}.bvE-f .bvC-t .in{max-width:100%}}
-.bvE-ol{list-style:none;margin:0;padding:0}
-.bvE-j .bvE-ol{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
-.bvE-j .bvB-r{grid-template-columns:104px 1fr;gap:16px;padding:16px 0;align-content:start}
-.bvE-j .bvB-th{height:88px}.bvE-j .bvB-m h3{font-size:17px;margin-right:44px}.bvE-j .bvB-n{font-size:34px;top:-2px}
-.bvE-i{grid-template-columns:minmax(340px,1.2fr) minmax(0,1fr);gap:34px}
-.bvE-i .bvB-r{grid-template-columns:1fr;gap:0;padding:14px 0}.bvE-i .bvB-m h3{margin:0 56px 8px 0;font-size:18px}.bvE-i .bvB-n{font-size:40px;top:-4px}
-.bvE-i .bv-h{margin-bottom:6px}.bvE-i .bv-chips{gap:6px}
-.bvE-mos{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:112px;grid-auto-flow:dense;gap:3px;border-radius:16px;overflow:hidden;margin:2px 0 20px}
-.bvE-mos a{position:relative;display:block;background-size:cover;background-position:center}
-.bvE-mos a::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,0) 70%);transition:opacity .2s}
-.bvE-mos a:hover::after{opacity:.4}
-.bvE-mos span{position:absolute;left:10px;right:10px;bottom:8px;z-index:1;color:#fff;font-size:12px;font-weight:600;line-height:1.25}.bvE-mos span b{display:block;font-size:11px;letter-spacing:.06em;opacity:.85}.bvE-mos .big span{font-size:16px;font-weight:700}
-.bvE-mos .big{grid-column:span 2;grid-row:span 2}.bvE-mos .w2{grid-column:span 2}.bvE-mos .w3{grid-column:span 3}
-@media (max-width:900px){.bvE-j .bvE-ol{grid-template-columns:1fr}}
-@media (max-width:900px){.bvE-i{grid-template-columns:1fr}.bvE-mos{grid-auto-rows:96px}}
-/* editorial suggestions K, L, M: indicators within the first screen */
-.bvK{display:grid;grid-template-columns:minmax(300px,.85fr) minmax(0,1.6fr);gap:30px;align-items:start;margin-top:8px}
-.bvK-side{min-width:0}.bvK-side .bvB-head{padding:6px 0 12px}.bvK-side .bvB-head h1{font-size:54px}.bvK-side .bvB-head .lead{font-size:17px}
-.bvK-list{min-width:0}.bvK-list .bv-h{margin-top:0;margin-bottom:10px}
-.bvK-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
-.bvK-col{display:flex;flex-direction:column;gap:10px}
-.bvK .bvC-t{height:auto;min-height:128px;align-items:center;border-radius:16px}
-.bvK .bvC-t::before{background:linear-gradient(90deg,rgba(0,0,0,.9) 10%,rgba(0,0,0,.5) 62%,rgba(0,0,0,.12))}
-.bvK .bvC-t .in{max-width:92%;padding:12px 18px}.bvK .bvC-t .h{font-size:17px;margin-bottom:5px}.bvK .bvC-t p{font-size:11.5px;gap:1px 10px}
-.bvK-m .bvC-t{min-height:136px}
-.bvM-sup{display:flex;flex-direction:column;gap:8px;margin:4px 0 14px}
-.bvM-sup a,.bvL-sup a{position:relative;display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 40px 10px 14px;transition:box-shadow .15s,transform .15s}
-.bvM-sup a:hover,.bvL-sup a:hover{box-shadow:0 6px 16px rgba(0,0,0,.1);transform:translateY(-1px)}
-.bvM-sup b,.bvL-sup b{display:block;font-size:14px;color:var(--c)}.bvM-sup span,.bvL-sup span{display:block;font-size:12.5px;color:var(--ink-3);line-height:1.35;margin-top:1px}
-.bvM-sup i,.bvL-sup i{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--c);font-size:18px}
-.bvM-tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
-.bvM-tabs button{font:700 13px var(--sans);color:var(--ink-3);background:none;border:0;border-bottom:3px solid transparent;padding:9px 12px;margin-bottom:-1px;cursor:pointer}
-.bvM-tabs button.on{color:var(--c);border-bottom-color:var(--c)}
-.bvM-panel{max-height:300px;overflow:auto;padding:12px 4px 0}.bvM-panel[hidden]{display:none}
-.bvM-panel p{font-size:15px;color:var(--ink-2)}.bvM-panel p:first-child{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--ink)}
-.bvL-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:30px;align-items:end;padding:6px 0 18px}
-.bvL-t .eyebrow{color:var(--c)}.bvL-t h1{font-size:60px;line-height:1;color:var(--dark);margin:6px 0 10px}.bvL-t .lead{font-size:18px;color:var(--ink-2);margin:0;max-width:720px}
-.bvL-jump{display:inline-block;margin-top:12px;font-weight:700;font-size:14px;color:var(--c);text-decoration:none}.bvL-jump:hover{text-decoration:underline}
-.bvL-sup{display:flex;flex-direction:column;gap:8px}
-.bvL-wall{display:grid;gap:10px;grid-auto-rows:230px;grid-auto-flow:dense}.bvL-c4{grid-template-columns:repeat(4,1fr)}.bvL-c3{grid-template-columns:repeat(3,1fr)}
-.bvL-wall .bvC-t{border-radius:16px}.bvL-wall .sp2{grid-column:span 2}.bvL-wall .sp3{grid-column:span 3}.bvL-wall .sp4{grid-column:span 4}
-.bvL-n{margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
-@media (max-width:1000px){.bvK{grid-template-columns:1fr}.bvL-head{grid-template-columns:1fr}.bvL-c4{grid-template-columns:repeat(2,1fr)}.bvL-c3{grid-template-columns:repeat(2,1fr)}.bvL-wall .sp3,.bvL-wall .sp4{grid-column:span 2}}
-@media (max-width:640px){.bvK-cols{grid-template-columns:1fr}.bvL-c4,.bvL-c3{grid-template-columns:1fr}.bvL-wall .sp2,.bvL-wall .sp3,.bvL-wall .sp4{grid-column:auto}.bvL-t h1,.bvK-side .bvB-head h1{font-size:44px}.bvL-n{grid-template-columns:1fr}}
-/* N: photo wall with the title on a mosaic and the indicators as text cards */
-.bvN-wall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
-.bvN-title{position:relative;grid-column:span 2;grid-row:span 2;border-radius:22px;overflow:hidden;color:#fff;min-height:330px;display:flex;align-items:flex-end;background:var(--dark)}
-.bvN-mos{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;grid-auto-flow:dense}
-.bvN-mos i{display:block;background-size:cover;background-position:center}
-.bvN-mos .big{grid-column:span 2;grid-row:span 2}.bvN-mos .w2{grid-column:span 2}.bvN-mos .w3{grid-column:span 3}
-.bvN-title::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.88) 8%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.3))}
-.bvN-tx{position:relative;z-index:1;padding:24px 30px;width:100%}
-.bvN-title .bvN-tx .ic svg,.bvN-title .bvN-tx .ic img{width:56px!important;height:56px!important;margin-bottom:8px;display:block}
-.bvN-tx h1{font-size:56px;line-height:1;margin:4px 0 8px;color:#fff}
-.bvN-tx p{margin:0;font-size:16px;line-height:1.45;color:rgba(255,255,255,.94);max-width:560px}
-.bvN-tx .eyebrow{color:rgba(255,255,255,.8)}
-.bvN-band{position:relative;isolation:isolate;padding:20px 0}
-.bvN-band::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;background:var(--c)}
-body:has(.bvN-band){overflow-x:clip}
-.bvN-c{position:relative;display:flex;flex-direction:column;gap:8px;background:var(--dark);color:#fff;border:0;border-radius:30px 10px 30px 10px;padding:16px 18px 16px;box-shadow:0 6px 18px rgba(0,0,0,.16)}
-.bvN-c.sp2{grid-column:span 2}.bvN-c.sp3{grid-column:span 3}.bvN-c.sp4{grid-column:span 4}.bvN-c.tall{grid-row:span 1}
-.bvN-n{position:absolute;right:16px;top:6px;font-family:var(--serif);font-size:38px;line-height:1;color:rgba(255,255,255,.22)}
-.bvN-h{display:block;color:#fff;text-decoration:none;font-weight:800;font-size:17px;line-height:1.2;margin-right:46px}.bvN-h:hover{text-decoration:underline}
-.bvN-h small{display:block;font-size:11.5px;color:rgba(255,255,255,.7);letter-spacing:.06em;margin-bottom:2px}
-.bvN-k{margin-top:auto;padding-top:6px;font-size:12px;font-weight:700;letter-spacing:.03em;color:rgba(255,255,255,.75);display:none;align-items:center;gap:6px}.bvN-k i{font-style:normal;font-size:11px}
-@media (hover:hover) and (min-width:901px){
-  .bvN-k{display:flex}
-  .bvN-pn{position:absolute;left:0;right:0;top:calc(100% - 16px);z-index:6;padding:16px 18px 16px;background:var(--dark);border-radius:0 0 10px 30px;box-shadow:0 14px 26px rgba(0,0,0,.28);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .16s,transform .16s,visibility .16s}
-  .bvN-c:hover,.bvN-c:focus-within{z-index:7;border-radius:30px 10px 0 0}
-  .bvN-c:hover .bvN-pn,.bvN-c:focus-within .bvN-pn{opacity:1;visibility:visible;transform:none}
-  .bvN-c:hover .bvN-k i,.bvN-c:focus-within .bvN-k i{transform:rotate(180deg)}
-  .bvN-c .bvN-k i{transition:transform .16s}
-  .bvN-c{transition:border-radius .12s}
-}
-.bvN-c .bv-chips{gap:5px}
-.bvN-c .bv-chip{font-size:12px;padding:3px 10px;background:rgba(255,255,255,.14);color:#fff;border-color:transparent}
-.bvN-c .bv-chip b{color:rgba(255,255,255,.72)}
-.bvN-c .bv-chip:hover{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.6)}
-.bvN-c .bv-chip.bvpl{background:rgba(255,255,255,.06);color:rgba(255,255,255,.55)}.bvN-c .bv-chip.bvpl b{color:rgba(255,255,255,.45)}
-.bvN-c .bv-chip em{border-color:rgba(255,255,255,.4)}
-@media (max-width:1000px){.bvN-wall{grid-template-columns:repeat(2,minmax(0,1fr))}.bvN-title{grid-column:span 2;grid-row:auto;min-height:340px}.bvN-c.sp3,.bvN-c.sp4{grid-column:span 2}}
-@media (max-width:640px){.bvN-wall{grid-template-columns:1fr}.bvN-title{grid-column:auto}.bvN-c.sp2,.bvN-c.sp3,.bvN-c.sp4{grid-column:auto}.bvN-tx h1{font-size:44px}.bvN-tx{padding:24px 20px}}
-.bvN-hint{margin:14px 2px 0;font-size:13px;font-weight:600;color:rgba(255,255,255,.9);display:none}
 .bvO{display:grid;grid-template-columns:minmax(340px,1.3fr) minmax(0,1fr);gap:30px;align-items:start;margin-top:8px}
 .bvO .bvE-txt{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
 .bvO .bvE-txt .bvA-l p:first-of-type{font-size:17.5px;line-height:1.4}.bvO .bvE-txt .bvA-l p,.bvO .bvE-txt .bvA-r p{font-size:14px;line-height:1.5}.bvO .bvE-txt .bvA-r{padding:18px 18px}
@@ -604,7 +505,7 @@ body:has(.bvN-band){overflow-x:clip}
 .bvO-pn .bv-chip:hover{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.6)}
 .bvO-pn .bv-chip.bvpl{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6)}.bvO-pn .bv-chip.bvpl b{color:rgba(255,255,255,.5)}.bvO-pn .bv-chip em{border-color:rgba(255,255,255,.4)}
 @media (hover:hover) and (min-width:901px){
-  .bvN-hint,.bvO-hint{display:block}
+  .bvO-hint{display:block}
   .bvO-pn{position:absolute;left:0;right:0;top:0;min-height:100%;box-sizing:border-box;background:color-mix(in srgb,var(--dark) 94%,#000);box-shadow:0 14px 30px rgba(0,0,0,.35);opacity:0;visibility:hidden;transition:opacity .16s,visibility .16s;z-index:6}
   .bvO-t:hover,.bvO-t:focus-within{z-index:7}
   .bvO-t:hover .bvO-pn,.bvO-t:focus-within .bvO-pn{opacity:1;visibility:visible}
@@ -619,119 +520,34 @@ body:has(.bvN-band){overflow-x:clip}
   .bvO-k{display:none}
   .bvO-pn{position:static}.bvO-pn .bvO-h{display:none}
 }
-/* block page layout proposals */
+/* layout chooser bar (developer preview of the indicator page layouts) */
 #bvsw{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:80;display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;justify-content:center;max-width:94vw;padding:8px 12px;border-radius:16px;background:#14201A;color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.35);font:600 12px var(--sans)}
 #bvsw span{opacity:.6;font-weight:600;margin-right:2px}#bvsw .sp{flex-basis:100%;height:0}
 #bvsw a,#bvsw button{color:#D6E4DC;text-decoration:none;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:none;font:inherit;cursor:pointer}
 #bvsw a:hover,#bvsw button:hover{background:rgba(255,255,255,.12)}#bvsw a.on,#bvsw button.on{background:#fff;color:#14201A;border-color:#fff}
+@media (max-width:700px){#bvsw{bottom:68px;font-size:11.5px;padding:7px 10px}}
+/* block page */
 .bv{padding-bottom:70px}
-@media (max-width:700px){#bvsw{bottom:68px;font-size:11.5px;padding:7px 10px}.bv{padding-bottom:150px}}
+@media (max-width:700px){.bv{padding-bottom:40px}}
 .bv .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .bv h1{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;margin:0}
-.bv-stats{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:18px 0 0;padding:0}
-.bv-stats li{font-size:12.5px;padding:8px 14px;border-radius:12px;background:rgba(255,255,255,.14);display:flex;align-items:baseline;gap:7px;white-space:nowrap}
-.bv-stats b{font-size:22px;font-weight:800}
+.bv-chips{display:flex;flex-wrap:wrap;gap:6px}
 .bv-chips{display:flex;flex-wrap:wrap;gap:6px}
 .bv-chip{display:inline-flex;align-items:baseline;gap:7px;padding:5px 11px;border-radius:999px;background:var(--tint);color:var(--ink);text-decoration:none;font-size:13px;line-height:1.3;border:1px solid transparent;transition:background .15s,border-color .15s}
 .bv-chip b{font-size:11.5px;color:var(--c);font-weight:700}
 .bv-chip:hover{border-color:var(--c);background:#fff}
 .bv-chip.bvpl{background:#F0F1EF;color:#8A938F}.bv-chip.bvpl b{color:#9AA3A0}
-.bv-chip em,.bvD-subs em{font-style:normal;font-size:10.5px;border:1px solid #C9CFCC;border-radius:999px;padding:0 6px;margin-left:2px}
+.bv-chip em{font-style:normal;font-size:10.5px;border:1px solid #C9CFCC;border-radius:999px;padding:0 6px;margin-left:2px}
 .bv-note{margin:0;font-size:13px;color:var(--ink-3)}
 .bv-h{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:30px 0 14px}.bv-h h2{margin:0;font-size:24px;color:var(--c)}
-.bv p{line-height:1.65}
-/* A */
-.bvA-hero{position:relative;border-radius:22px;overflow:hidden;color:#fff;min-height:330px;display:flex;align-items:flex-end;background:var(--dark)}
-.bvA-ph{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr)}
-.bvA-ph i{background-size:cover;background-position:center}
-.bvA-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 12%,color-mix(in srgb,var(--dark) 78%,transparent) 45%,rgba(0,0,0,.12) 100%),linear-gradient(0deg,rgba(0,0,0,.35),transparent 55%)}
-.bvA-tx{position:relative;padding:38px 44px;max-width:720px}
-.bvA-tx .ic svg{width:44px;height:44px;margin-bottom:8px}
-.bvA-tx h1{font-size:68px;line-height:1}
-.bvA-tx p{font-size:18px;line-height:1.5;margin:12px 0 0;color:rgba(255,255,255,.92)}
-.bvA-tx .eyebrow{color:rgba(255,255,255,.75)}
-.bvA-about{display:grid;grid-template-columns:1.25fr 1fr;gap:34px;margin-top:26px}
-.bvA-about h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:0 0 10px}
+/* A (shared with the block page): about text */
 .bvA-l{padding:6px 4px}.bvA-l p:first-of-type{font-family:var(--serif);font-size:23px;line-height:1.4;color:var(--ink)}
 .bvA-l p,.bvA-r p{font-size:15.5px;color:var(--ink-2)}
 .bvA-r{background:var(--tint);border-radius:18px;padding:24px 26px}
-.bvA-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.bvA-card{background:var(--surface);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
-.bvA-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(20,40,30,.16)}
-.bvA-img{display:block;height:170px;background-size:cover;background-position:center;position:relative}
-.bvA-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35),transparent 55%)}
-.bvA-img .code{position:absolute;left:14px;top:14px;z-index:1;background:var(--c);color:#fff;font-weight:800;font-size:12.5px;padding:4px 10px;border-radius:999px}
-.bvA-b{padding:16px 18px 18px}.bvA-b h3{margin:0 0 12px;font-size:19px;line-height:1.25}.bvA-b h3 a{color:var(--ink);text-decoration:none}.bvA-b h3 a:hover{color:var(--c)}
-/* B */
 .bvB-head{position:relative;overflow:hidden;padding:6px 0 14px}
 .bvB-head .eyebrow{color:var(--c)}
 .bvB-head h1{font-size:60px;line-height:.98;color:var(--dark);margin:6px 0 14px}
 .bvB-head .lead{font-size:18px;max-width:760px;color:var(--ink-2);margin:0}
-.bvB-wm{position:absolute;right:0;top:0;opacity:.1;color:var(--c)}.bvB-wm svg{width:96px;height:96px;fill:var(--c)}
-.bvB-cols{display:grid;grid-template-columns:minmax(300px,.8fr) 1.4fr;gap:44px;align-items:start;margin-top:8px}
-.bvB-side{min-width:0}.bvB-side .btabs{margin:0 0 18px}
-.bvB-side figure{margin:0 0 20px;height:230px;border-radius:20px;background-size:cover;background-position:center}
-.bvB-txt h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:20px 0 8px}
-.bvB-txt p{font-size:15px;color:var(--ink-2)}
-.bvB-txt>h2:first-child+p::first-letter{float:left;font-family:var(--serif);font-size:60px;line-height:.85;padding:6px 8px 0 0;color:var(--c)}
-.bvB-list .bv-h{margin-top:0}
-.bvB-list ol{list-style:none;margin:0;padding:0}
-.bvB-r{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:20px 0;border-top:1px solid var(--line)}
-.bvB-th{display:block;height:112px;border-radius:14px;background-size:cover;background-position:center;transition:transform .2s}.bvB-th:hover{transform:scale(1.03)}
-.bvB-m{position:relative}.bvB-n{position:absolute;right:0;top:-6px;font-family:var(--serif);font-size:56px;line-height:1;color:var(--tint);color:color-mix(in srgb,var(--c) 22%,#fff)}
-.bvB-m h3{margin:0 70px 10px 0;font-size:21px}.bvB-m h3 a{color:var(--ink);text-decoration:none}.bvB-m h3 a:hover{color:var(--c)}
-.bvB-m h3 small{display:block;font-size:12px;color:var(--c);letter-spacing:.06em;margin-bottom:2px}
-.bvB-list ol{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
-.bvB-r{grid-template-columns:1fr;gap:12px;align-content:start}
-.bvB-th{height:150px}
-.bvB-m h3{margin-right:56px}.bvB-n{font-size:46px;top:-4px}
-/* C */
-.bvC-wall{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;grid-auto-flow:dense;gap:12px}
-.bvC-title{grid-column:span 2;grid-row:span 2;background:linear-gradient(145deg,var(--c),var(--dark));color:#fff;border-radius:22px;padding:34px;display:flex;flex-direction:column;justify-content:flex-end}
-.bvC-title .ic svg{width:60px;height:60px;margin-bottom:auto}
-.bvC-title h1{font-size:64px;line-height:1;margin:6px 0 10px}.bvC-title p{margin:0;font-size:16.5px;color:rgba(255,255,255,.92)}
-.bvC-title .eyebrow{color:rgba(255,255,255,.7)}
-.bvC-t{position:relative;border-radius:20px;overflow:hidden;background-size:cover;background-position:center;color:#fff;display:flex;align-items:flex-end}
-.bvC-t.t0{grid-column:span 2}
-.bvC-t::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.88) 5%,rgba(0,0,0,.25) 65%,rgba(0,0,0,.05));transition:background .2s}
-.bvC-t:hover::before{background:linear-gradient(0deg,rgba(0,0,0,.92) 10%,rgba(0,0,0,.5))}
-.bvC-t .in{position:relative;padding:16px 18px;width:100%}
-.bvC-t .h{display:block;color:#fff;text-decoration:none;font-weight:800;font-size:18px;line-height:1.2;margin-bottom:6px}.bvC-t .h small{display:block;font-size:11.5px;opacity:.8;letter-spacing:.06em;margin-bottom:2px}
-.bvC-t p{margin:0;display:flex;flex-wrap:wrap;gap:2px 12px;font-size:12px;line-height:1.5}
-.bvC-t p a{color:rgba(255,255,255,.88);text-decoration:none}.bvC-t p a:hover{color:#fff;text-decoration:underline}.bvC-t p a.bvpl{opacity:.6}
-.bvC-t em{font-style:normal;font-size:10px;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:0 5px}
-.bv-c .bv-note{margin:0 0 6px}
-.bvC-mag{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:26px;padding-top:28px;border-top:3px double var(--c)}
-.bvC-col h2{font-family:var(--serif);font-weight:400;font-size:34px;color:var(--c);margin:0 0 10px}
-.bvC-col p{font-size:15.5px;color:var(--ink-2)}
-.bvC-col:first-child h2+p::first-letter{float:left;font-family:var(--serif);font-size:70px;line-height:.82;padding:6px 10px 0 0;color:var(--c)}
-/* D */
-.bvD-head{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;background:linear-gradient(135deg,var(--c),var(--dark));color:#fff;border-radius:22px;padding:30px 34px}
-.bvD-head .ic svg{width:78px;height:78px}.bvD-head h1{font-size:50px;line-height:1.05}.bvD-head p{margin:6px 0 0;font-size:16px;color:rgba(255,255,255,.9)}
-.bvD-head .eyebrow{color:rgba(255,255,255,.7)}.bvD-head .bv-stats{margin:0;flex-direction:column;align-items:stretch}.bvD-head .bv-stats li{justify-content:space-between}
-.bvD-cols{display:grid;grid-template-columns:minmax(320px,.8fr) 1.4fr;gap:24px;margin-top:22px;align-items:start}
-.bvD-about{padding:6px 26px 22px}.bvD-about h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:20px 0 8px}.bvD-about p{font-size:15px;color:var(--ink-2)}
-.bvD-md{padding:22px 22px 24px}.bvD-top h2{margin:0 0 4px;font-size:24px;color:var(--c)}
-.bvD-pills{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-.bvD-p{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;font:600 13px var(--sans);cursor:pointer;transition:background .15s}
-.bvD-p b{color:var(--c);font-size:12px}.bvD-p:hover{background:var(--tint)}
-.bvD-p.on{background:var(--c);color:#fff;border-color:var(--c)}.bvD-p.on b{color:#fff}
-.bvD-img{position:relative;height:250px;border-radius:18px;background-size:cover;background-position:center;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:22px;overflow:hidden}
-.bvD-img::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,.05) 70%)}
-.bvD-img>*{position:relative}.bvD-img small{font-weight:700;letter-spacing:.08em;opacity:.85}.bvD-img h3{margin:2px 0 0;font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.05}
-.bvD-go{flex:none;background:#fff;color:var(--dark);font-weight:700;font-size:13.5px;text-decoration:none;padding:10px 16px;border-radius:999px}.bvD-go:hover{background:var(--tint)}
-.bvD-subs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
-.bvD-subs a{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:var(--tint);color:var(--ink);text-decoration:none;font-weight:600;font-size:14.5px;transition:transform .15s,background .15s}
-.bvD-subs a b{color:var(--c);font-size:12.5px;min-width:48px}.bvD-subs a span{flex:1}.bvD-subs a i{font-style:normal;color:var(--c);transition:transform .15s}
-.bvD-subs a:hover{background:#fff;box-shadow:0 0 0 2px var(--c)}.bvD-subs a:hover i{transform:translateX(3px)}
-.bvD-subs a.bvpl{background:#F0F1EF;color:#8A938F}
-@media (max-width:900px){
-  .bvA-tx{padding:26px 22px}.bvA-tx h1{font-size:46px}.bvA-ph{grid-template-columns:repeat(2,1fr)}.bvA-about{grid-template-columns:1fr}
-  .bvB-head h1{font-size:44px}.bvB-cols{grid-template-columns:1fr}.bvB-list ol{grid-template-columns:1fr}.bvB-side{position:static}.bvB-r{grid-template-columns:96px 1fr;gap:14px}.bvB-th{height:84px}.bvB-n{font-size:38px}.bvB-wm svg{width:80px;height:80px}
-  .bvC-wall{grid-template-columns:1fr 1fr;grid-auto-rows:auto}.bvC-t{min-height:210px}.bvC-title{grid-column:1/-1;grid-row:auto;min-height:0;justify-content:flex-start}.bvC-title .ic svg{margin-bottom:18px;width:48px;height:48px}.bvC-t.t0{grid-column:1/-1}.bvC-title h1{font-size:48px}.bvC-mag{grid-template-columns:1fr;gap:20px}
-  .bvD-head{grid-template-columns:1fr;padding:24px 22px}.bvD-head h1{font-size:40px}.bvD-head .bv-stats{flex-direction:row;flex-wrap:wrap}.bvD-cols{grid-template-columns:1fr}.bvD-subs{grid-template-columns:1fr}.bvD-img{height:210px;flex-direction:column;align-items:flex-start;justify-content:flex-end}.bvD-img h3{font-size:30px}
-}
-@media (max-width:560px){.bvC-wall{grid-template-columns:1fr}.bvC-t{min-height:230px}}
 /* indicator page layout proposals */
 .ia-prog,.ib-tabs{display:none}
 /* A: guided steps */
@@ -1514,106 +1330,7 @@ const bvAbout = b => { const t = b.text || {about: [], scope: []};
   return {about: `<h2>About this block</h2>${t.about.map(p => `<p>${esc(p)}</p>`).join('')}`, scope: `<h2>What is new in Index 2.0</h2>${t.scope.map(p => `<p>${esc(p)}</p>`).join('')}`}; };
 const bvNote = '<p class="bv-note">Select an indicator or a sub-indicator to open its page, with the data, charts and analysis. Grey items are planned and have no data yet.</p>';
 
-function bvTile(i, cls) {      // photo tile with the indicator and its sub-indicators inside the image
-  return `<article class="bvC-t${cls ? ' ' + cls : ''}" style="background-image:url(${bp(i.code, 0)})"><div class="in"><a class="h" href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a>
-    <p>${i.groups.map(g => `<a href="#/indicator/${i.code}${g.metrics[0] ? '/' + g.metrics[0].page : ''}"${g.planned ? ' class="bvpl" title="Planned: no data yet"' : ''}>${esc(dotc(g.code))} ${esc(g.name)}${g.planned ? ' <em>planned</em>' : ''}</a>`).join('')}</p></div></article>`;
-}
-function bvEd2(b, v) {      // v = j (compact two-column rows) | i (rows + photo mosaic in the left column)
-  const A = bvAbout(b), L = b.indicators.map(c => I[c]);
-  const rows = L.map((i, k) => `<li class="bvB-r">${v === 'i' ? '' : `<a class="bvB-th" href="#/indicator/${i.code}" style="background-image:url(${bp(i.code, 0)})" aria-label="${esc(i.title)}"></a>`}
-    <div class="bvB-m"><span class="bvB-n">${String(k + 1).padStart(2, '0')}</span><h3><a href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a></h3><div class="bv-chips">${bvChips(i)}</div></div></li>`).join('');
-  const T = 3 + L.length, rem = T % 3;      // the mosaic: first photo 2x2, the rest 1x1; the last one widens so that no cell stays empty
-  const mos = v === 'i' ? `<div class="bvE-mos" aria-label="Indicators of this block">${L.map((i, k) => `<a href="#/indicator/${i.code}" class="${k === 0 ? 'big' : (k === L.length - 1 && rem ? 'w' + (rem === 1 ? 3 : 2) : '')}" style="background-image:url(${bp(i.code, 0)})" title="${esc(i.code + ' · ' + i.title)}"><span><b>${esc(i.code)}</b>${esc(i.title)}</span></a>`).join('')}</div>` : '';
-  return `<div class="bvE bvE-${v} o1"><aside class="bvB-side bvE-side"><header class="bvB-head"><div class="eyebrow">Block &middot; ${b.indicators.length} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p></header>
-    ${blockButtons(b, '')}${mos}
-    <div class="bvE-txt"><div class="bvA-l">${A.about}</div><div class="bvA-r">${A.scope}</div></div></aside>
-    <div class="bvE-list"><div class="bv-h"><h2>Indicators</h2>${bvNote}</div><ol class="bvE-ol">${rows}</ol></div></div>`;
-}
-function bvSupport(b, cls) {      // the three supporting pages as cards
-  return `<nav class="${cls}" aria-label="${esc(b.name)} supporting pages">${Object.entries(BLOCK_VIEWS).map(([k, v]) => `<a href="#/block/${b.key}/${k}"><b>${esc(v.label)}</b><span>${esc(v.btn)}</span><i aria-hidden="true">&rarr;</i></a>`).join('')}</nav>`;
-}
-function bvKL(b, v) {      // v = k | l | m
-  const A = bvAbout(b), L = b.indicators.map(c => I[c]);
-  const head = `<div class="eyebrow">Block &middot; ${b.indicators.length} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p>`;
-  if (v === 'l') {
-    const cols = L.length >= 7 ? 4 : 3, rem = L.length % cols;
-    const wall = L.map((i, k) => bvTile(i, k === L.length - 1 && rem ? 'sp' + (cols - rem + 1) : '')).join('');
-    return `<div class="bvL o1"><header class="bvL-head"><div class="bvL-t">${head}<a class="bvL-jump" href="#bvLn" data-jump="bvLn">About this block &darr;</a></div>${bvSupport(b, 'bvL-sup')}</header>
-      <div class="bvL-wall bvL-c${cols}">${wall}</div>
-      <section class="bvA-about bvL-n" id="bvLn"><div class="bvA-l">${A.about}</div><div class="bvA-r">${A.scope}</div></section></div>`;
-  }
-  const wts = L.map(i => 2 + i.groups.length), tot = wts.reduce((x, y) => x + y, 0);      // split where the two columns come closest to the same height
-  let half = 1, acc = 0, best = 1e9; wts.forEach((w, k) => { acc += w; const d = Math.abs(tot - 2 * acc); if (k < L.length - 1 && d < best) { best = d; half = k + 1; } });
-  const strips = a => a.map(i => bvTile(i, '')).join('');
-  const text = v === 'k'
-    ? `<div class="bvE-txt"><div class="bvA-l">${A.about}</div><div class="bvA-r">${A.scope}</div></div>`
-    : `${bvSupport(b, 'bvM-sup')}<div class="bvM-tabs" role="tablist"><button type="button" class="on" data-k="0" role="tab" aria-selected="true">About this block</button><button type="button" data-k="1" role="tab" aria-selected="false">What is new in Index 2.0</button></div>
-       <div class="bvM-panel" data-k="0">${A.about.replace(/<h2>.*?<\/h2>/, '')}</div><div class="bvM-panel" data-k="1" hidden>${A.scope.replace(/<h2>.*?<\/h2>/, '')}</div>`;
-  return `<div class="bvK bvK-${v} o1"><aside class="bvK-side"><header class="bvB-head">${head}</header>${v === 'k' ? blockButtons(b, '') : ''}${text}</aside>
-    <div class="bvK-list"><div class="bv-h"><h2>Indicators</h2>${bvNote}</div><div class="bvK-cols"><div class="bvK-col">${strips(L.slice(0, half))}</div><div class="bvK-col">${strips(L.slice(half))}</div></div></div></div>`;
-}
-function bvEd(b, v) {      // editorial two-column page with the indicators as photo tiles; v = e (2 columns) | f (strips) | g (wall)
-  const A = bvAbout(b), L = b.indicators.map(c => I[c]);
-  return `<div class="bvE bvE-${v} o1"><aside class="bvB-side bvE-side"><header class="bvB-head"><div class="bvB-wm" aria-hidden="true">${b.icon}</div><div class="eyebrow">Block &middot; ${b.indicators.length} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p></header>
-    ${blockButtons(b, '')}
-    <div class="bvE-txt"><div class="bvA-l">${A.about}</div><div class="bvA-r">${A.scope}</div></div></aside>
-    <div class="bvE-list"><div class="bv-h"><h2>Indicators</h2>${bvNote}</div><div class="bvE-grid">${L.map((i, k) => bvTile(i, v === 'g' && k === 0 ? 't0' : '')).join('')}</div></div></div>`;
-}
-
 const BV = {
-  a(b) {      // cinematic hero, about in two columns, indicator cards
-    const ph = b.indicators.slice(0, 4).map(c => bp(c, 0)).filter(Boolean), A = bvAbout(b);
-    const cards = b.indicators.map(c => I[c]).map(i => `<article class="bvA-card"><a class="bvA-img" href="#/indicator/${i.code}" style="background-image:url(${bp(i.code, 0)})"><span class="code">${esc(i.code)}</span></a>
-      <div class="bvA-b"><h3><a href="#/indicator/${i.code}">${esc(i.title)}</a></h3><div class="bv-chips">${bvChips(i)}</div></div></article>`).join('');
-    return `<section class="bvA-hero o1"><div class="bvA-ph">${ph.map(x => `<i style="background-image:url(${x})"></i>`).join('')}</div>
-      <div class="bvA-tx"><span class="ic">${b.icon}</span><div class="eyebrow">Block</div><h1>${esc(b.name)}</h1><p>${esc(b.intro)}</p>${bvStats(b)}</div></section>
-      ${blockButtons(b, '')}
-      <section class="bvA-about o2"><div class="bvA-l">${A.about}</div><div class="bvA-r">${A.scope}</div></section>
-      <div class="bv-h o3"><h2>Indicators</h2>${bvNote}</div><section class="bvA-grid o3">${cards}</section>`;
-  },
-  b(b) {      // editorial: light header, sticky text column, numbered list
-    const A = bvAbout(b), L = b.indicators.map(c => I[c]);
-    const rows = L.map((i, k) => `<li class="bvB-r"><a class="bvB-th" href="#/indicator/${i.code}" style="background-image:url(${bp(i.code, 0)})" aria-label="${esc(i.title)}"></a>
-      <div class="bvB-m"><span class="bvB-n">${String(k + 1).padStart(2, '0')}</span><h3><a href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a></h3><div class="bv-chips">${bvChips(i)}</div></div></li>`).join('');
-    return `<div class="bvB-cols o1"><aside class="bvB-side"><header class="bvB-head"><div class="bvB-wm" aria-hidden="true">${b.icon}</div><div class="eyebrow">Block &middot; ${b.indicators.length} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p></header>
-      ${blockButtons(b, '')}
-      <figure style="background-image:url(${bp(L[0].code, 1) || bp(L[0].code, 0)})"></figure><div class="bvB-txt">${A.about}${A.scope}</div></aside>
-      <div class="bvB-list"><div class="bv-h"><h2>Indicators</h2>${bvNote}</div><ol>${rows}</ol></div></div>`;
-  },
-  c(b) {      // bento wall of photo tiles, text as a magazine spread
-    const A = bvAbout(b), L = b.indicators.map(c => I[c]);
-    const tiles = L.map((i, k) => `<article class="bvC-t t${k}" style="background-image:url(${bp(i.code, 0)})"><div class="in"><a class="h" href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a>
-      <p>${i.groups.map(g => `<a href="#/indicator/${i.code}${g.metrics[0] ? '/' + g.metrics[0].page : ''}"${g.planned ? ' class="bvpl" title="Planned: no data yet"' : ''}>${esc(dotc(g.code))} ${esc(g.name)}${g.planned ? ' <em>planned</em>' : ''}</a>`).join('')}</p></div></article>`).join('');
-    return `<section class="bvC-wall o1"><div class="bvC-title"><span class="ic">${b.icon}</span><div class="eyebrow">Block</div><h1>${esc(b.name)}</h1><p>${esc(b.intro)}</p>${bvStats(b)}</div>${tiles}</section>
-      ${blockButtons(b, '')}${bvNote}
-      <section class="bvC-mag o2"><div class="bvC-col">${A.about}</div><div class="bvC-col">${A.scope}</div></section>`;
-  },
-  e(b) { return bvEd(b, 'e'); },      // editorial + photo tiles in two columns
-  f(b) { return bvEd(b, 'f'); },      // editorial + compact photo strips
-  g(b) { return bvEd(b, 'g'); },      // editorial + photo wall (first tile wide)
-  j(b) { return bvEd2(b, 'j'); },      // editorial list with small thumbnails, two columns
-  i(b) { return bvEd2(b, 'i'); },      // editorial list with a photo mosaic above the about text
-  k(b) { return bvKL(b, 'k'); },      // F in three columns: text | indicators split in two columns of strips
-  l(b) { return bvKL(b, 'l'); },      // indicators first: slim header with the supporting pages, tile wall, narrative below
-  m(b) { return bvKL(b, 'm'); },      // one screen: narrative in tabs, supporting pages as cards, strips in two columns
-  n(b) {      // photo wall: the title tile sits on a mosaic of the indicator photos; the indicators are text cards
-    const A = bvAbout(b), L = b.indicators.map(c => I[c]), n = L.length;
-    const T = 3 + n, rows = Math.ceil(T / 3), rem = T % 3;
-    const mos = L.map((i, k) => `<i class="${k === 0 ? 'big' : (k === n - 1 && rem ? 'w' + (rem === 1 ? 3 : 2) : '')}" style="background-image:url(${bp(i.code, 0)})"></i>`).join('');
-    const below = Math.max(n - 4, 0), brem = below % 4;
-    const cards = L.map((i, k) => {
-      let cls = '';
-      if (n < 4 && k === n - 1 && n > 2) cls = 'sp2';
-      else if (n === 2) cls = 'tall';
-      else if (k === n - 1 && k >= 4 && brem) cls = 'sp' + (4 - brem + 1);
-      else if (k === n - 1 && n === 5) cls = 'sp4';
-      return `<article class="bvN-c ${cls}"><span class="bvN-n">${String(k + 1).padStart(2, '0')}</span><a class="bvN-h" href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a><span class="bvN-k" aria-hidden="true">${i.groups.length} sub-indicator${i.groups.length === 1 ? '' : 's'}<i>&#9662;</i></span><div class="bvN-pn"><div class="bv-chips">${bvChips(i)}</div></div></article>`;
-    }).join('');
-    return `<div class="bvN-band o1"><section class="bvN-wall"><div class="bvN-title"><div class="bvN-mos" style="grid-template-rows:repeat(${rows},1fr)" aria-hidden="true">${mos}</div>
-      <div class="bvN-tx"><span class="ic">${b.icon}</span><div class="eyebrow">Block</div><h1>${esc(b.name)}</h1><p>${esc(b.intro)}</p>${bvStats(b)}</div></div>${cards}</section><p class="bvN-hint">Hover over an indicator to see its sub-indicators.</p></div>
-      ${blockButtons(b, '')}${bvNote}
-      <section class="bvC-mag o2"><div class="bvC-col">${A.about}</div><div class="bvC-col">${A.scope}</div></section>`;
-  },
   o(b) {      // narrative on the left; indicators as a photo mosaic on the right, tiles open on hover to show the sub-indicators
     const A = bvAbout(b), L = b.indicators.map(c => I[c]), n = L.length, rem = (n + 3) % 4;
     const tiles = L.map((i, k) => {
@@ -1626,54 +1343,19 @@ const BV = {
     return `<div class="bvO o1"><aside class="bvO-side"><header class="bvB-head"><div class="eyebrow">Block &middot; ${n} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p></header>
       ${blockButtons(b, '')}<div class="bvE-txt"><div class="bvA-l">${A.about}</div><div class="bvA-r">${A.scope}</div></div></aside>
       <div class="bvO-main"><div class="bv-h"><h2>Indicators</h2><p class="bvO-hint">Hover over a photo to see its sub-indicators.</p></div>${bvNote}<div class="bvO-mos bvO-c${n}">${tiles}</div></div></div>`;
-  },
-  d(b) {      // master-detail: pick an indicator, see its photo and sub-indicators
-    const A = bvAbout(b), L = b.indicators.map(c => I[c]);
-    const pills = L.map((i, k) => `<button type="button" class="bvD-p${k ? '' : ' on'}" data-k="${k}" aria-selected="${k ? 'false' : 'true'}"><b>${esc(i.code)}</b><span>${esc(i.title)}</span></button>`).join('');
-    const panes = L.map((i, k) => `<div class="bvD-pane" data-k="${k}"${k ? ' hidden' : ''}><div class="bvD-img" style="background-image:url(${bp(i.code, 0)})"><div><small>${esc(i.code)}</small><h3>${esc(i.title)}</h3></div><a class="bvD-go" href="#/indicator/${i.code}">Open the indicator &rarr;</a></div>
-      <div class="bvD-subs">${i.groups.map(g => `<a href="#/indicator/${i.code}${g.metrics[0] ? '/' + g.metrics[0].page : ''}"${g.planned ? ' class="bvpl" title="Planned: no data yet"' : ''}><b>${esc(dotc(g.code))}</b><span>${esc(g.name)}${g.planned ? '<em>planned</em>' : ''}</span><i aria-hidden="true">&rarr;</i></a>`).join('')}</div></div>`).join('');
-    return `<section class="bvD-head o1"><span class="ic">${b.icon}</span><div><div class="eyebrow">Block</div><h1>${esc(b.name)}</h1><p>${esc(b.intro)}</p></div>${bvStats(b)}</section>
-      ${blockButtons(b, '')}
-      <div class="bvD-cols o2"><section class="card bvD-about">${A.about}${A.scope}</section>
-      <section class="card bvD-md"><div class="bvD-top"><h2>Indicators</h2>${bvNote}</div><div class="bvD-pills" role="tablist">${pills}</div>${panes}</section></div>`;
   }
 };
-function viewBlockVariant(b, lay) {
+function viewBlockVariant(b) {      // block page: narrative on the left, photo mosaic of the indicators on the right (tiles open on hover)
   $('#left').style.display = 'none'; $('#right').style.display = 'none'; $('#dash').style.display = 'none';
-  $('#wide').innerHTML = `<nav class="crumbs big o1"><a href="#/explore">Explore</a><span>&rsaquo;</span><span>${esc(b.name)}</span></nav><div class="bv bv-${lay}">${BV[lay](b)}</div>`;
-  document.querySelectorAll('.bvM-tabs button').forEach(btn => btn.onclick = () => {
-    document.querySelectorAll('.bvM-tabs button').forEach(x => { const on = x === btn; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); });
-    document.querySelectorAll('.bvM-panel').forEach(x => x.hidden = x.dataset.k !== btn.dataset.k);
-  });
-  document.querySelectorAll('[data-jump]').forEach(a => a.onclick = e => { e.preventDefault(); const t = document.getElementById(a.dataset.jump); if (t) t.scrollIntoView({behavior: 'smooth'}); });
-  document.querySelectorAll('.bvD-p').forEach(btn => btn.onclick = () => {
-    document.querySelectorAll('.bvD-p').forEach(x => { const on = x === btn; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); });
-    document.querySelectorAll('.bvD-pane').forEach(x => x.hidden = x.dataset.k !== btn.dataset.k);
-  });
+  $('#wide').innerHTML = `<nav class="crumbs big o1"><a href="#/explore">Explore</a><span>&rsaquo;</span><span>${esc(b.name)}</span></nav><div class="bv bv-o">${BV.o(b)}</div>`;
 }
-const BV_CHOICES = [['cur', 'Current'], ['a', 'A · Hero & cards'], ['b', 'B · Editorial'], ['c', 'C · Photo wall'], ['e', 'E · Editorial tiles'], ['f', 'F · Editorial strips'], ['g', 'G · Editorial wall'], ['j', 'H · Compact rows'], ['i', 'I · Mosaic'], ['k', 'K · Strips, 3 columns'], ['l', 'L · Indicators first'], ['m', 'M · One screen'], ['n', 'N · Wall with text'], ['o', 'O · Hover mosaic']];
-function bvChoice() {
-  let v = new URLSearchParams(location.search).get('layout');
-  if (!v) { try { v = localStorage.getItem('niafp-block-layout'); } catch (e) {} }
-  return BV_CHOICES.some(x => x[0] === v) || v === 'd' ? v : 'cur';
-}
-function bvSwitcher(key, lay) {      // lets visitors try the block page layouts; the choice is remembered in the browser
-  const old = document.getElementById('bvsw'); if (old) old.remove();
-  const el = document.createElement('div'); el.id = 'bvsw'; el.setAttribute('role', 'group'); el.setAttribute('aria-label', 'Block page layout');
-  el.innerHTML = '<span>Block page layout: pick the one you prefer</span>' + BV_CHOICES.map(([k, t]) => `<button type="button" data-k="${k}" class="${k === lay ? 'on' : ''}" aria-pressed="${k === lay}">${t}</button>`).join('');
-  el.onclick = e => { const bt = e.target.closest('button'); if (!bt) return; try { localStorage.setItem('niafp-block-layout', bt.dataset.k); } catch (x) {}
-    if (new URLSearchParams(location.search).get('layout')) history.replaceState(null, '', location.pathname + location.hash); route(); window.scrollTo({top: 0, behavior: 'instant'}); };
-  document.body.appendChild(el);
-}
-
 function viewBlock(key, sub) {
   const b = B[key]; if (!b) return viewHome();
   const V = BLOCK_VIEWS[sub];
   setTheme(b); renderNav(key);
   $('#band').className = 'band';
   $('#wide').style.display = 'block';
-  const lay = bvChoice();
-  if (!V) { const sw = document.getElementById('bvsw'); if (sw) sw.remove(); if (new URLSearchParams(location.search).get('preview') === 'layouts') bvSwitcher(key, lay); return viewBlockVariant(b, new URLSearchParams(location.search).get('preview') === 'layouts' ? lay : 'o'); }
+  if (!V) return viewBlockVariant(b);
   const crumbs = `<nav class="crumbs big o1"><a href="#/explore">Explore</a><span>&rsaquo;</span>` +
     (V ? `<a href="#/block/${key}">${esc(b.name)}</a><span>&rsaquo;</span><span>${esc(V.label)}</span>` : `<span>${esc(b.name)}</span>`) + `</nav>`;
   const head = V
