@@ -485,14 +485,14 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
 .bvE-txt h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:0 0 10px}
 .bvE-txt .bvA-l p:first-of-type{font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--ink)}
 .bvE-txt .bvA-l p,.bvE-txt .bvA-r p{font-size:15px;color:var(--ink-2)}
-.bvO{display:grid;grid-template-columns:minmax(340px,1.3fr) minmax(0,1fr);gap:30px;align-items:start;margin-top:8px}
+.bvO{display:grid;grid-template-columns:minmax(340px,1.3fr) minmax(0,1fr);gap:30px;align-items:stretch;margin-top:8px}
 .bvO .bvE-txt{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
 .bvO .bvE-txt .bvA-l p:first-of-type{font-size:17.5px;line-height:1.4}.bvO .bvE-txt .bvA-l p,.bvO .bvE-txt .bvA-r p{font-size:14px;line-height:1.5}.bvO .bvE-txt .bvA-r{padding:18px 18px}
 .bvO-side{min-width:0}.bvO-side .bvB-head{padding:6px 0 12px}.bvO-side .bvB-head h1{font-size:54px}.bvO-side .bvB-head .lead{font-size:17px}
-.bvO-main{min-width:0}.bvO-main .bv-h{margin:0 0 4px;align-items:baseline}
+.bvO-main{min-width:0;display:flex;flex-direction:column}.bvO-main .bvO-mos{flex:1 1 auto}.bvO-main .bv-h{margin:0 0 4px;align-items:baseline}
 .bvO-hint{display:none;margin:0;font-size:13px;font-weight:700;color:var(--c)}
 .bvO-main .bv-note{margin-bottom:12px}
-.bvO-mos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:205px;grid-auto-flow:dense;gap:4px}
+.bvO-mos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(60px,1fr);grid-auto-flow:dense;gap:4px}
 .bvO-t{position:relative;border-radius:0;background-size:cover;background-position:center;color:#fff;min-width:0}
 .bvO-t.big{grid-column:span 2;grid-row:span 2}.bvO-t.w2{grid-column:span 2}.bvO-t.w3{grid-column:span 3}.bvO-t.w4{grid-column:span 4}
 .bvO-mos .bvO-t:first-child{border-top-left-radius:18px}.bvO-t{overflow:visible}
@@ -500,8 +500,8 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
 .bvO-t.big .bvO-in{font-size:24px;padding:20px 22px}
 .bvO-in small{font-size:11.5px;letter-spacing:.06em;opacity:.85;margin-bottom:2px}
 .bvO-k{font-size:12px;font-weight:700;opacity:.85;margin-top:6px}.bvO-k i{font-style:normal;font-size:11px}
-.bvO-pn{padding:14px 16px 16px}.bvO-h{display:block;color:#fff;text-decoration:none;font-weight:800;font-size:17px;line-height:1.2;margin-bottom:8px}.bvO-h small{display:block;font-size:11.5px;letter-spacing:.06em;opacity:.8;margin-bottom:2px}
-.bvO-pn .bv-chips{gap:5px}.bvO-pn .bv-chip{font-size:12px;padding:3px 10px;background:rgba(255,255,255,.16);color:#fff}.bvO-pn .bv-chip b{color:rgba(255,255,255,.75)}
+.bvO-pn{padding:12px 14px 12px}.bvO-h{display:block;color:#fff;text-decoration:none;font-weight:800;font-size:17px;line-height:1.2;margin-bottom:8px}.bvO-h small{display:block;font-size:11.5px;letter-spacing:.06em;opacity:.8;margin-bottom:2px}
+.bvO-pn .bv-chips{gap:4px}.bvO-pn .bv-chip{font-size:12px;padding:3px 10px;background:rgba(255,255,255,.16);color:#fff}.bvO-pn .bv-chip b{color:rgba(255,255,255,.75)}
 .bvO-pn .bv-chip:hover{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.6)}
 .bvO-pn .bv-chip.bvpl{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6)}.bvO-pn .bv-chip.bvpl b{color:rgba(255,255,255,.5)}.bvO-pn .bv-chip em{border-color:rgba(255,255,255,.4)}
 @media (hover:hover) and (min-width:901px){
@@ -510,7 +510,7 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
   .bvO-t:hover,.bvO-t:focus-within{z-index:7}
   .bvO-t:hover .bvO-pn,.bvO-t:focus-within .bvO-pn{opacity:1;visibility:visible}
 }
-@media (min-width:901px) and (max-width:1279px){.bvO{grid-template-columns:1fr}.bvO-mos{grid-auto-rows:190px}.bvO .bvE-txt{grid-template-columns:1fr 1fr}}
+@media (min-width:901px) and (max-width:1279px){.bvO{grid-template-columns:1fr}.bvO-mos{grid-auto-rows:60px}.bvO .bvE-txt{grid-template-columns:1fr 1fr}}
 @media (max-width:900px),(hover:none){
   .bvO{grid-template-columns:1fr}.bvO .bvE-txt{grid-template-columns:1fr}
   .bvO-mos{display:flex;flex-direction:column;gap:12px}
@@ -1274,12 +1274,16 @@ const bvNote = '<p class="bv-note">Select an indicator or a sub-indicator to ope
 
 const BV = {
   o(b) {      // narrative on the left; indicators as a photo mosaic on the right, tiles open on hover to show the sub-indicators
-    const A = bvAbout(b), L = b.indicators.map(c => I[c]), n = L.length, rem = (n + 3) % 4;
+    const A = bvAbout(b), L = b.indicators.map(c => I[c]), n = L.length;
+    // Tile height follows the amount of text a tile has to show: the indicator name plus every sub-indicator name (about 30 characters to a line in a two-column tile).
+    // It sets the resting height; the hover panel opens to the full height. Tiles go into two lanes, the shorter lane gets the extra rows, so both lanes end on the same line.
+    const M = L.map(i => ({rows: Math.max(2, Math.min(4, Math.ceil((52 + Math.ceil(i.title.length / 22) * 22 + i.groups.reduce((t, g) => t + Math.ceil((g.name.length + 8) / 30) * 31, 0)) * 0.4 / 60))), lane: 0}));
+    const LH = [0, 0], last = [-1, -1];
+    M.forEach((m, k) => { m.lane = LH[1] < LH[0] ? 1 : 0; LH[m.lane] += m.rows; last[m.lane] = k; });
+    if (LH[0] !== LH[1]) { const sh = LH[0] < LH[1] ? 0 : 1; if (last[sh] >= 0) M[last[sh]].rows += Math.abs(LH[0] - LH[1]); }
     const tiles = L.map((i, k) => {
-      let cls = k === 0 ? 'big' : '';
-      if (n <= 3 && k > 0) cls = 'w2';
-      else if (k === n - 1 && k > 0 && rem) cls = 'w' + (4 - rem + 1);
-      return `<article class="bvO-t ${cls}" style="background-image:url(${bp(i.code, 0)});--ph:url(${bp(i.code, 0)})"><a class="bvO-in" href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}<span class="bvO-k">${i.groups.length} sub-indicator${i.groups.length === 1 ? '' : 's'} <i>&#9662;</i></span></a>
+      const cls = 'w2', rows = M[k].rows, col = M[k].lane ? 3 : 1;
+      return `<article class="bvO-t ${cls}" style="grid-column:${col} / span 2;grid-row:span ${rows};background-image:url(${bp(i.code, 0)});--ph:url(${bp(i.code, 0)})"><a class="bvO-in" href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}<span class="bvO-k">${i.groups.length} sub-indicator${i.groups.length === 1 ? '' : 's'} <i>&#9662;</i></span></a>
         <div class="bvO-pn"><a class="bvO-h" href="#/indicator/${i.code}"><small>${esc(i.code)}</small>${esc(i.title)}</a><div class="bv-chips">${bvChips(i)}</div></div></article>`;
     }).join('');
     return `<div class="bvO o1"><aside class="bvO-side"><header class="bvB-head"><div class="eyebrow">Block &middot; ${n} indicators &middot; ${b.metrics} metrics</div><h1>${esc(b.name)}</h1><p class="lead">${esc(b.intro)}</p></header>
