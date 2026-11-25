@@ -521,11 +521,6 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
   .bvO-pn{position:static}.bvO-pn .bvO-h{display:none}
 }
 /* layout chooser bar (developer preview of the indicator page layouts) */
-#bvsw{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:80;display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;justify-content:center;max-width:94vw;padding:8px 12px;border-radius:16px;background:#14201A;color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.35);font:600 12px var(--sans)}
-#bvsw span{opacity:.6;font-weight:600;margin-right:2px}#bvsw .sp{flex-basis:100%;height:0}
-#bvsw a,#bvsw button{color:#D6E4DC;text-decoration:none;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:none;font:inherit;cursor:pointer}
-#bvsw a:hover,#bvsw button:hover{background:rgba(255,255,255,.12)}#bvsw a.on,#bvsw button.on{background:#fff;color:#14201A;border-color:#fff}
-@media (max-width:700px){#bvsw{bottom:68px;font-size:11.5px;padding:7px 10px}}
 /* block page */
 .bv{padding-bottom:70px}
 @media (max-width:700px){.bv{padding-bottom:40px}}
@@ -549,7 +544,7 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
 .bvB-head h1{font-size:60px;line-height:.98;color:var(--dark);margin:6px 0 14px}
 .bvB-head .lead{font-size:18px;max-width:760px;color:var(--ink-2);margin:0}
 /* indicator page layout proposals */
-.ia-prog,.ib-tabs{display:none}
+.ia-prog{display:none}
 /* section tiles above the text column (also used by guided steps) */
 .ilay-t .tabs{display:none}
 .ia-prog.ia-std{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;scroll-margin-top:90px}
@@ -561,70 +556,6 @@ body.home-page footer .flogo-l{display:none}body.home-page footer .flogo-d{displ
 .ia-prog.ia-std button.done i{background:var(--c);color:#fff}
 .ia-prog.ia-std button:hover:not(.on){background:color-mix(in srgb,var(--c) 18%,#fff)}
 @media (max-width:900px){.ia-prog.ia-std{grid-template-columns:1fr 1fr}}
-/* A: guided steps */
-.ilay-a .tabs{display:none}
-.ilay-a .ia-prog{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;scroll-margin-top:90px}
-.ilay-a .ia-prog button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:10px 12px 12px;border:0;border-radius:12px;background:var(--tint);color:var(--ink-2);font:600 13px var(--sans);cursor:pointer;text-align:left;overflow:hidden}
-.ilay-a .ia-prog button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform .35s}
-.ilay-a .ia-prog button.done::after,.ilay-a .ia-prog button.on::after{transform:scaleX(1)}
-.ilay-a .ia-prog button i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--c);font-size:12px;font-weight:800}
-.ilay-a .ia-prog button.on{background:var(--c);color:#fff}.ilay-a .ia-prog button.on i{background:#fff;color:var(--c)}
-.ilay-a .ia-prog button.done i{background:var(--c);color:#fff}
-.ilay-a .ia-prog button:hover:not(.on){background:color-mix(in srgb,var(--c) 18%,#fff)}
-.ilay-a .ph-strip{height:150px}
-.ilay-a .sec-h h2{font-size:26px}
-.ilay-a .prose{font-size:17.5px;line-height:1.7}
-.ilay-a .ia-nav{display:flex;justify-content:space-between;gap:12px}
-.ilay-a .ia-nav button{border:0;border-radius:999px;padding:13px 22px;font:700 14.5px var(--sans);cursor:pointer;transition:transform .15s}
-.ilay-a .ia-nav .back{background:var(--tint);color:var(--c)}
-.ilay-a .ia-nav .next{background:var(--c);color:#fff;margin-left:auto;box-shadow:0 8px 18px color-mix(in srgb,var(--c) 40%,transparent)}
-.ilay-a .ia-nav button:hover{transform:translateY(-2px)}
-.ilay-a .notes{opacity:.9}
-/* B: workspace */
-@media (min-width:1000px){
-  body.ilay-b{overflow:hidden}
-  .ilay-b .crumbs,.ilay-b .band-credit,.ilay-b .tabs,.ilay-b .band-title .meta{display:none}
-  .ilay-b .band-in{padding:8px 20px}
-  .ilay-b .band-main{margin-top:0;display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:4px}
-  .ilay-b .band-main-l{padding:6px 14px!important}
-  .ilay-b .band-main-l{flex:1 1 100%;min-width:0;gap:12px}
-  .ilay-b .band-title{flex:1;min-width:0}
-  .ilay-b .band-icon{width:40px;height:40px}
-  .ilay-b .band-title h1{font-size:23px;margin:2px 0 0}
-  .ilay-b .band-title .code{font-size:11px}
-  .ilay-b .sibs-wrap{flex:1 1 100%;min-width:0;padding-bottom:6px}
-  .ilay-b .sibs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
-  .ilay-b .sibs a{flex:none;white-space:nowrap}.ilay-b .sibs a span{display:block;-webkit-line-clamp:unset}
-  .ilay-b .layout.ind{max-width:none;height:calc(100vh - var(--hdr,150px));padding:14px 18px;gap:18px;grid-template-columns:minmax(400px,.85fr) minmax(0,1.3fr);align-items:stretch;overflow:hidden}
-  .ilay-b #left,.ilay-b #right{height:100%;min-height:0;overflow-y:auto;position:static;padding-right:6px;scrollbar-width:thin}
-  .ilay-b .ib-tabs{display:flex;gap:6px;position:sticky;top:0;z-index:5;background:var(--bg,#F7F3EB);padding:2px 0 10px}
-  .ilay-b .ib-tabs a{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink);font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap}
-  .ilay-b .ib-tabs a i{font-style:normal;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--c);color:#fff;font-size:10.5px}
-  .ilay-b .ib-tabs a:hover{background:var(--tint)}
-  .ilay-b .ph-strip{height:70px}
-  .ilay-b .sec{scroll-margin-top:52px}
-}
-/* C: chart stage */
-body.ilay-c{overflow-x:hidden}
-.ilay-c .tabs,.ilay-c .ph-strip{display:none}
-.ilay-c .layout.ind{grid-template-columns:minmax(0,1fr);justify-items:center;gap:34px;padding-top:0}
-.ilay-c .layout.ind #right{order:-1;position:relative;top:auto;z-index:0;width:100%;max-width:1180px;padding:36px 0 40px}
-.ilay-c .layout.ind #right::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);background:linear-gradient(180deg,color-mix(in srgb,var(--dark) 72%,transparent),color-mix(in srgb,var(--dark) 94%,transparent)),var(--ilphoto,none) center/cover}
-.ilay-c #right .mpanel,.ilay-c #right .dash{box-shadow:0 24px 60px rgba(0,0,0,.45)}
-.ilay-c #left{width:100%;max-width:1180px;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:22px;align-items:start}
-.ilay-c .pair{display:contents}
-.ilay-c #s-obs{grid-column:1;grid-row:1/span 3}
-.ilay-c #s-about{grid-column:2;grid-row:1}.ilay-c #s-lim{grid-column:2;grid-row:2}.ilay-c #s-opp{grid-column:2;grid-row:3}
-.ilay-c .notes,.ilay-c .pn{grid-column:1/-1}
-.ilay-c .sec{border-left:6px solid var(--c)}
-.ilay-c #s-lim{border-left-color:#8A6A2E}.ilay-c #s-opp{border-left-color:#1E7A55}
-.ilay-c #s-obs .sec-h h2{font-family:var(--serif);font-weight:400;font-size:30px}
-.ilay-c #s-obs .prose{font-size:18px;line-height:1.72}
-.ilay-c #s-about,.ilay-c #s-lim,.ilay-c #s-opp{background:color-mix(in srgb,var(--tint) 55%,#fff)}
-@media (max-width:900px){
-  .ilay-a .ia-prog{grid-template-columns:1fr 1fr}
-  .ilay-c #left{grid-template-columns:1fr}.ilay-c #left>*{grid-column:1!important;grid-row:auto!important}
-}
 /* ---- overview page */
 .ov-hero{position:relative;border-radius:22px;overflow:hidden;color:#fff;padding:22px 34px 32px;background:linear-gradient(135deg,rgba(18,50,38,.95),rgba(18,50,38,.82)),var(--hp,none) center/cover,var(--navy)}
 .ov-hero .crumbs,.ov-hero .crumbs a{color:rgba(255,255,255,.8)}
@@ -1463,7 +1394,7 @@ function viewIndicator(code, metricPage) {
     document.querySelectorAll('#iaProg button').forEach(x => { const on = x.dataset.go === id; x.classList.toggle('on', on); x.setAttribute('aria-current', on ? 'step' : 'false'); });
   };
   band.querySelectorAll('[data-go]').forEach(a => a.onclick = e => { e.preventDefault(); showSec(a.dataset.go); });
-  if (!new URLSearchParams(location.search).get('ilayout')) {      // the four sections are tiles above the text column, under the header band
+  {      // the four sections are tiles above the text column, under the header band
     document.body.classList.add('ilay-t');
     $('#left').insertAdjacentHTML('afterbegin', `<nav class="ia-prog ia-std" id="iaProg" aria-label="Sections of this indicator">${SECS.map((s, k) => `<button type="button" data-go="${s}"><i>${k + 1}</i><span>${({'s-about': 'About', 's-obs': 'Current observations', 's-lim': 'Limitations', 's-opp': 'Opportunities'})[s]}</span></button>`).join('')}</nav>`);
     document.querySelectorAll('#iaProg button').forEach(x => x.onclick = () => { showSec(x.dataset.go); const t = $('#iaProg'); if (t && t.getBoundingClientRect().top < 0) t.scrollIntoView({behavior: 'smooth', block: 'start'}); });
@@ -1471,59 +1402,10 @@ function viewIndicator(code, metricPage) {
   showSec('s-obs');
   const rm = $('#rm');
   if (rm) rm.onclick = () => { $('#obs').classList.remove('closed'); rm.remove(); };
-  applyILayout(i, b, PHS);
   const chosen = renderMetrics(i, metricPage);
   setDashboard(chosen.page, `${i.code} ${i.title} · ${chosen.code}`, MTIP(i), chosen.src, chosen.smooth, chosen.about);
 }
 
-
-/* ---------- indicator page layout proposals (open with ?ilayout=a|b|c before the #) ---------- */
-function ilFit() {      // workspace layout: height left under the top bar and the slim header
-  const t = document.querySelector('.topbar'), bd = document.getElementById('band');
-  document.body.style.setProperty('--hdr', ((t ? t.offsetHeight : 68) + (bd ? bd.offsetHeight : 0)) + 'px');
-}
-function applyILayout(i, b, PHS) {
-  const lay = new URLSearchParams(location.search).get('ilayout');
-  if (!lay) return;
-  const old = document.getElementById('bvsw'); if (old) old.remove();
-  const sw = document.createElement('div'); sw.id = 'bvsw';
-  sw.innerHTML = '<span>Indicator page layout</span>' + [['cur', 'Current'], ['a', 'A · Guided steps'], ['b', 'B · Workspace'], ['c', 'C · Chart stage']].map(([k, t]) =>
-    `<a href="?ilayout=${k}${location.hash}" class="${k === lay ? 'on' : ''}">${t}</a>`).join('') + '<span class="sp"></span>' +
-    ['EN.1', 'EC.1', 'FI.1', 'SW.1'].filter(c => I[c]).map(c => `<a href="?ilayout=${lay}#/indicator/${c}" class="${c === i.code ? 'on' : ''}">${c}</a>`).join('');
-  document.body.appendChild(sw);
-  if (!['a', 'b', 'c'].includes(lay)) return;
-  document.body.classList.add('ilay-' + lay);
-  const band = $('#band');
-  const SECS = [['s-about', 'About'], ['s-obs', 'Current observations'], ['s-lim', 'Limitations'], ['s-opp', 'Opportunities']];
-  const showAll = () => SECS.forEach(([id]) => { const el = document.getElementById(id); if (el) el.style.display = ''; });
-  if (lay === 'a') {          // guided steps: one section at a time, with progress and Back / Next
-    const nx = I[DATA.order[DATA.order.indexOf(i.code) + 1]];
-    $('#left').insertAdjacentHTML('afterbegin', `<nav class="ia-prog" id="iaProg" aria-label="Reading steps">${SECS.map(([id, t], k) => `<button type="button" data-k="${k}"><i>${k + 1}</i><span>${t}</span></button>`).join('')}</nav>`);
-    $('#left .pair').insertAdjacentHTML('afterend', '<div class="ia-nav" id="iaNav"><button type="button" class="back" id="iaBack"></button><button type="button" class="next" id="iaNext"></button></div>');
-    let cur = 0;
-    const step = (k, scroll) => {
-      cur = k;
-      const tab = band.querySelector(`[data-go="${SECS[k][0]}"]`); if (tab) tab.click();
-      document.querySelectorAll('#iaProg button').forEach((x, n) => { x.classList.toggle('on', n === k); x.classList.toggle('done', n < k); x.setAttribute('aria-current', n === k ? 'step' : 'false'); });
-      $('#iaBack').style.visibility = k ? 'visible' : 'hidden'; $('#iaBack').textContent = k ? '\u2190 ' + SECS[k - 1][1] : '';
-      $('#iaNext').textContent = k < 3 ? 'Next: ' + SECS[k + 1][1] + ' \u2192' : (nx ? 'Next indicator: ' + nx.title + ' \u2192' : 'Back to the block \u2192');
-      if (scroll) { const t = $('#iaProg'); t.scrollIntoView({behavior: 'smooth', block: 'start'}); }
-    };
-    document.querySelectorAll('#iaProg button').forEach(x => x.onclick = () => step(+x.dataset.k, true));
-    $('#iaBack').onclick = () => step(cur - 1, true);
-    $('#iaNext').onclick = () => { if (cur < 3) step(cur + 1, true); else location.hash = nx ? '#/indicator/' + nx.code : '#/block/' + b.key; };
-    step(0, false);
-  } else if (lay === 'b') {   // workspace: two panes that scroll on their own, no page scroll
-    showAll();
-    $('#left').insertAdjacentHTML('afterbegin', `<nav class="ib-tabs">${SECS.map(([id, t], k) => `<a href="#" data-id="${id}"><i>${k + 1}</i>${t}</a>`).join('')}</nav>`);
-    document.querySelectorAll('.ib-tabs a').forEach(a => a.onclick = e => { e.preventDefault(); const el = document.getElementById(a.dataset.id); if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'}); });
-    ilFit(); setTimeout(ilFit, 400); setTimeout(ilFit, 1500);
-    if (!window._ilR) { window._ilR = 1; addEventListener('resize', () => { if (document.body.classList.contains('ilay-b')) ilFit(); }); }
-  } else if (lay === 'c') {   // chart stage: the dashboard on a photo, the story in a board below
-    showAll();
-    const ph = (PHS && PHS[2]) || (PHS && PHS[0]); if (ph) document.body.style.setProperty('--ilphoto', `url(${ph.src})`);
-  }
-}
 
 // Photo layouts for the lower sections (comparison build): ?look=divider | background | strips | off
 function applyLook(PHS) {
@@ -1831,7 +1713,7 @@ addEventListener('keydown', e => {
 
 function route() {
   CUR_METRIC = null;
-  { const sw = document.getElementById('bvsw'); if (sw) sw.remove(); const t = document.getElementById('idTiles'); if (t) t.remove(); document.body.className = document.body.className.replace(/\bilay-\w+/g, '').trim(); document.body.style.removeProperty('--ilphoto'); document.body.style.removeProperty('--hdr'); }
+  { const t = document.getElementById('idTiles'); if (t) t.remove(); document.body.className = document.body.className.replace(/\bilay-\w+/g, '').trim(); }
   $('#layout').classList.remove('ind');
   document.body.classList.toggle('ind-page', location.hash.replace(/^#\/?/, '').split('/')[0] === 'indicator');
   document.body.classList.remove('home-page', 'home-mos', 'home-dk'); document.body.style.removeProperty('--ovc'); document.body.style.removeProperty('--ovs');
