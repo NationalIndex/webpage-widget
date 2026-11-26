@@ -6,7 +6,7 @@ in the Webflow CMS, so search engines can read it.
 
 ```
 GitHub Pages (hosted/ files)  --->  widget.js + config.json + metric_data.js + narratives.json + test.html
-GitHub Pages (site/ pages)    --->  the full original pages: site/index_1024.html and site/index.html
+GitHub Pages (site/ pages)    --->  the website: site/index.html (one version; earlier versions are in dashboard/website/archive)
 Webflow page                  --->  <div id="idx" data-code="EN.3"></div> + <script src=".../widget.js">
 Webflow CMS                   --->  narratives (Rich Text), imported from cms/indicators.csv
 ```
@@ -20,12 +20,12 @@ Base address: `https://index.agrifoodindex.ca/`
 | `widget.js`, `config.json`, `metric_data.js` | The dashboard widget and its data (what the Webflow Embed loads) |
 | `narratives.json` | Narrative text used by the test page |
 | `test.html?code=EN.5&metric=ind_5` | Test page: narratives plus the widget, with the dashboard kept in view while scrolling. Not a Webflow page |
-| `site/index_1024.html` | The complete original site (1024 px dashboard version; recommended) |
+| `site/index.html` | The website (the older `site/index_1024.html` address forwards here) |
 | `site/index.html` | The complete original site (standard width) |
 | `loader-embed.html` | The two-line Embed for Webflow |
 
 The `site/` pages are the self-contained pages built by `dashboard/website/src/build_site.py` (copied from `dashboard/website/`
-together with `metric_data.js` and `ask-context.json`). They can be linked to or shown in an iframe from the Webflow site
+together with `metric_data.js`). They can be linked to or shown in an iframe from the Webflow site
 (see Option A in `DEVELOPER_BRIEF.md`), with no CMS work. Narratives in these pages are loaded by script, so search engines do not
 index them; the Webflow CMS pages (Option C) do.
 
@@ -66,7 +66,7 @@ host, so shared links are the Webflow page address.
 |---|---|
 | New Power BI link, renamed or added metrics, new data | 1. Run `python dashboard/powerbi/AgriFood_Indicators_v2/tools/prepare_data.py` and regenerate/republish the Power BI report if the data changed. 2. Update `PBI_URL` in `dashboard/website/src/build_site.py` if the link changed. 3. Run `python dashboard/webflow/build_webflow.py`. 4. Run `python dashboard/webflow/publish_hosted.py` (or upload `hosted/config.json`, and `metric_data.js` if data changed, in the GitHub repo by hand). Live within a few minutes. |
 | Widget look or behaviour | Edit `widget_template.html`, run `build_webflow.py`, then `publish_hosted.py`. |
-| Look, text or behaviour of the full site (`site/` pages) | Edit `dashboard/website/src/template.html` / `template_1024.html` (or `narratives.json`), run `python dashboard/website/src/build_site.py`, then `python dashboard/webflow/publish_hosted.py`. The publish step copies `index.html`, `index_1024.html`, `metric_data.js` and `ask-context.json` from `dashboard/website/` into `site/`. Run `build_site.py` first, or the old pages are republished. |
+| Look, text or behaviour of the full site (`site/` pages) | Edit `dashboard/website/src/template_v2.html` (or `narratives.json`), run `python dashboard/website/src/build_site.py v2 --single --theme=direction1 --logos=final --out=version2.html`, then `python dashboard/webflow/publish_hosted.py`. The publish step copies `index.html`, `index_1024.html`, `metric_data.js` from `dashboard/website/` into `site/`. Run `build_site.py` first, or the old pages are republished. |
 | Narrative text | Update the narratives, run `parse_narratives.py` and `build_webflow.py`, then **Import CSV** `cms/indicators.csv` into the Indicators collection in Webflow, and publish. |
 | New indicator | Add it to `build_site.py` (INDICATORS), rebuild, import the CSV, create the CMS item page content. |
 
@@ -80,7 +80,7 @@ Tips
 | Path | Purpose |
 |---|---|
 | `hosted/` | Published to the repo root by `publish_hosted.py`: `widget.js`, `config.json`, `metric_data.js`, `narratives.json`, `test.html`, `loader-embed.html` |
-| `../website/` (`index.html`, `index_1024.html`, ...) | Published to `site/` by `publish_hosted.py` (see "What is published") |
+| `../website/` (`version2.html`, `metric_data.js`) | Published to `site/` by `publish_hosted.py` (see "What is published") |
 | `publish_hosted.py` | Copies `hosted/` and the `site/` pages into a local clone of the GitHub repo, then commits and pushes |
 | `cms/blocks.csv`, `cms/indicators.csv` | Webflow CMS import files |
 | `embed/` | Older all-in-one embeds (paste directly, no hosting needed; picker data is inside the Embed, so a change needs a designer) |
