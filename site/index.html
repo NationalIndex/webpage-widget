@@ -1576,17 +1576,14 @@ function viewAck() {
     ${logos ? `<div class="ack-logos">${logos}</div>` : ''}
     <p>The Centre for Agri-Food Benchmarking is funded in part by Agriculture and Agri-Food Canada under the Sustainable Canadian Agricultural Partnership&rsquo;s AgriAssurance Program.</p>
     <p>The Centre for Agri-Food Benchmarking gratefully acknowledges the generous in-kind contributions from Partner organizations that supported this update. Their expertise, commitment to data sharing, and continued engagement were vital to maintaining the collaborative foundation of this work.</p>
-    <h2><span class="ak">B</span>Sustainability Block Committees</h2>
-    <p>We extend our sincere appreciation to the members of the four Sustainability Blocks (Environment, Food Integrity, Economic, and Societal Well-Being) for their invaluable support throughout this update.</p>
-    <p>Their collective expertise, commitment, and thoughtful contributions were instrumental in reviewing and refining the data, strengthening the credibility of the Indicators, and ensuring the Index reflects both scientific rigor and the practical realities of the agri-food sector.</p>
-    <p>The time and effort generously contributed by each Committee member have been vital to advancing this collaborative initiative. We are deeply grateful for their dedication and continued engagement in shaping a stronger, evidence-based framework for agri-food sustainability in Canada.</p>
+    <h2><span class="ak">B</span>Indicator review phase</h2>
+    <p>We extend our sincere appreciation to the members of the four Sustainability Blocks (Environment, Food Integrity, Economic, and Societal Well-Being) and to all partners who took part in the Indicator review phase: the Environment Block and Economic Block committee meetings, the indicator working groups (Soil Health, Biodiversity, Crop Inputs Use and Management, and Financial Vibrancy and Resiliency) and the Data and Metrics Committee.</p>
+    <p>Their collective expertise, commitment, and thoughtful contributions were instrumental in reviewing and refining the data, strengthening the credibility of the Indicators, and ensuring the Index reflects both scientific rigor and the practical realities of the agri-food sector. We are deeply grateful for their time, dedication and continued engagement in shaping a stronger, evidence-based framework for agri-food sustainability in Canada.</p>
+    <ul class="ack-list">${(A.participants || []).map(r => `<li><b>${esc(r.name)}</b>${r.org ? ` &ndash; <span>${esc(r.org)}</span>` : ''}</li>`).join('')}</ul>
     <h2><span class="ak">C</span>Reviewers of the indicator narratives</h2>
     <p>Special thanks are extended to the partners who reviewed the draft indicator narratives and sent comments on the text, the charts and the data. Their feedback corrected errors, sharpened the wording and pointed to where the Index can improve.</p>
     <ul class="ack-list">${A.reviewers.map(r => `<li><b>${esc(r.name)}</b>${r.org ? ` &ndash; <span>${esc(r.org)}</span>` : ''}</li>`).join('')}${(A.reviewer_orgs || []).map(o => `<li><b>${esc(o)}</b></li>`).join('')}</ul>
     <p>Their contributions ensured that the Index is not only a technical compilation of metrics but also an accessible and meaningful resource that highlights both what is known and where knowledge gaps remain.</p>
-    <h2><span class="ak">D</span>Participants in the Indicator review phase</h2>
-    <p>We also thank the partners who took part in the Indicator review phase: the Environment Block and Economic Block committee meetings, the indicator working groups (Soil Health, Biodiversity, Crop Inputs Use and Management, and Financial Vibrancy and Resiliency) and the Data and Metrics Committee. Their time, knowledge and candid views shaped the scope of Index 2.0.</p>
-    <ul class="ack-list">${(A.participants || []).map(r => `<li><b>${esc(r.name)}</b>${r.org ? ` &ndash; <span>${esc(r.org)}</span>` : ''}</li>`).join('')}</ul>
   </section>`, 'acknowledgments');
 }
 
